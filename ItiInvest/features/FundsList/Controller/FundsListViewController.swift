@@ -25,7 +25,7 @@ class FundsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupView()
     }
     
     // MARK: - Private Methods

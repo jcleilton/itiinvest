@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MMo-dY-jFt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MMo-dY-jFt">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,7 +97,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="au8-UA-Ex2">
-                                                            <rect key="frame" x="0.0" y="-25" width="8" height="128"/>
+                                                            <rect key="frame" x="0.0" y="-25" width="8" height="89"/>
                                                             <color key="backgroundColor" red="1" green="0.0" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="8" id="Qdk-zS-R6Q"/>
@@ -119,13 +119,14 @@
                                                     <constraints>
                                                         <constraint firstItem="jaK-Re-0Sc" firstAttribute="centerY" secondItem="CMT-mc-Vo2" secondAttribute="centerY" id="6f4-u0-USU"/>
                                                         <constraint firstItem="SBs-7J-opm" firstAttribute="centerY" secondItem="pZP-2p-OUN" secondAttribute="centerY" id="74E-nq-j58"/>
-                                                        <constraint firstAttribute="bottom" secondItem="au8-UA-Ex2" secondAttribute="bottom" constant="-25" id="JYF-gZ-gQj"/>
+                                                        <constraint firstItem="au8-UA-Ex2" firstAttribute="bottom" secondItem="pZP-2p-OUN" secondAttribute="bottom" id="GxA-wq-xot"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="jaK-Re-0Sc" secondAttribute="trailing" constant="8" id="MKJ-35-tV4"/>
                                                         <constraint firstItem="pZP-2p-OUN" firstAttribute="leading" secondItem="U2T-gt-1fX" secondAttribute="leading" id="NNU-Y5-ZvP"/>
                                                         <constraint firstItem="au8-UA-Ex2" firstAttribute="top" secondItem="wVg-1S-ib4" secondAttribute="top" constant="-25" id="Nw9-hA-cNv"/>
                                                         <constraint firstItem="au8-UA-Ex2" firstAttribute="leading" secondItem="wVg-1S-ib4" secondAttribute="leading" id="SMj-mG-cHv"/>
                                                         <constraint firstItem="U2T-gt-1fX" firstAttribute="leading" secondItem="au8-UA-Ex2" secondAttribute="trailing" constant="8" id="UcO-J0-Lie"/>
                                                         <constraint firstItem="SBs-7J-opm" firstAttribute="trailing" secondItem="jaK-Re-0Sc" secondAttribute="trailing" id="e9W-Um-j5n"/>
+                                                        <constraint firstItem="pZP-2p-OUN" firstAttribute="top" secondItem="U2T-gt-1fX" secondAttribute="bottom" constant="18" id="fAd-Aw-13R"/>
                                                         <constraint firstAttribute="bottom" secondItem="pZP-2p-OUN" secondAttribute="bottom" constant="14" id="r8g-cn-rlY"/>
                                                         <constraint firstItem="CMT-mc-Vo2" firstAttribute="top" secondItem="U2T-gt-1fX" secondAttribute="bottom" constant="2" id="rcL-Vk-iij"/>
                                                         <constraint firstAttribute="trailing" secondItem="U2T-gt-1fX" secondAttribute="trailing" constant="8" id="uva-VG-CqE"/>
@@ -133,6 +134,7 @@
                                                         <constraint firstItem="U2T-gt-1fX" firstAttribute="top" secondItem="wVg-1S-ib4" secondAttribute="top" constant="5" id="yip-Fx-MbI"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <connections>
                                                     <outlet property="amountLabel" destination="pZP-2p-OUN" id="pSt-0s-8JA"/>
                                                     <outlet property="amountTitleLabel" destination="CMT-mc-Vo2" id="qae-qx-Hau"/>
@@ -194,6 +196,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="eye" catalog="system" width="128" height="81"/>
+        <image name="eye" catalog="system" width="64" height="40"/>
     </resources>
 </document>
