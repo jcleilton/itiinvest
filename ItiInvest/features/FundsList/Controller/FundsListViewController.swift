@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FundsListViewController: UIViewController {
 
@@ -18,13 +19,17 @@ class FundsListViewController: UIViewController {
     @IBOutlet weak var patrimonyLabel: UILabel!
     @IBOutlet weak var newInvestmentButton: UIButton!
     
-    let amountValue: Double = 13000
+    let manager = CoreDataManager()
+    
+    
 
     // MARK: - Parameters
 
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        manager.delegate = self
+        manager.performFetch()
         setupView()
     }
 
@@ -49,6 +54,13 @@ class FundsListViewController: UIViewController {
     private func roundCorners() {
         // TODO: -
     }
+    private func amountValue() -> Double {
+        let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
+            (stock.price * Double(Int(stock.quantity))) + result
+        })
+        self.totalAmountLabel.text = "R$ \(stockValue ?? 0.0)"
+        return stockValue ?? 0.0
+    }
     
     private func setupAccessibility() {
         hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
@@ -65,14 +77,14 @@ class FundsListViewController: UIViewController {
 
 extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return manager.total
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FundTableViewCell.identifier) as? FundTableViewCell else { return UITableViewCell() }
 
-        let values: [Double] = [4000, 4000, 2000, 3000]
-        cell.setup(with: "ITSA4", amount: values[indexPath.row], userAmount: 13000)
+        let stock = manager.getStockAt(indexPath)
+        cell.setup(with: stock.name ?? "", amount: stock.price, userAmount: amountValue())
 
         return cell
     }
@@ -89,5 +101,11 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         share.backgroundColor = UIColor.blue
 
         return [delete, share]
+    }
+}
+
+extension FundsListViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
     }
 }
