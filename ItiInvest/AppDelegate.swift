@@ -9,6 +9,15 @@
 import UIKit
 import CoreData
 
+/**
+ Time:
+ - Gabriel
+ - Pericles
+ - Matheus Kunh
+ - Islas
+ - Cleilton
+ */
+
 var context: NSManagedObjectContext {
     let app = UIApplication.shared.delegate as? AppDelegate
     return (app?.persistentContainer.viewContext)!
