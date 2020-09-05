@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F95EE682503D93F00D1B37A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F95EE672503D93F00D1B37A /* ProductCollectionViewCell.swift */; };
 		2FA5B0BA2503C5F600B07BB3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5B0B92503C5F600B07BB3 /* HomeViewController.swift */; };
 		BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610CF2503C10E00D66EED /* AppDelegate.swift */; };
 		BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D12503C10E00D66EED /* SceneDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F95EE672503D93F00D1B37A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FA5B0B92503C5F600B07BB3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BA3610CC2503C10E00D66EED /* ItiInvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItiInvest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3610CF2503C10E00D66EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,9 +82,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F95EE662503D91400D1B37A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2F95EE672503D93F00D1B37A /* ProductCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2FA5B0B82503C55600B07BB3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2F95EE662503D91400D1B37A /* Cell */,
 				BA3610D52503C10E00D66EED /* Main.storyboard */,
 				2FA5B0B92503C5F600B07BB3 /* HomeViewController.swift */,
 			);
@@ -285,6 +296,7 @@
 				BA3610D42503C10E00D66EED /* ViewController.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
+				2F95EE682503D93F00D1B37A /* ProductCollectionViewCell.swift in Sources */,
 				BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
