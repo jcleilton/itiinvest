@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B0D5A642503C88F003E7C17 /* PurchaseFund.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0D5A632503C88F003E7C17 /* PurchaseFund.storyboard */; };
+		9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */; };
+		9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */; };
 		2F95EE982503ED2E00D1B37A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F95EE932503ED2E00D1B37A /* HomeViewController.swift */; };
 		2F95EE992503ED2E00D1B37A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F95EE942503ED2E00D1B37A /* Main.storyboard */; };
 		2F95EE9A2503ED2E00D1B37A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F95EE972503ED2E00D1B37A /* ProductCollectionViewCell.swift */; };
@@ -53,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B0D5A632503C88F003E7C17 /* PurchaseFund.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PurchaseFund.storyboard; sourceTree = "<group>"; };
+		9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundViewController.swift; sourceTree = "<group>"; };
+		9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundViewModel.swift; sourceTree = "<group>"; };
 		2F95EE932503ED2E00D1B37A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2F95EE952503ED2E00D1B37A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F95EE972503ED2E00D1B37A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -112,6 +118,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B0D5A622503C868003E7C17 /* Purchase Fund */ = {
+			isa = PBXGroup;
+			children = (
+				9B0D5A632503C88F003E7C17 /* PurchaseFund.storyboard */,
+				9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */,
+				9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */,
+			);
+			path = "Purchase Fund";
+			sourceTree = "<group>";
+		};
 		2F95EE922503ED2E00D1B37A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +301,7 @@
 		BA3611022503C3F300D66EED /* features */ = {
 			isa = PBXGroup;
 			children = (
+				9B0D5A622503C868003E7C17 /* Purchase Fund */,
 				2F95EE922503ED2E00D1B37A /* Home */,
 				BA3611032503C59300D66EED /* detail */,
 				687DBF9C2503C67300A0FBBB /* FundsList */,
@@ -416,6 +433,7 @@
 			files = (
 				BA3610DF2503C10F00D66EED /* LaunchScreen.storyboard in Resources */,
 				BA3610DC2503C10F00D66EED /* Assets.xcassets in Resources */,
+				9B0D5A642503C88F003E7C17 /* PurchaseFund.storyboard in Resources */,
 				688B78342503E26000F40EE2 /* Localizable.strings in Resources */,
 				2F95EE992503ED2E00D1B37A /* Main.storyboard in Resources */,
 				BA3611052503C5F000D66EED /* Detail.storyboard in Resources */,
@@ -457,6 +475,8 @@
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
 				BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */,
+				9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */,
+				9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */,
 				8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */,
 				8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */,
 				687DBFA22503C7E000A0FBBB /* FundsListViewController.swift in Sources */,
@@ -634,14 +654,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.devboostitau.ItiInvest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -651,14 +675,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.devboostitau.ItiInvest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
