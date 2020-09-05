@@ -48,7 +48,7 @@ class FundsListViewController: UIViewController {
     }
     
     private func setupAccessibility() {
-        hideAmountButton.accessibilityLabel = ITIString.hideShowButton
+        hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
     }
 
     
