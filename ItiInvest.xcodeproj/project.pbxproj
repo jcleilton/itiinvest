@@ -101,6 +101,7 @@
 		BA3610CE2503C10E00D66EED /* ItiInvest */ = {
 			isa = PBXGroup;
 			children = (
+				BA3611022503C3F300D66EED /* features */,
 				BA3610CF2503C10E00D66EED /* AppDelegate.swift */,
 				BA3610D12503C10E00D66EED /* SceneDelegate.swift */,
 				BA3610D32503C10E00D66EED /* ViewController.swift */,
@@ -129,6 +130,13 @@
 				BA3610F62503C11000D66EED /* Info.plist */,
 			);
 			path = ItiInvestUITests;
+			sourceTree = "<group>";
+		};
+		BA3611022503C3F300D66EED /* features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
