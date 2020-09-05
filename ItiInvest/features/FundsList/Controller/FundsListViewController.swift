@@ -41,6 +41,10 @@ class FundsListViewController: UIViewController {
         gradient.colors = [UIColor.white.cgColor, UIColor.black.cgColor]
 
         view.layer.insertSublayer(gradient, at: 0)
+        
+        self.newInvestmentButton.applyGradient(color1: ITIColor.orange, color2: ITIColor.purple, locations: [0.0, 1.0])
+        self.newInvestmentButton.applyCornerRadius()
+        
     }
 
     private func roundCorners() {
