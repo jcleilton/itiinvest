@@ -187,24 +187,6 @@
             </objects>
             <point key="canvasLocation" x="1053.5999999999999" y="87.931034482758619"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2Bi-af-kJ0">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wjz-8q-uTt" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JDa-iU-tvb">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="MMo-dY-jFt" kind="relationship" relationship="rootViewController" id="Nlm-UP-mf5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R0I-K3-EGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="111.2" y="87.931034482758619"/>
-        </scene>
     </scenes>
     <resources>
         <image name="eye" catalog="system" width="64" height="40"/>
