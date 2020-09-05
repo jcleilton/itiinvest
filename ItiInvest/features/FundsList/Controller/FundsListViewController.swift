@@ -18,7 +18,8 @@ class FundsListViewController: UIViewController {
     @IBOutlet weak var patrimonyLabel: UILabel!
     @IBOutlet weak var newInvestmentButton: UIButton!
     
-    
+    let amountValue: Double = 13000
+
     // MARK: - Parameters
 
     // MARK: - Super Methods
@@ -70,7 +71,8 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FundTableViewCell.identifier) as? FundTableViewCell else { return UITableViewCell() }
 
-        cell.setup(with: "ITSA4", amount: 2000, percentage: 16)
+        let values: [Double] = [4000, 4000, 2000, 3000]
+        cell.setup(with: "ITSA4", amount: values[indexPath.row], userAmount: 13000)
 
         return cell
     }

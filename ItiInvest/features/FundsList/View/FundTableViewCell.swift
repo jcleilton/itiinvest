@@ -18,10 +18,11 @@ class FundTableViewCell: UITableViewCell {
     
     static let identifier = "fundCell"
 
-    func setup(with title: String, amount: Double, percentage: Double) {
+    func setup(with title: String, amount: Double, userAmount: Double) {
         titleLabel.text = title.uppercased()
-        amountLabel.text = String(describing: amount)
-        percentageLabel.text = String(describing: percentage)
+        amountLabel.text = "R$ \(amount)"
+
+        percentageLabel.text = "\((amount * 100/userAmount).rounded())%"
         setupAccessibility()
     }
 
