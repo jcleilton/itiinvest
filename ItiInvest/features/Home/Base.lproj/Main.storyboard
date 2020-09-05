@@ -9,12 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--iti-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="ItiInvest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcw-lZ-MgP">
@@ -224,7 +224,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="iti" id="6In-K4-Skt"/>
+                    <navigationItem key="navigationItem" id="6In-K4-Skt">
+                        <barButtonItem key="backBarButtonItem" title=" " id="7bg-qu-Oc8"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="balanceValueLabel" destination="tNB-EN-jV3" id="vRl-fj-LdR"/>
                         <outlet property="balanceVisibilityButton" destination="oP0-Sc-sSx" id="m0F-Zs-d97"/>

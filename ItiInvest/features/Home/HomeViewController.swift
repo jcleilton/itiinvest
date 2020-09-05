@@ -72,10 +72,16 @@ final class HomeViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configView()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func configView() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "qrcode"), style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "promotions"), style: .plain, target: nil, action: nil)
+        
+        let imageView = UIImageView(image: UIImage(named: "logo"))
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
     }
     
     // MARK: - Actions
