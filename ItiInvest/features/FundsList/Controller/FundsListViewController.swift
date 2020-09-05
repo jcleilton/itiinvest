@@ -30,8 +30,6 @@ class FundsListViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setupView() {
-        
-        
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -65,12 +63,17 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            //let movie = moviesManager.getMovieAt(indexPath)
-            //context.delete(movie)
-            //try? context.save()
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
         }
+
+        let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            // edit item at indexPath
+        }
+
+        share.backgroundColor = UIColor.blue
+
+        return [delete, share]
     }
 }
