@@ -24,14 +24,12 @@ class FundsListViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
     }
-    
+
     // MARK: - Private Methods
     
     private func setupView() {
-
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -54,7 +52,7 @@ class FundsListViewController: UIViewController {
     private func setupAccessibility() {
         hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
     }
-
+  
     @IBAction func goToNewStock(_ sender: Any) {
 //        let storyBoard = UIStoryboard.init(name: "Detail", bundle: nil)
 //        if let viewController = storyBoard.instantiateInitialViewController() {
@@ -62,7 +60,6 @@ class FundsListViewController: UIViewController {
 //        }
         
     }
-    
 }
 
 extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -76,5 +73,19 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setup(with: "ITSA4", amount: 2000, percentage: 16)
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+        }
+
+        let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            // edit item at indexPath
+        }
+
+        share.backgroundColor = UIColor.blue
+
+        return [delete, share]
     }
 }
