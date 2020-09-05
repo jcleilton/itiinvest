@@ -16,7 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupNavigationBarAppearance()
         return true
+    }
+    
+    private func setupNavigationBarAppearance() {
+        let navBarAppearance = UINavigationBar.appearance()
+        let standartAppearance = UINavigationBarAppearance()
+        standartAppearance.configureWithOpaqueBackground()
+        standartAppearance.shadowColor = .clear
+        standartAppearance.backgroundColor = UIColor(named: "DarkGray")
+        navBarAppearance.standardAppearance = standartAppearance
+        navBarAppearance.tintColor = UIColor.white
     }
 
     // MARK: UISceneSession Lifecycle
