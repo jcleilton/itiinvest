@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ieo-QC-IcB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ieo-QC-IcB">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcw-lZ-MgP">
-                                <rect key="frame" x="20" y="60" width="230.5" height="80"/>
+                                <rect key="frame" x="20" y="104" width="230.5" height="80"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="perfil" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-QS-siI">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -69,14 +69,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khJ-Kl-gdr">
-                                <rect key="frame" x="20" y="160" width="323" height="1"/>
+                                <rect key="frame" x="20" y="204" width="323" height="1"/>
                                 <color key="backgroundColor" name="Line"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="3Iv-L4-nrO"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zWV-QK-qLG">
-                                <rect key="frame" x="20" y="177" width="323" height="80"/>
+                                <rect key="frame" x="20" y="221" width="323" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="saldo iti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orj-3E-HKp">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="24"/>
@@ -127,7 +127,7 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D3K-gu-fwn">
-                                <rect key="frame" x="0.0" y="308" width="375" height="187"/>
+                                <rect key="frame" x="0.0" y="339" width="375" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RWv-zQ-Ohs">
                                     <size key="itemSize" width="128" height="128"/>
@@ -137,7 +137,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="product" id="7Ue-3z-vZ0" customClass="ProductCollectionViewCell" customModule="ItiInvest" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="0.5" width="163" height="186"/>
+                                        <rect key="frame" x="10" y="7" width="163" height="186"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lhq-RG-4T9">
                                             <rect key="frame" x="0.0" y="0.0" width="163" height="186"/>
@@ -187,14 +187,14 @@
                                 </connections>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_up" translatesAutoresizingMaskIntoConstraints="NO" id="SzQ-sg-CRB">
-                                <rect key="frame" x="167.5" y="535" width="40" height="40"/>
+                                <rect key="frame" x="167.5" y="579" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SzQ-sg-CRB" secondAttribute="height" multiplier="1:1" id="g7x-wk-ej1"/>
                                     <constraint firstAttribute="height" constant="40" id="ghl-mv-aQ6"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tudo sobre seu iti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJ4-cn-h6F">
-                                <rect key="frame" x="113.5" y="579" width="148.5" height="24"/>
+                                <rect key="frame" x="113.5" y="623" width="148.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -242,10 +242,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ieo-QC-IcB" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cG0-tB-Exr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cG0-tB-Exr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="DarkGray"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
