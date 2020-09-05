@@ -112,6 +112,9 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Chamar segue
+        let storyBoard = UIStoryboard.init(name: "FundsList", bundle: nil)
+        if let viewController = storyBoard.instantiateInitialViewController() {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
