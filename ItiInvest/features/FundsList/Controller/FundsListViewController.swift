@@ -55,6 +55,13 @@ class FundsListViewController: UIViewController {
         hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
     }
 
+    @IBAction func goToNewStock(_ sender: Any) {
+//        let storyBoard = UIStoryboard.init(name: "Detail", bundle: nil)
+//        if let viewController = storyBoard.instantiateInitialViewController() {
+//            self.navigationController?.pushViewController(viewController, animated: true)
+//        }
+        
+    }
     
 }
 
