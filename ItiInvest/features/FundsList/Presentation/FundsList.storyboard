@@ -154,6 +154,9 @@
                                         <state key="normal" title="Novo investimento">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="QV7-h3-dnN" kind="presentation" id="pp3-33-rlg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -193,6 +196,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czL-zq-0Qz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1053.5999999999999" y="87.931034482758619"/>
+        </scene>
+        <!--PurchaseFund-->
+        <scene sceneID="wVh-dC-09y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PurchaseFund" id="QV7-h3-dnN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9lo-j9-Ktg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9he-sJ-Aou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="88"/>
         </scene>
     </scenes>
     <resources>

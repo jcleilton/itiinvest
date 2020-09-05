@@ -10,6 +10,26 @@ import Foundation
 
 class PurchaseFundViewModel {
     
+    var isEditing: Bool
+    var stock: Stock
+    var dateString: String {
+        return dateString(from: stock.buyDate)
+    }
+    
+    init(stock: Stock? = nil) {
+        guard let stock = stock else {
+            self.stock = Stock(name: "",
+                               amount: 0,
+                               price: 0.0,
+                               buyDate: Date())
+            isEditing = false
+            return
+        }
+        
+        isEditing = true
+        self.stock = stock
+    }
+    
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"

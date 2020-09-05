@@ -115,9 +115,13 @@
                                                     <constraint firstAttribute="height" constant="40" id="uee-ps-f0h"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                <state key="normal" title="Invest">
+                                                <state key="normal" title="Investir">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didPressInvest:" destination="meg-0e-nKu" eventType="touchUpInside" id="KOW-jd-eLT"/>
+                                                    <segue destination="1j0-mO-j9K" kind="presentation" id="QUP-TK-rpg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -159,7 +163,6 @@
                         <viewLayoutGuide key="safeArea" id="gHK-p1-T33"/>
                     </view>
                     <connections>
-                        <outlet property="accessoryView" destination="Jab-z4-Jqo" id="xua-BC-fNi"/>
                         <outlet property="amountLabel" destination="Rl0-tZ-jyn" id="2t4-bG-g9J"/>
                         <outlet property="amountTextField" destination="50D-xb-2ge" id="if6-RI-w8p"/>
                         <outlet property="dateLabel" destination="zxC-eH-pmW" id="O3c-8a-lMR"/>
@@ -173,48 +176,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnv-iR-GpH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="Jab-z4-Jqo">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pD2-YB-iF2">
-                            <rect key="frame" x="20" y="0.0" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="pwY-QL-v2c"/>
-                            </constraints>
-                            <state key="normal" image="arrow.up.circle.fill" catalog="system"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpg-12-hOQ">
-                            <rect key="frame" x="318" y="0.0" width="37" height="40"/>
-                            <state key="normal" title="Done"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJj-8R-23t">
-                            <rect key="frame" x="70" y="0.0" width="40" height="40"/>
-                            <state key="normal" image="arrow.down.circle.fill" catalog="system"/>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstItem="pD2-YB-iF2" firstAttribute="top" secondItem="Jab-z4-Jqo" secondAttribute="top" id="Ha9-KF-ZWF"/>
-                        <constraint firstItem="SJj-8R-23t" firstAttribute="top" secondItem="Jab-z4-Jqo" secondAttribute="top" id="IdW-TB-skM"/>
-                        <constraint firstItem="pIx-Po-5l2" firstAttribute="bottom" secondItem="SJj-8R-23t" secondAttribute="bottom" id="LZ4-ks-J7H"/>
-                        <constraint firstItem="pIx-Po-5l2" firstAttribute="bottom" secondItem="pD2-YB-iF2" secondAttribute="bottom" id="Sj2-lA-0BO"/>
-                        <constraint firstAttribute="trailing" secondItem="fpg-12-hOQ" secondAttribute="trailing" constant="20" id="Vm2-sa-hdG"/>
-                        <constraint firstItem="SJj-8R-23t" firstAttribute="leading" secondItem="pD2-YB-iF2" secondAttribute="trailing" constant="10" id="bvI-6E-yf9"/>
-                        <constraint firstItem="fpg-12-hOQ" firstAttribute="top" secondItem="Jab-z4-Jqo" secondAttribute="top" id="iDa-mf-sCN"/>
-                        <constraint firstItem="pIx-Po-5l2" firstAttribute="bottom" secondItem="fpg-12-hOQ" secondAttribute="bottom" id="iaI-b6-2dO"/>
-                        <constraint firstItem="pD2-YB-iF2" firstAttribute="leading" secondItem="Jab-z4-Jqo" secondAttribute="leading" constant="20" id="tuT-8v-PCB"/>
-                        <constraint firstItem="SJj-8R-23t" firstAttribute="width" secondItem="pD2-YB-iF2" secondAttribute="width" id="yqI-rv-OFe"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="pIx-Po-5l2"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="-1087.2" y="120.44334975369459"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="q7i-Lf-XSF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" id="1j0-mO-j9K" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cnA-HP-AmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-353" y="120"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="arrow.down.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="arrow.up.circle.fill" catalog="system" width="64" height="60"/>
         <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>
 </document>

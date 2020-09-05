@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var percentualValue: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     
+    var stock: Stock?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()

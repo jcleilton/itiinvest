@@ -56,7 +56,7 @@ final class PurchaseFundViewController: UIViewController {
         return toolbar
     }()
     
-    private var viewModel: PurchaseFundViewModel = PurchaseFundViewModel() 
+    var viewModel: PurchaseFundViewModel = PurchaseFundViewModel()
     
     // MARK: - View Controller Life Cycle
     
@@ -64,6 +64,9 @@ final class PurchaseFundViewController: UIViewController {
         super.viewDidLoad()
         
         configureTextFields()
+        
+        investButton.applyGradient(color1: ITIColor.orange, color2: ITIColor.purple, locations: [0.0, 1.0])
+        investButton.applyCornerRadius()
     }
     
     // MARK: - IBActions
@@ -100,22 +103,43 @@ final class PurchaseFundViewController: UIViewController {
         amountTextField.inputAccessoryView = toolbar
         priceTextField.inputAccessoryView = toolbar
         dateTextField.inputAccessoryView = toolbar
-    }
-    
-    @objc private func previousTextField() {
-
-    }
-    
-    @objc private func nextTextField() {
+        
+        stockTextField.text = viewModel.stock.name
+        amountTextField.text = String(viewModel.stock.amount)
+        priceTextField.text = String(viewModel.stock.price)
+        dateTextField.text = viewModel.dateString
         
     }
     
+    @objc private func previousTextField() {
+        // TODO: - Adicionar funcionalidade
+    }
+    
+    @objc private func nextTextField() {
+        // TODO: - Adicionar funcionalidade
+    }
+    
     @objc private func doneEditing() {
-        becomeFirstResponder()
+        stockTextField.resignFirstResponder()
+        amountTextField.resignFirstResponder()
+        priceTextField.resignFirstResponder()
+        dateTextField.resignFirstResponder()
     }
     
     @objc private func updateDate() {
         dateTextField.text = viewModel.dateString(from: datePicker.date)
+    }
+    
+    @IBAction func didPressInvest(_ sender: UIButton) {
+        viewModel.stock.name = stockTextField.text ?? ""
+        viewModel.stock.amount = Int(amountTextField.text ?? "") ?? 0
+        viewModel.stock.price = Double(priceTextField.text ?? "") ?? 0.0
+        viewModel.stock.buyDate = Date()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailViewController = segue.destination as? DetailViewController else { return }
+        detailViewController.stock = viewModel.stock
     }
 }
 

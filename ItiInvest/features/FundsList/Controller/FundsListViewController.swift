@@ -46,10 +46,6 @@ class FundsListViewController: UIViewController {
         self.newInvestmentButton.applyCornerRadius()
         
     }
-
-    private func roundCorners() {
-        // TODO: -
-    }
     
     private func setupAccessibility() {
         hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
