@@ -24,14 +24,14 @@ class FundsListViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupView()
     }
-    
+
     // MARK: - Private Methods
     
     private func setupView() {
-
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -50,8 +50,6 @@ class FundsListViewController: UIViewController {
     private func setupAccessibility() {
         hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
     }
-
-    
 }
 
 extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -65,5 +63,14 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setup(with: "ITSA4", amount: 2000, percentage: 16)
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            //let movie = moviesManager.getMovieAt(indexPath)
+            //context.delete(movie)
+            //try? context.save()
+        }
     }
 }
