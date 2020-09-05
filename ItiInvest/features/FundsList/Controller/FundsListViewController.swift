@@ -39,6 +39,10 @@ class FundsListViewController: UIViewController {
         gradient.colors = [UIColor.white.cgColor, UIColor.black.cgColor]
 
         view.layer.insertSublayer(gradient, at: 0)
+        
+        self.newInvestmentButton.applyGradient(color1: ITIColor.orange, color2: ITIColor.purple, locations: [0.0, 1.0])
+        self.newInvestmentButton.applyCornerRadius()
+        
     }
 
     private func roundCorners() {
@@ -47,6 +51,14 @@ class FundsListViewController: UIViewController {
     
     private func setupAccessibility() {
         hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
+    }
+  
+    @IBAction func goToNewStock(_ sender: Any) {
+//        let storyBoard = UIStoryboard.init(name: "Detail", bundle: nil)
+//        if let viewController = storyBoard.instantiateInitialViewController() {
+//            self.navigationController?.pushViewController(viewController, animated: true)
+//        }
+        
     }
 }
 
