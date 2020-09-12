@@ -20,7 +20,19 @@ class DetailViewController: UIViewController, HasCustomView {
     @IBOutlet weak var todayValue: UILabel!
     @IBOutlet weak var percentualValue: UILabel!
     @IBOutlet weak var closeButton: UIButton!
-
+    
+    private var viewModel: DetailViewModel
+    
+    init(viewModel: DetailViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         let customView = DetailView()
         customView.setup()
@@ -29,56 +41,28 @@ class DetailViewController: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        fetchStockPrice()
+        
+        viewModel.todaysStockUpdated = updateTodaysValue
     }
     
-    fileprivate func fetchStockPrice() {
-        //TODO: Colocar isso na viewModel
-        Service().getStockPrice(symbol: "") { [weak self] (result) in
-            guard let self = self else {return}
-            switch result{
-            case .success(let price):
-                DispatchQueue.main.async {
-                    self.customView.todaysCotationValueLabel.text = "\(price)"
-                    //TODO: Atualizar o todayVaue com o price * quantidade
-                }
-                
-            case .failure(_):
-                let alert = UIAlertController(title: "Erro!", message: "Ocorreu um erro na requisição", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (_) in
-                    alert.dismiss(animated: true)
-                }))
-                self.present(alert, animated: true)
-            }
-        }
+    func setupView() {
+        customView.quantityValueLabel.text = viewModel.quantity
+        customView.priceValueLabel.text = viewModel.buyPrice
+        customView.buyDateValueLabel.text = viewModel.buyDate
+        customView.totalValueValueLabel.text = viewModel.totalPrice
+        customView.todaysPriceValueLabel.text = viewModel.todaysPrice
+        customView.todaysCotationValueLabel.text = viewModel.todaysCotation
+        
+    }
+    
+    func updateTodaysValue() {
+        print("atualiza as parada \(viewModel.todaysProfit)")
+        
     }
     
     @IBAction func editAction(_ sender: Any) {
     }
     
     @IBAction func closeAction(_ sender: Any) {
-    }
-    
-    func setupView() {
-        
-    }
-    
-    func setupAccessibility() {
-        //TODO: mudar valores da acessibilidade
-        quantityLabel.accessibilityLabel = "Quantidade comprada: \(100) unidades"
-        quantityLabel.accessibilityHint = ""
-        salePriceLabel.accessibilityLabel = "Preço de compra \(45.86) reais"
-        salePriceLabel.accessibilityHint = ""
-        saleDateLabel.accessibilityLabel = "Data da compra: \("13/05/2020")"
-        saleDateLabel.accessibilityHint = ""
-        totalVallueLabel.accessibilityLabel = "Valor total \(4586.00) reais"
-        totalVallueLabel.accessibilityHint = ""
-        let todayCoteValue = "" == "-" ? "" : "\(58.95)"
-        todayCote.accessibilityLabel = todayCoteValue
-        todayCote.accessibilityHint = ""
-        let todayValueString = "" == "-" ? "" : "\(5895.00)"
-        todayValue.accessibilityLabel = todayValueString
-        todayValue.accessibilityHint = ""
     }
 }

@@ -15,10 +15,16 @@ class AppCoordinator: BaseCoordinator {
 
     init() {
         navigationController = UINavigationController()
+        
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
     }
 
     func start() {
-        let child = HomeCoordinator(navigationController: navigationController)
+//        let child = HomeCoordinator(navigationController: navigationController)
+        
+        let child = DetailCoordinator(navigationController: navigationController)
         childCoordinators.append(child)
         child.start()
     }

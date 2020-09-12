@@ -16,3 +16,13 @@
 "current_balance" = "current balance";
 "new_investment" = "new investment";
 "on_wallet" = "% on wallet";
+
+// MARK: - Detail View
+"stock.quantity" = "Quantity";
+"stock.price" = "Stock Price";
+"stock.buyDate" = "Buy Date";
+"stock.totalValue" = "Total Value";
+"stock.todaysCotation" = "Today's Cotation";
+"stock.todaysPrice" = "Today's Price";
+"stock.profitability" = "Profitability achieved to date";
+"stock.editInformations" = "Edit Information";

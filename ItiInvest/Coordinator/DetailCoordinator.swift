@@ -13,20 +13,28 @@ class DetailCoordinator: BaseCoordinator {
     var navigationController: UINavigationController
 
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
-
+    
+    private var detailViewModel: DetailViewModel?
+    private var detailViewController: DetailViewController?
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
-        let controller = FundsListViewController()
-//        let viewModel = DetailViewModel()
-
-//        controller.viewModel = viewModel
-//        controller.coordinator = self
+        let fundsController = FundsListViewController()
         
-        navigationController.pushViewController(controller, animated: true)
-        controller.present(DetailViewController(), animated: true)
+        let coreDataManager = CoreDataManager()
+        let stock = try? coreDataManager.create(quantity: 100, buyDate: Date(), name: "Cosan S.A. - CSAN3", price: 50.0)
+        
+        coreDataManager.performFetch()
+        detailViewModel = DetailViewModel(stock: coreDataManager.getStockAt(IndexPath(row: 0, section: 0)))
+    
+        detailViewController = DetailViewController(viewModel: detailViewModel!)
+//        detailViewController.coordinator = self
+//
+        navigationController.pushViewController(fundsController, animated: true)
+        fundsController.present(detailViewController!, animated: true)
     }
     
     func showPurchaseFund() {

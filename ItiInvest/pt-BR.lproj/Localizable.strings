@@ -16,3 +16,13 @@
 "current_balance" = "saldo atual";
 "new_investment" = "novo investimento";
 "on_wallet" = "% na carteira";
+
+// MARK: - Detail View"
+"stock.quantity" = "Quantidade";
+"stock.price" = "Preço de Compra";
+"stock.buyDate" = "Data da Compra";
+"stock.totalValue" = "Valor Total";
+"stock.todaysCotation" = "Cotação Hoje";
+"stock.todaysPrice" = "Valor Hoje";
+"stock.profitability" = "Rentabilidade obtida até hoje";
+"stock.editInformations" = "Editar informações";
