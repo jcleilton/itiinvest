@@ -47,6 +47,8 @@ final class PurchaseFundViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    var coordinator: BaseCoordinator?
+
     let titleLabel: UILabel = {
         let label = getLabel(text: "", type: .title)
         return label
@@ -54,18 +56,22 @@ final class PurchaseFundViewController: UIViewController {
     
     let stockLabel: UILabel = {
         let label = getLabel(text: "Ativo", type: .description)
+        label.text = LocalizableStrings.formActive.localized()
         return label
     }()
     let amountLabel: UILabel = {
         let label = getLabel(text: "Quantidade", type: .description)
+        label.text = LocalizableStrings.formQuantity.localized()
         return label
     }()
     let priceLabel: UILabel = {
         let label = getLabel(text: "Preço de Compra", type: .description)
+        label.text = LocalizableStrings.formPurchasePrice.localized()
         return label
     }()
     let dateLabel: UILabel = {
         let label = getLabel(text: "Data de Início", type: .description)
+        label.text = LocalizableStrings.formStartingDate.localized()
         return label
     }()
     let stockTextField: UITextField = {
