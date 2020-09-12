@@ -24,6 +24,12 @@
 		688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B783B2503E41900F40EE2 /* LocalizableStrings.swift */; };
 		7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935870D250CFFC500FD8CBF /* FundsListView.swift */; };
 		79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79358714250D091B00FD8CBF /* UIColor+Hex.swift */; };
+		68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */; };
+		68F53F4E250CFE8D00A796F5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */; };
+		68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */; };
+		68F53F52250D047300A796F5 /* FundsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F51250D047300A796F5 /* FundsListCoordinator.swift */; };
+		68F53F57250D064B00A796F5 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F56250D064B00A796F5 /* DetailCoordinator.swift */; };
+		68F53F59250D066000A796F5 /* PurchaseFundCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */; };
 		8626F5F52503FAE800AECFC7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F42503FAE800AECFC7 /* Service.swift */; };
 		8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */; };
 		8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F72503FAF000AECFC7 /* StockAPIError.swift */; };
@@ -77,6 +83,12 @@
 		688B783B2503E41900F40EE2 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		7935870D250CFFC500FD8CBF /* FundsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListView.swift; sourceTree = "<group>"; };
 		79358714250D091B00FD8CBF /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		68F53F51250D047300A796F5 /* FundsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListCoordinator.swift; sourceTree = "<group>"; };
+		68F53F56250D064B00A796F5 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundCoordinator.swift; sourceTree = "<group>"; };
 		8626F5F42503FAE800AECFC7 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIResult.swift; sourceTree = "<group>"; };
 		8626F5F72503FAF000AECFC7 /* StockAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIError.swift; sourceTree = "<group>"; };
@@ -247,6 +259,28 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+
+		68F53F49250CFE2900A796F5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		68F53F4C250CFE7900A796F5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */,
+				68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */,
+				68F53F51250D047300A796F5 /* FundsListCoordinator.swift */,
+				68F53F56250D064B00A796F5 /* DetailCoordinator.swift */,
+				68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */,
+			);
+			path = Coordinator;
+
+			sourceTree = "<group>";
+		};
 		8626F5F22503FAC700AECFC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +331,8 @@
 		BA3610CE2503C10E00D66EED /* ItiInvest */ = {
 			isa = PBXGroup;
 			children = (
+				68F53F4C250CFE7900A796F5 /* Coordinator */,
+				68F53F49250CFE2900A796F5 /* Shared */,
 				2F95EE9B2503F28600D1B37A /* Utils */,
 				BA36110A2503FEE400D66EED /* Extensions */,
 				8626F5F32503FAD200AECFC7 /* Service */,
@@ -498,11 +534,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3610D42503C10E00D66EED /* ViewController.swift in Sources */,
+				68F53F52250D047300A796F5 /* FundsListCoordinator.swift in Sources */,
 				688B783A2503E33A00F40EE2 /* FundsListViewModel.swift in Sources */,
+				68F53F57250D064B00A796F5 /* DetailCoordinator.swift in Sources */,
 				8626F5F52503FAE800AECFC7 /* Service.swift in Sources */,
 				2F95EE9A2503ED2E00D1B37A /* ProductCollectionViewCell.swift in Sources */,
 				BA3611092503D0EA00D66EED /* DetailViewModel.swift in Sources */,
 				2F95EE9D2503F2B400D1B37A /* CoreDataManager.swift in Sources */,
+				68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */,
+				68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
 				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
@@ -511,6 +551,10 @@
 				0AAB834D250D041800B8E3DB /* Constant.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
 				7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */,
+
+				68F53F4E250CFE8D00A796F5 /* AppCoordinator.swift in Sources */,
+				68F53F59250D066000A796F5 /* PurchaseFundCoordinator.swift in Sources */,
+
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
 				0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
