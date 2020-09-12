@@ -25,6 +25,8 @@ class HomeCoordinator: BaseCoordinator {
     }
     
     func showFundsList() {
-        <#code#>
+        let child = FundsListCoordinator(navigationController: navigationController)
+        childCoordinators.append(child)
+        child.start()
     }
 }

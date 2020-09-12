@@ -20,7 +20,15 @@ class FundsListCoordinator: BaseCoordinator {
 
     func start() {
         let controller = FundsListViewController()
+        let viewModel = FundsListViewModel()
+        
+//        controller.viewModel = viewModel
 //        controller.coordinator = self
+
         navigationController.pushViewController(controller, animated: true)
+    }
+
+    func showDetails() {
+        //
     }
 }

@@ -18,8 +18,8 @@ class AppCoordinator: BaseCoordinator {
     }
 
     func start() {
-        var child = HomeCoordinator(navigationController: navigationController)
-        add(child: child)
+        let child = HomeCoordinator(navigationController: navigationController)
+        childCoordinators.append(child)
         child.start()
     }
     

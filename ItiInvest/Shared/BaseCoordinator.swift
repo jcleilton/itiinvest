@@ -16,8 +16,7 @@ protocol BaseCoordinator: AnyObject {
     var childCoordinators: [BaseCoordinator] { get set }
 
     @objc func start()
-    @objc func add(child coordinator: BaseCoordinator)
-    @objc func remove(child coordinator: BaseCoordinator)
+//    @objc func remove(child coordinator: BaseCoordinator)
 
     @objc optional func showFundsList()
     @objc optional func showDetails()
@@ -25,11 +24,8 @@ protocol BaseCoordinator: AnyObject {
 }
 
 extension BaseCoordinator {
-    func add(child coordinator: BaseCoordinator) {
-        childCoordinators.append(coordinator)
-    }
 
-    func remove(child coordinator: BaseCoordinator) {
-        childCoordinators = childCoordinators.filter { $0 !== coordinator}
-    }
+//    func remove(child coordinator: BaseCoordinator) {
+//        childCoordinators = childCoordinators.filter { $0 !== coordinator}
+//    }
 }
