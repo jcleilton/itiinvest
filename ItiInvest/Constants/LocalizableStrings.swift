@@ -11,7 +11,17 @@ import UIKit
 enum LocalizableStrings: String {
     case hideShowButton = "hsButton"
     case percentageTitle = "percentTitle"
-
+    
+    // MARK: - Detail View
+    case stockQuantity = "stock.quantity"
+    case stockPrice = "stock.price"
+    case stockBuyDate = "stock.buyDate"
+    case stockTotalValue = "stock.totalValue"
+    case stockTodaysCotation = "stock.todaysCotation"
+    case stockTodaysPrice = "stock.todaysPrice"
+    case stockProfitability = "stock.profitability"
+    case stockEditInformations = "stock.editInformations"
+    
     func localized() -> String { rawValue.localized() }
 }
 
