@@ -116,7 +116,8 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-            self.coordinator.showPurchaseFund?()
+
+            self.coordinator?.showPurchaseFund(viewModel: PurchaseFundViewModel?(stock:manager.getStockAt(indexPath)))
         }
 
         share.backgroundColor = UIColor.blue
