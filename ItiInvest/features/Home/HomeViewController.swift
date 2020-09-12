@@ -104,7 +104,7 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 17)
                 label.textColor = .white
-        label.text = "ver meu perfil"
+        label.text = LocalizableStrings.homeProfile.localized()
         return label
     }()
     
@@ -113,7 +113,7 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = .white
-        label.text = "saldo iti"
+        label.text = LocalizableStrings.homeBalance.localized()
         return label
     }()
     
@@ -131,7 +131,7 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = .white
-        label.text = "tudo sobre seu iti"
+        label.text = LocalizableStrings.homeAllAbout.localized()
         return label
     }()
     
@@ -164,6 +164,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Variables
     private let products: [Product] = Product.allCases
     private let viewModel: HomeViewModeling
+    weak var coordinator: HomeCoordinator?
     
     // MARK: - Life Cycle
     init(viewModel: HomeViewModeling) {
@@ -291,6 +292,6 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        coordinator?.showFundsList()
     }
 }

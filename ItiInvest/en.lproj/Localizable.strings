@@ -6,23 +6,38 @@
   Copyright © 2020 DevBoostItau. All rights reserved.
 */
 
-"hsButton" = "Hide or Show";
-"percentTitle" = "Percentage on wallet";
-"profile" = "see my profile";
-"balance" = "iti balance";
-"all_about" = "all about your iti";
+// MARK: - Home
 
-"my_patrimony" = "my patrimony";
-"current_balance" = "current balance";
-"new_investment" = "new investment";
-"on_wallet" = "% on wallet";
+"home.hsButton" = "Hide or Show";
+"home.percentTitle" = "Percentage on wallet";
+"home.profile" = "see my profile";
+"home.balance" = "iti balance";
+"home.all_about" = "all about your iti";
+
+// MARK: - Funds List
+
+"list.my_patrimony" = "my patrimony";
+"list.current_balance" = "current balance";
+"list.new_investment" = "new investment";
+"list.on_wallet" = "% on wallet";
 
 // MARK: - Detail View
+
 "stock.quantity" = "Quantity";
-"stock.price" = "Stock Price";
-"stock.buyDate" = "Buy Date";
-"stock.totalValue" = "Total Value";
-"stock.todaysCotation" = "Today's Cotation";
-"stock.todaysPrice" = "Today's Price";
+"stock.price" = "Purchase Price";
+"stock.buyDate" = "Purchase Date";
+"stock.totalValue" = "Total Amount";
+"stock.todaysCotation" = "Quote Today";
+"stock.todaysPrice" = "Value Today";
 "stock.profitability" = "Profitability achieved to date";
-"stock.editInformations" = "Edit Information";
+"stock.editInformations" = "Edit informations";
+
+// MARK: - Purchase Fund
+
+"form.title" = "Fill in the information about your new stock purchase";
+"form.active" = "Active";
+"form.invest" = "invest";
+"form.required" = "Required Field";
+"form.quantity" = "Quantity";
+"form.purchasePrice" = "Purchase Price";
+"form.startingDate" = "Starting Date";

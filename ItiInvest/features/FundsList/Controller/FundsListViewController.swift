@@ -25,14 +25,17 @@ class FundsListViewController: UIViewController {
         let fundsListView = FundsListView()
         fundsListView.tableView.delegate = self
         fundsListView.tableView.dataSource = self
+        fundsListView.tableView.register(FundTableViewCell.self, forCellReuseIdentifier: FundTableViewCell.identifier)
         return fundsListView
         
     }()
     
     override func loadView() {
         super.loadView()
-        print("LoadView")
+        fundsListView.tableView.delegate = self
+        fundsListView.tableView.dataSource = self
         view = fundsListView
+        
     }
     
 
@@ -48,7 +51,6 @@ class FundsListViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        fundsListView.contentView.applyGradient(color1: UIColor(hex: "#f16546") ?? .orange, color2: UIColor(hex: "#ed6a2a") ?? .red, locations: [0.0, 1.0])
     }
     
     // MARK: - Private Methods
@@ -76,7 +78,7 @@ class FundsListViewController: UIViewController {
         let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
             (stock.price * Double(Int(stock.quantity))) + result
         })
-        //self.totalAmountLabel.text = "R$ \(stockValue ?? 0.0)"
+        self.fundsListView.valueLabel.text = "R$ \(stockValue ?? 0.0)"
         return stockValue ?? 0.0
     }
     
@@ -95,7 +97,8 @@ class FundsListViewController: UIViewController {
 
 extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manager.total
+        //return manager.total
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -120,10 +123,12 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
 
         return [delete, share]
     }
+    
+    
 }
 
 extension FundsListViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        //tableView.reloadData()
+        fundsListView.tableView.reloadData()
     }
 }

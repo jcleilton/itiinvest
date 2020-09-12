@@ -52,7 +52,7 @@ extension UIView {
             self.heightAnchor.constraint(equalTo: anchor.anchor, multiplier: anchor.multiplier, constant: anchor.constant).isActive = true
         }
         if let anchor = relativeWidth {
-            self.heightAnchor.constraint(equalTo: anchor.anchor, multiplier: anchor.multiplier, constant: anchor.constant).isActive = true
+            self.widthAnchor.constraint(equalTo: anchor.anchor, multiplier: anchor.multiplier, constant: anchor.constant).isActive = true
         }
         if let anchor = height {
             self.heightAnchor.constraint(equalToConstant: anchor).isActive = true
