@@ -20,6 +20,9 @@
 		688B78342503E26000F40EE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 688B78332503E26000F40EE2 /* Localizable.strings */; };
 		688B783A2503E33A00F40EE2 /* FundsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B78392503E33A00F40EE2 /* FundsListViewModel.swift */; };
 		688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B783B2503E41900F40EE2 /* LocalizableStrings.swift */; };
+		68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */; };
+		68F53F4E250CFE8D00A796F5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */; };
+		68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */; };
 		8626F5F52503FAE800AECFC7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F42503FAE800AECFC7 /* Service.swift */; };
 		8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */; };
 		8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F72503FAF000AECFC7 /* StockAPIError.swift */; };
@@ -70,6 +73,9 @@
 		688B78332503E26000F40EE2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		688B78392503E33A00F40EE2 /* FundsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewModel.swift; sourceTree = "<group>"; };
 		688B783B2503E41900F40EE2 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		8626F5F42503FAE800AECFC7 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIResult.swift; sourceTree = "<group>"; };
 		8626F5F72503FAF000AECFC7 /* StockAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIError.swift; sourceTree = "<group>"; };
@@ -232,6 +238,23 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		68F53F49250CFE2900A796F5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		68F53F4C250CFE7900A796F5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */,
+				68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		8626F5F22503FAC700AECFC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +304,8 @@
 		BA3610CE2503C10E00D66EED /* ItiInvest */ = {
 			isa = PBXGroup;
 			children = (
+				68F53F4C250CFE7900A796F5 /* Coordinator */,
+				68F53F49250CFE2900A796F5 /* Shared */,
 				2F95EE9B2503F28600D1B37A /* Utils */,
 				BA36110A2503FEE400D66EED /* Extensions */,
 				8626F5F32503FAD200AECFC7 /* Service */,
@@ -486,11 +511,14 @@
 				2F95EE9A2503ED2E00D1B37A /* ProductCollectionViewCell.swift in Sources */,
 				BA3611092503D0EA00D66EED /* DetailViewModel.swift in Sources */,
 				2F95EE9D2503F2B400D1B37A /* CoreDataManager.swift in Sources */,
+				68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */,
+				68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
 				BA36110C2503FEFE00D66EED /* UIButton+Gradient.swift in Sources */,
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
+				68F53F4E250CFE8D00A796F5 /* AppCoordinator.swift in Sources */,
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
 				BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */,
