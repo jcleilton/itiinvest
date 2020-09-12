@@ -33,12 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupNavigationBarAppearance()
-<<<<<<< HEAD
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = FundsListViewController()
-        window.makeKeyAndVisible()
-        self.window = window
-=======
         
         window = window ?? UIWindow()
         appCoordinator = AppCoordinator()
@@ -47,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         appCoordinator?.start()
 
->>>>>>> dev/2.0
         return true
     }
     
