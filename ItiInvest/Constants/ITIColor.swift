@@ -17,6 +17,8 @@ struct ITIColor {
     static let lightGray = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     static let green = #colorLiteral(red: 0.3376246095, green: 0.6866923571, blue: 0.00485552242, alpha: 1)
     static let red = #colorLiteral(red: 0.998283565, green: 0.003100437112, blue: 0.001940896618, alpha: 1)
+    static let darkBackground = UIColor(named: "DarkGray")
+    static let extraDarkBackground = UIColor(named: "Line")
     
     static let mainText = black
     static let secondaryText = gray

@@ -19,7 +19,7 @@ class DetailCoordinator: BaseCoordinator {
     }
 
     func start() {
-        let controller = HomeViewController()
+        let controller = FundsListViewController()
 //        let viewModel = DetailViewModel()
 
 //        controller.viewModel = viewModel
