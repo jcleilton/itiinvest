@@ -19,8 +19,8 @@ class HomeCoordinator: BaseCoordinator {
     }
 
     func start() {
-        let controller = PurchaseFundViewController(viewModel: PurchaseFundViewModel())//HomeFactory.make()
-//        controller.coordinator = self
+        let controller = HomeFactory.make()
+        controller.coordinator = self
         navigationController.pushViewController(controller, animated: true)
     }
     

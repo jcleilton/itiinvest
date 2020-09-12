@@ -30,7 +30,7 @@ class FundTableViewCell: UITableViewCell {
 
 extension FundTableViewCell {
     func setupAccessibility() {
-        percentageTitleLabel.accessibilityLabel = ITIString.percentageTitle
+//        percentageTitleLabel.accessibilityLabel = ITIString.percentageTitle
         self.accessibilityElements = [titleLabel,amountTitleLabel, amountLabel, percentageTitleLabel, percentageLabel]
     }
 }
