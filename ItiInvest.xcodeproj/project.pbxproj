@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */; };
+		0AAB834D250D041800B8E3DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834C250D041800B8E3DB /* Constant.swift */; };
+		0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */; };
 		2F95EE982503ED2E00D1B37A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F95EE932503ED2E00D1B37A /* HomeViewController.swift */; };
 		2F95EE992503ED2E00D1B37A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F95EE942503ED2E00D1B37A /* Main.storyboard */; };
 		2F95EE9A2503ED2E00D1B37A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F95EE972503ED2E00D1B37A /* ProductCollectionViewCell.swift */; };
@@ -39,7 +41,7 @@
 		BA3611052503C5F000D66EED /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3611042503C5F000D66EED /* Detail.storyboard */; };
 		BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3611062503CF2500D66EED /* DetailViewController.swift */; };
 		BA3611092503D0EA00D66EED /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3611082503D0EA00D66EED /* DetailViewModel.swift */; };
-		BA36110C2503FEFE00D66EED /* UIButton+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36110B2503FEFE00D66EED /* UIButton+Gradient.swift */; };
+		BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 
 /* Begin PBXFileReference section */
 		0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		0AAB834C250D041800B8E3DB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrants.swift"; sourceTree = "<group>"; };
 		2F95EE932503ED2E00D1B37A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2F95EE952503ED2E00D1B37A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F95EE972503ED2E00D1B37A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		BA3611042503C5F000D66EED /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		BA3611062503CF2500D66EED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BA3611082503D0EA00D66EED /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		BA36110B2503FEFE00D66EED /* UIButton+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Gradient.swift"; sourceTree = "<group>"; };
+		BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 			children = (
 				0AAB8349250CFC4E00B8E3DB /* Protocol */,
 				2F95EE9C2503F2B400D1B37A /* CoreDataManager.swift */,
+				0AAB834C250D041800B8E3DB /* Constant.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -348,9 +353,14 @@
 		BA36110A2503FEE400D66EED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				BA36110B2503FEFE00D66EED /* UIButton+Gradient.swift */,
 				7935870F250D023900FD8CBF /* UIColor+Hex.swift */,
 				79358711250D036200FD8CBF /* UIViewExtension.swift */,
+=======
+				BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */,
+				0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */,
+>>>>>>> 2.0
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,12 +507,18 @@
 				2F95EE9D2503F2B400D1B37A /* CoreDataManager.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
+<<<<<<< HEAD
 				BA36110C2503FEFE00D66EED /* UIButton+Gradient.swift in Sources */,
 				79358710250D023900FD8CBF /* UIColor+Hex.swift in Sources */,
+=======
+				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
+>>>>>>> 2.0
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
+				0AAB834D250D041800B8E3DB /* Constant.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
 				7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */,
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
+				0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
 				BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */,
 				9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */,
