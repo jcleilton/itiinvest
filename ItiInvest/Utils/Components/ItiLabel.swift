@@ -15,19 +15,21 @@ enum ItiLabelType {
 class ItiLabel: UILabel {
     
     
-    init(text: String, type: ItiLabelType) {
+    init(text: String, type: ItiLabelType, alignment: NSTextAlignment = .natural) {
         super.init(frame: .zero)
         
-        setup(text, type)
+        setup(text, type, alignment)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
         
-    func setup(_ text: String, _ type: ItiLabelType) {
+    func setup(_ text: String, _ type: ItiLabelType, _ alignment: NSTextAlignment) {
         translatesAutoresizingMaskIntoConstraints = false
         textColor = ITIColor.mainText
+        self.text = text
+        self.textAlignment = alignment
         
         switch type {
         case .title:
@@ -35,7 +37,7 @@ class ItiLabel: UILabel {
         case .primary:
             font = UIFont.systemFont(ofSize: 22, weight: .regular)
         case .secondary:
-            font = UIFont.systemFont(ofSize: 15, weight: .thin)
+            font = UIFont.systemFont(ofSize: 15, weight: .light)
             textColor = ITIColor.secondaryText
         }
     }

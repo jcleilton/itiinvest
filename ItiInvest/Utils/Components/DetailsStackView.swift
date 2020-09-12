@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailsStackView: UIStackView {
-    init(axis: NSLayoutConstraint.Axis, alignment: UIStackView.Alignment) {
+    init(axis: NSLayoutConstraint.Axis = .vertical, alignment: UIStackView.Alignment = .fill, spacing: CGFloat = 0, contentMode: UIView.ContentMode = .scaleToFill, distribution: UIStackView.Distribution = .fillProportionally) {
         super.init(frame: .zero)
         
         setup(axis: axis, alignment: alignment)
@@ -19,13 +19,13 @@ class DetailsStackView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup(axis: NSLayoutConstraint.Axis, alignment: UIStackView.Alignment) {
+    private func setup(axis: NSLayoutConstraint.Axis = .vertical, alignment: UIStackView.Alignment = .fill, spacing: CGFloat = 0, contentMode: UIView.ContentMode = .scaleToFill, distribution: UIStackView.Distribution = .fillProportionally) {
         translatesAutoresizingMaskIntoConstraints = false
         
         self.axis = axis
         self.alignment = alignment
-        spacing = 8
-        contentMode = .left
-        distribution = .fillProportionally
+        self.spacing = spacing
+        self.contentMode = contentMode
+        self.distribution = distribution
     }
 }
