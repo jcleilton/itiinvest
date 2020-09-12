@@ -12,22 +12,18 @@ final class PurchaseFundViewController: UIViewController {
 
     // MARK: - IBOutlets
     
-    @IBOutlet weak var titleLabel: UILabel!
+    let titleLabel = UILabel()
     
-    @IBOutlet weak var stockLabel: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    @IBOutlet weak var stockTextField: UITextField!
-    @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var priceTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
-    
-    @IBOutlet weak var investButton: UIButton!
-    
-    @IBOutlet var accessoryView: UIView!
-    
+    let stockLabel = UILabel()
+    let amountLabel = UILabel()
+    let priceLabel = UILabel()
+    let dateLabel = UILabel()
+    let stockTextField = UITextField()
+    let amountTextField = UITextField()
+    let priceTextField = UITextField()
+    let dateTextField = UITextField()
+    let investButton = UIButton()
+    let accessoryView = UIView()
     
     // MARK: - Private Attributes
     
@@ -36,34 +32,40 @@ final class PurchaseFundViewController: UIViewController {
         datePicker.datePickerMode = .date
         datePicker.maximumDate = Date()
         datePicker.addTarget(self, action: #selector(updateDate), for: .valueChanged)
-        
         return datePicker
     }()
     
     private let toolbar: UIToolbar = {
         let toolbar = UIToolbar(frame: .zero)
-
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let previousButton = UIBarButtonItem(barButtonSystemItem: .rewind, target: nil, action: #selector(previousTextField))
         let nextButton = UIBarButtonItem(barButtonSystemItem: .fastForward, target: nil, action: #selector(nextTextField))
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneEditing))
-
         let items = [previousButton, nextButton, flexibleSpace, doneButton]
-
         toolbar.setItems(items, animated: false)
         toolbar.sizeToFit()
-        
         return toolbar
     }()
     
-    private var viewModel: PurchaseFundViewModel = PurchaseFundViewModel() 
+    private var viewModel: PurchaseFundViewModel
+    
+    // MARK: - Init
+    
+    init(viewModel: PurchaseFundViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = PurchaseFundViewModel()
+        super.init(coder: coder)
+    }
     
     // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configureTextFields()
+        setup()
     }
     
     // MARK: - IBActions
@@ -78,7 +80,42 @@ final class PurchaseFundViewController: UIViewController {
 
     // MARK: - Private Functions
     
-    private func configureTextFields() {
+    @objc private func previousTextField() {
+
+    }
+    
+    @objc private func nextTextField() {
+        
+    }
+    
+    @objc private func doneEditing() {
+        becomeFirstResponder()
+    }
+    
+    @objc private func updateDate() {
+        dateTextField.text = viewModel.dateString(from: datePicker.date)
+    }
+}
+
+extension PurchaseFundViewController: CodeView {
+    func setupComponents() {
+        view.addSubview(stockLabel)
+        view.addSubview(amountLabel)
+        view.addSubview(priceLabel)
+        view.addSubview(dateLabel)
+        view.addSubview(stockTextField)
+        view.addSubview(amountTextField)
+        view.addSubview(priceTextField)
+        view.addSubview(dateTextField)
+        view.addSubview(investButton)
+        view.addSubview(accessoryView)
+    }
+    
+    func setupConstraints() {
+        
+    }
+    
+    func setupExtraConfigurations() {
         stockTextField.delegate = self
         amountTextField.delegate = self
         priceTextField.delegate = self
@@ -102,25 +139,10 @@ final class PurchaseFundViewController: UIViewController {
         dateTextField.inputAccessoryView = toolbar
     }
     
-    @objc private func previousTextField() {
-
-    }
     
-    @objc private func nextTextField() {
-        
-    }
-    
-    @objc private func doneEditing() {
-        becomeFirstResponder()
-    }
-    
-    @objc private func updateDate() {
-        dateTextField.text = viewModel.dateString(from: datePicker.date)
-    }
 }
 
 extension PurchaseFundViewController: UITextFieldDelegate {
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         switch textField.tag {
@@ -132,5 +154,4 @@ extension PurchaseFundViewController: UITextFieldDelegate {
             return false
         }
     }
-    
 }
