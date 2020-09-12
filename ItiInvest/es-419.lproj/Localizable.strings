@@ -6,13 +6,37 @@
   Copyright © 2020 DevBoostItau. All rights reserved.
 */
 
-"hsButton" = "Ocultar o mMostrar";
-"percentTitle" = "Percentaje en cartera";
-"profile" = "mira mi perfil";
-"balance" = "saldo iti";
-"all_about" = "todo sobre tu iti";
+// MARK: - Home
 
-"my_patrimony" = "mis activos";
-"current_balance" = "saldo actual";
-"new_investment" = "nueva inversión";
-"on_wallet" = "% en cartera";
+"home.hsButton" = "Ocultar o Mostrar";
+"home.percentTitle" = "Percentaje en cartera";
+"home.profile" = "mira mi perfil";
+"home.balance" = "saldo iti";
+"home.all_about" = "todo sobre tu iti";
+
+// MARK: - Funds List
+
+"list.my_patrimony" = "mis activos";
+"list.current_balance" = "saldo actual";
+"list.new_investment" = "nueva inversión";
+"list.on_wallet" = "% en cartera";
+
+// MARK: - Detail View
+
+"stock.quantity" = "Cantidad";
+"stock.price" = "Precio de compra";
+"stock.buyDate" = "Fecha de compra";
+"stock.totalValue" = "Valor Total";
+"stock.todaysCotation" = "Cotizar hoy";
+"stock.todaysPrice" = "Valor hoy";
+"stock.profitability" = "Rentabilidad alcanzada hasta hoy";
+"stock.editInformations" = "Editar informacion";
+
+// MARK: - Purchase Fund
+
+"form.title" = "Complete la información sobre su nueva compra de acciones";
+"form.active" = "Activo";
+"form.required" = "Campo requerido";
+"form.quantity" = "Cantidad";
+"form.purchasePrice" = "Precio de compra";
+"form.startingDate" = "Fecha de inicio";
