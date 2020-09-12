@@ -9,6 +9,37 @@
 import Foundation
 
 class PurchaseFundViewModel {
+    private var stock: Stock?
+    
+    init(stock: Stock? = nil) {
+        self.stock = stock
+    }
+    
+    private var isEditing: Bool {
+        stock != nil
+    }
+    
+    var getTitle: String {
+        isEditing
+            ? "Edite as informações"
+            : "Preencha as informações sobre a sua nova compra de ações"
+    }
+    
+    var stockName: String {
+        stock?.name ?? ""
+    }
+    
+    var stockAmount: String {
+        currencyFormattedFrom(string: "\(stock?.quantity ?? 0)", forCurrency: false)
+    }
+    
+    var stockPrice: String {
+        currencyFormattedFrom(string: "\(stock?.price ?? 0.0)", forCurrency: false)
+    }
+    
+    var stockDate: String {
+        dateString(from: stock?.buyDate ?? Date())
+    }
     
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -34,4 +65,23 @@ class PurchaseFundViewModel {
         return currencySymbol + (formatter.string(from: NSNumber(value: doubleValue)) ?? "")
     }
     
+    func save(quantity: Int, buyDate: Date, name: String, price: Double) throws {
+        guard let stock = stock else {
+            do {
+                try CoreDataManager().create(
+                    quantity: quantity,
+                    buyDate: buyDate,
+                    name: name,
+                    price: price)
+            } catch {
+                throw error
+            }
+            return
+        }
+        do {
+            try CoreDataManager().save(data: stock)
+        } catch {
+            throw error
+        }
+    }
 }

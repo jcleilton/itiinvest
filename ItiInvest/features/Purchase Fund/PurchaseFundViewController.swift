@@ -48,7 +48,7 @@ final class PurchaseFundViewController: UIViewController {
     // MARK: - IBOutlets
     
     let titleLabel: UILabel = {
-        let label = getLabel(text: "Preencha as informações sobre a sua nova compra de ações", type: .title)
+        let label = getLabel(text: "", type: .title)
         return label
     }()
     
@@ -331,6 +331,12 @@ extension PurchaseFundViewController: CodeView {
         amountTextField.inputAccessoryView = toolbar
         priceTextField.inputAccessoryView = toolbar
         dateTextField.inputAccessoryView = toolbar
+        
+        self.titleLabel.text = viewModel.getTitle
+        self.stockTextField.text = viewModel.stockName
+        self.amountTextField.text = viewModel.stockAmount
+        self.dateTextField.text = viewModel.stockDate
+        self.priceTextField.text = viewModel.stockPrice
     }
     
     
