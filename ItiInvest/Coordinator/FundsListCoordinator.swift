@@ -23,13 +23,19 @@ class FundsListCoordinator: BaseCoordinator {
         let viewModel = FundsListViewModel()
         
 //        controller.viewModel = viewModel
-//        controller.coordinator = self
+        controller.coordinator = self
 
         navigationController.pushViewController(controller, animated: true)
     }
 
     func showDetails() {
         let child = DetailCoordinator(navigationController: navigationController)
+        childCoordinators.append(child)
+        child.start()
+    }
+    
+    func showPurchaseFund() {
+        let child = PurchaseFundCoordinator(navigationController: navigationController)
         childCoordinators.append(child)
         child.start()
     }

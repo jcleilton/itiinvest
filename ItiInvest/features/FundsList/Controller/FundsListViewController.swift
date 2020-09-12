@@ -20,7 +20,8 @@ class FundsListViewController: UIViewController {
 //    @IBOutlet weak var newInvestmentButton: UIButton!
     
     let manager = CoreDataManager()
-    
+    var coordinator: BaseCoordinator?
+
     lazy var fundsListView: FundsListView = {
         let fundsListView = FundsListView()
         fundsListView.tableView.delegate = self
@@ -113,7 +114,7 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-            // edit item at indexPath
+            self.coordinator.showPurchaseFund?()
         }
 
         share.backgroundColor = UIColor.blue
