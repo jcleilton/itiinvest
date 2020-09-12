@@ -16,5 +16,6 @@ struct Constant {
         static let horizontalLarge: CGFloat = 32
         static let verticalNormal: CGFloat = 20
         static let verticalLarge: CGFloat = 32
+        static let verticalExtraLarge: CGFloat = 52
     }
 }
