@@ -16,16 +16,8 @@ protocol BaseCoordinator: AnyObject {
     var childCoordinators: [BaseCoordinator] { get set }
 
     @objc func start()
-//    @objc func remove(child coordinator: BaseCoordinator)
 
     @objc optional func showFundsList()
     @objc optional func showDetails()
     @objc optional func showPurchaseFund()
-}
-
-extension BaseCoordinator {
-
-//    func remove(child coordinator: BaseCoordinator) {
-//        childCoordinators = childCoordinators.filter { $0 !== coordinator}
-//    }
 }
