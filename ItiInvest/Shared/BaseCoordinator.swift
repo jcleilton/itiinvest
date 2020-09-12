@@ -9,14 +9,19 @@
 import Foundation
 import UIKit
 
+@objc
 protocol BaseCoordinator: AnyObject {
 
     var navigationController: UINavigationController { get set }
     var childCoordinators: [BaseCoordinator] { get set }
 
-    func start()
-    func add(child coordinator: BaseCoordinator)
-    func remove(child coordinator: BaseCoordinator)
+    @objc func start()
+    @objc func add(child coordinator: BaseCoordinator)
+    @objc func remove(child coordinator: BaseCoordinator)
+
+    @objc optional func showFundsList()
+    @objc optional func showDetails()
+    @objc optional func showPurchaseFund()
 }
 
 extension BaseCoordinator {

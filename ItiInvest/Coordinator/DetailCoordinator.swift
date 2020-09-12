@@ -1,5 +1,5 @@
 //
-//  HomeCoordinator.swift
+//  DetailCoordinator.swift
 //  ItiInvest
 //
 //  Created by Pericles Junor on 12/09/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeCoordinator: BaseCoordinator {
+class DetailCoordinator: BaseCoordinator {
 
     var navigationController: UINavigationController
 
@@ -19,12 +19,10 @@ class HomeCoordinator: BaseCoordinator {
     }
 
     func start() {
-        let controller = HomeViewController()
+        let controller = DetailViewController()
 //        controller.coordinator = self
         navigationController.pushViewController(controller, animated: true)
     }
     
-    func showFundsList() {
-        <#code#>
-    }
+
 }

@@ -23,5 +23,4 @@ class AppCoordinator: BaseCoordinator {
         child.start()
     }
     
-
 }

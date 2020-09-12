@@ -1,5 +1,5 @@
 //
-//  HomeCoordinator.swift
+//  PurchaseFundCoordinator.swift
 //  ItiInvest
 //
 //  Created by Pericles Junor on 12/09/20.
@@ -8,8 +8,7 @@
 
 import UIKit
 
-class HomeCoordinator: BaseCoordinator {
-
+class PurchaseFundCoordinator: BaseCoordinator {
     var navigationController: UINavigationController
 
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
@@ -19,12 +18,11 @@ class HomeCoordinator: BaseCoordinator {
     }
 
     func start() {
-        let controller = HomeViewController()
+        let viewModel = PurchaseFundViewModel()
+        let controller = PurchaseFundViewController(viewModel: viewModel)
 //        controller.coordinator = self
         navigationController.pushViewController(controller, animated: true)
     }
     
-    func showFundsList() {
-        <#code#>
-    }
+
 }
