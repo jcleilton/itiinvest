@@ -20,7 +20,6 @@
 		687DBFA22503C7E000A0FBBB /* FundsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687DBFA12503C7E000A0FBBB /* FundsListViewController.swift */; };
 		687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687DBFA42503C92200A0FBBB /* ITIColor.swift */; };
 		687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687DBFA72503D34200A0FBBB /* FundTableViewCell.swift */; };
-		687DBFAA2503D90D00A0FBBB /* ITIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687DBFA92503D90D00A0FBBB /* ITIString.swift */; };
 		688B783A2503E33A00F40EE2 /* FundsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B78392503E33A00F40EE2 /* FundsListViewModel.swift */; };
 		688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B783B2503E41900F40EE2 /* LocalizableStrings.swift */; };
 		68F0020B250D1ECF00A219D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 68F0020D250D1ECF00A219D3 /* Localizable.strings */; };
@@ -86,7 +85,6 @@
 		687DBFA12503C7E000A0FBBB /* FundsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewController.swift; sourceTree = "<group>"; };
 		687DBFA42503C92200A0FBBB /* ITIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITIColor.swift; sourceTree = "<group>"; };
 		687DBFA72503D34200A0FBBB /* FundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundTableViewCell.swift; sourceTree = "<group>"; };
-		687DBFA92503D90D00A0FBBB /* ITIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITIString.swift; sourceTree = "<group>"; };
 		688B78392503E33A00F40EE2 /* FundsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewModel.swift; sourceTree = "<group>"; };
 		688B783B2503E41900F40EE2 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		68F0020C250D1ECF00A219D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -224,7 +222,6 @@
 			children = (
 				0AAB834C250D041800B8E3DB /* Constant.swift */,
 				687DBFA42503C92200A0FBBB /* ITIColor.swift */,
-				687DBFA92503D90D00A0FBBB /* ITIString.swift */,
 				688B783B2503E41900F40EE2 /* LocalizableStrings.swift */,
 			);
 			path = Constants;
@@ -601,7 +598,6 @@
 				8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */,
 				687DBFA22503C7E000A0FBBB /* FundsListViewController.swift in Sources */,
 				2F95EE982503ED2E00D1B37A /* HomeViewController.swift in Sources */,
-				687DBFAA2503D90D00A0FBBB /* ITIString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
