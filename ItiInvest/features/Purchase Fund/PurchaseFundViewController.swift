@@ -12,16 +12,57 @@ final class PurchaseFundViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    let titleLabel = UILabel()
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Preencha as informações sobre a sua nova compra de ações"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
-    let stockLabel = UILabel()
-    let amountLabel = UILabel()
-    let priceLabel = UILabel()
-    let dateLabel = UILabel()
-    let stockTextField = UITextField()
-    let amountTextField = UITextField()
-    let priceTextField = UITextField()
-    let dateTextField = UITextField()
+    let stockLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Ativo"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    let amountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Quantidade"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    let priceLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Preço de Compra"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Data de Início"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    let stockTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    let amountTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    let priceTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
+    let dateTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     let investButton = UIButton()
     let accessoryView = UIView()
     
@@ -114,14 +155,15 @@ extension PurchaseFundViewController: CodeView {
     
     func setupConstraints() {
         titleLabel.anchor(
-            top: (anchor: view.topAnchor, constant: Constant.Margin.verticalNormal),
+            top: (anchor: view.safeAreaLayoutGuide.topAnchor, constant: Constant.Margin.verticalNormal),
             left: (anchor: view.leftAnchor, constant: Constant.Margin.horizontalNormal),
-            right: (anchor: view.rightAnchor, constant: Constant.Margin.horizontalNormal))
+            right: (anchor: view.rightAnchor, constant: -Constant.Margin.horizontalNormal))
         
         stockLabel.anchor(
             top: (anchor: titleLabel.bottomAnchor, constant: Constant.Margin.verticalLarge),
             left: (anchor: titleLabel.leftAnchor, constant: 0),
-            right: (anchor: titleLabel.rightAnchor, constant: 0))
+            right: (anchor: titleLabel.rightAnchor, constant: 0),
+            height: 30)
         
         stockTextField.anchor(
             centerX: (anchor: stockLabel.centerXAnchor, constant: 0),
@@ -132,7 +174,8 @@ extension PurchaseFundViewController: CodeView {
         amountLabel.anchor(
             top: (anchor: stockTextField.bottomAnchor, constant: Constant.Margin.verticalNormal),
             left: (anchor: stockTextField.leftAnchor, constant: 0),
-            right: (anchor: stockTextField.rightAnchor, constant: 0))
+            right: (anchor: stockTextField.rightAnchor, constant: 0),
+            relativeHeight: (anchor: stockLabel.heightAnchor, multiplier: 1, constant: 0))
         
         amountTextField.anchor(
             centerX: (anchor: amountLabel.centerXAnchor, constant: 0),
@@ -143,7 +186,8 @@ extension PurchaseFundViewController: CodeView {
         priceLabel.anchor(
             top: (anchor: amountTextField.bottomAnchor, constant: Constant.Margin.verticalNormal),
             left: (anchor: amountTextField.leftAnchor, constant: 0),
-            right: (anchor: amountTextField.rightAnchor, constant: 0))
+            right: (anchor: amountTextField.rightAnchor, constant: 0),
+            relativeHeight: (anchor: stockLabel.heightAnchor, multiplier: 1, constant: 0))
         
         priceTextField.anchor(
             centerX: (anchor: priceLabel.centerXAnchor, constant: 0),
@@ -154,7 +198,8 @@ extension PurchaseFundViewController: CodeView {
         dateLabel.anchor(
             top: (anchor: priceTextField.bottomAnchor, constant: Constant.Margin.verticalNormal),
             left: (anchor: priceTextField.leftAnchor, constant: 0),
-            right: (anchor: priceTextField.rightAnchor, constant: 0))
+            right: (anchor: priceTextField.rightAnchor, constant: 0),
+            relativeHeight: (anchor: stockLabel.heightAnchor, multiplier: 1, constant: 0))
         
         dateTextField.anchor(
             centerX: (anchor: dateLabel.centerXAnchor, constant: 0),
@@ -175,6 +220,10 @@ extension PurchaseFundViewController: CodeView {
     
     func setupExtraConfigurations() {
         view.backgroundColor = .white
+        
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .left
+        
         stockTextField.delegate = self
         amountTextField.delegate = self
         priceTextField.delegate = self
