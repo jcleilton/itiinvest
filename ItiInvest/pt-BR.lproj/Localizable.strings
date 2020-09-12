@@ -1,0 +1,43 @@
+/* 
+  localizable.strings
+  ItiInvest
+
+  Created by Pericles Junor on 05/09/20.
+  Copyright © 2020 DevBoostItau. All rights reserved.
+*/
+
+// MARK: - Home
+
+"home.hsButton" = "Ocultar ou exibir";
+"home.percentTitle" = "Percentual na carteira";
+"home.profile" = "ver meu perfil";
+"home.balance" = "saldo iti";
+"home.all_about" = "tudo sobre seu iti";
+
+// MARK: - Funds List
+
+"list.my_patrimony" = "meu patrimônio";
+"list.current_balance" = "saldo atual";
+"list.new_investment" = "novo investimento";
+"list.on_wallet" = "% na carteira";
+
+// MARK: - Purchase Fund
+
+"form.title" = "Preencha as informações sobre a sua nova compra de ações";
+"form.active" = "Ativo";
+"form.invest" = "investir";
+"form.required" = "Campo Obrigatório";
+"form.quantity" = "Quantidade";
+"form.purchasePrice" = "Preço de Compra";
+"form.startingDate" = "Data de início";
+
+// MARK: - Detail View
+
+"stock.quantity" = "Quantidade";
+"stock.price" = "Preço de Compra";
+"stock.buyDate" = "Data de Compra";
+"stock.totalValue" = "Valor Total";
+"stock.todaysCotation" = "Cotação Hoje";
+"stock.todaysPrice" = "Valor Hoje";
+"stock.profitability" = "Rentabilidade hbtida até hoje";
+"stock.editInformations" = "Editar informações";
