@@ -20,7 +20,7 @@ final class PurchaseFundViewController: UIViewController {
     let dateLabel = UILabel()
     let stockTextField = UITextField()
     let amountTextField = UITextField()
-    let priceTextFiel = UITextField()
+    let priceTextField = UITextField()
     let dateTextField = UITextField()
     let investButton = UIButton()
     let accessoryView = UIView()
