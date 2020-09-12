@@ -27,7 +27,7 @@ var context: NSManagedObjectContext {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
+    var appCoordinator: AppCoordinator?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -35,8 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBarAppearance()
         
         window = window ?? UIWindow()
-        window?.rootViewController = UIViewController()
+        appCoordinator = AppCoordinator()
+        window?.rootViewController = appCoordinator?.navigationController
         window?.makeKeyAndVisible()
+        
+        appCoordinator?.start()
+
         return true
     }
     
