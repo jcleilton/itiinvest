@@ -31,16 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         setupNavigationBarAppearance()
-//<<<<<<< HEAD
         window = window ?? UIWindow()
-//=======
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-//>>>>>>> dev/2.0
-        //appCoordinator = AppCoordinator()
-        window.rootViewController = FundsListViewController()
+        window.rootViewController = appCoordinator?.navigationController
         window.makeKeyAndVisible()
         
         //appCoordinator?.start()
