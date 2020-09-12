@@ -31,14 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         setupNavigationBarAppearance()
+        window = window ?? UIWindow()
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         appCoordinator = AppCoordinator()
         window.rootViewController = appCoordinator?.navigationController
         window.makeKeyAndVisible()
-        
         appCoordinator?.start()
         return true
     }

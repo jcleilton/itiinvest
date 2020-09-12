@@ -20,20 +20,23 @@ class FundsListViewController: UIViewController {
 //    @IBOutlet weak var newInvestmentButton: UIButton!
     
     let manager = CoreDataManager()
-    var coordinator: BaseCoordinator?
-
+    weak var coordinator: FundsListCoordinator?
+ 
     lazy var fundsListView: FundsListView = {
         let fundsListView = FundsListView()
         fundsListView.tableView.delegate = self
         fundsListView.tableView.dataSource = self
+        fundsListView.tableView.register(FundTableViewCell.self, forCellReuseIdentifier: FundTableViewCell.identifier)
         return fundsListView
         
     }()
     
     override func loadView() {
         super.loadView()
-        print("LoadView")
+        fundsListView.tableView.delegate = self
+        fundsListView.tableView.dataSource = self
         view = fundsListView
+        
     }
     
 
@@ -49,7 +52,6 @@ class FundsListViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        fundsListView.contentView.applyGradient(color1: UIColor(hex: "#f16546") ?? .orange, color2: UIColor(hex: "#ed6a2a") ?? .red, locations: [0.0, 1.0])
     }
     
     // MARK: - Private Methods
@@ -77,7 +79,7 @@ class FundsListViewController: UIViewController {
         let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
             (stock.price * Double(Int(stock.quantity))) + result
         })
-        //self.totalAmountLabel.text = "R$ \(stockValue ?? 0.0)"
+        self.fundsListView.valueLabel.text = "R$ \(stockValue ?? 0.0)"
         return stockValue ?? 0.0
     }
     
@@ -121,10 +123,15 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
 
         return [delete, share]
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.showDetails(stock: manager.getStockAt(indexPath))
+    }
+    
 }
 
 extension FundsListViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        //tableView.reloadData()
+        fundsListView.tableView.reloadData()
     }
 }
