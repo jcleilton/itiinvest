@@ -25,6 +25,9 @@
 		9B0D5A642503C88F003E7C17 /* PurchaseFund.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0D5A632503C88F003E7C17 /* PurchaseFund.storyboard */; };
 		9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */; };
 		9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */; };
+		9B97D58A250CFDB100FB46C9 /* ItiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D589250CFDB100FB46C9 /* ItiButton.swift */; };
+		9B97D58E250CFDE600FB46C9 /* ItiLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D58D250CFDE600FB46C9 /* ItiLabel.swift */; };
+		9B97D590250D104B00FB46C9 /* DetailsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97D58F250D104B00FB46C9 /* DetailsStackView.swift */; };
 		BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610CF2503C10E00D66EED /* AppDelegate.swift */; };
 		BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D12503C10E00D66EED /* SceneDelegate.swift */; };
 		BA3610D42503C10E00D66EED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D32503C10E00D66EED /* ViewController.swift */; };
@@ -75,6 +78,9 @@
 		9B0D5A632503C88F003E7C17 /* PurchaseFund.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PurchaseFund.storyboard; sourceTree = "<group>"; };
 		9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundViewController.swift; sourceTree = "<group>"; };
 		9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundViewModel.swift; sourceTree = "<group>"; };
+		9B97D589250CFDB100FB46C9 /* ItiButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItiButton.swift; sourceTree = "<group>"; };
+		9B97D58D250CFDE600FB46C9 /* ItiLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItiLabel.swift; sourceTree = "<group>"; };
+		9B97D58F250D104B00FB46C9 /* DetailsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsStackView.swift; sourceTree = "<group>"; };
 		BA3610CC2503C10E00D66EED /* ItiInvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItiInvest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3610CF2503C10E00D66EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA3610D12503C10E00D66EED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 		2F95EE9B2503F28600D1B37A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9B97D588250CFD4D00FB46C9 /* Components */,
 				2F95EE9C2503F2B400D1B37A /* CoreDataManager.swift */,
 			);
 			path = Utils;
@@ -248,6 +255,16 @@
 				9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */,
 			);
 			path = "Purchase Fund";
+			sourceTree = "<group>";
+		};
+		9B97D588250CFD4D00FB46C9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9B97D589250CFDB100FB46C9 /* ItiButton.swift */,
+				9B97D58D250CFDE600FB46C9 /* ItiLabel.swift */,
+				9B97D58F250D104B00FB46C9 /* DetailsStackView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		BA3610C32503C10E00D66EED = {
@@ -479,14 +496,17 @@
 				2F95EE9A2503ED2E00D1B37A /* ProductCollectionViewCell.swift in Sources */,
 				BA3611092503D0EA00D66EED /* DetailViewModel.swift in Sources */,
 				2F95EE9D2503F2B400D1B37A /* CoreDataManager.swift in Sources */,
+				9B97D590250D104B00FB46C9 /* DetailsStackView.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
 				BA36110C2503FEFE00D66EED /* UIButton+Gradient.swift in Sources */,
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
+				9B97D58A250CFDB100FB46C9 /* ItiButton.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
 				BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */,
+				9B97D58E250CFDE600FB46C9 /* ItiLabel.swift in Sources */,
 				9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */,
 				9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */,
 				8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */,
