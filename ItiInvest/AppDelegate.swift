@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupNavigationBarAppearance()
         
         window = window ?? UIWindow()
-        window?.rootViewController = UIViewController()
+        window?.rootViewController = PurchaseFundViewController(viewModel: PurchaseFundViewModel())
         window?.makeKeyAndVisible()
         return true
     }

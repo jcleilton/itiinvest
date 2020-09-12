@@ -9,7 +9,7 @@
 import UIKit
 
 final class PurchaseFundViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
     
     let titleLabel = UILabel()
@@ -77,11 +77,11 @@ final class PurchaseFundViewController: UIViewController {
     @IBAction func didChangePrice(_ sender: UITextField) {
         sender.text = viewModel.currencyFormattedFrom(string: sender.text ?? "")
     }
-
+    
     // MARK: - Private Functions
     
     @objc private func previousTextField() {
-
+        
     }
     
     @objc private func nextTextField() {
@@ -99,6 +99,7 @@ final class PurchaseFundViewController: UIViewController {
 
 extension PurchaseFundViewController: CodeView {
     func setupComponents() {
+        view.addSubview(titleLabel)
         view.addSubview(stockLabel)
         view.addSubview(amountLabel)
         view.addSubview(priceLabel)
@@ -112,10 +113,68 @@ extension PurchaseFundViewController: CodeView {
     }
     
     func setupConstraints() {
+        titleLabel.anchor(
+            top: (anchor: view.topAnchor, constant: Constant.Margin.verticalNormal),
+            left: (anchor: view.leftAnchor, constant: Constant.Margin.horizontalNormal),
+            right: (anchor: view.rightAnchor, constant: Constant.Margin.horizontalNormal))
         
+        stockLabel.anchor(
+            top: (anchor: titleLabel.bottomAnchor, constant: Constant.Margin.verticalLarge),
+            left: (anchor: titleLabel.leftAnchor, constant: 0),
+            right: (anchor: titleLabel.rightAnchor, constant: 0))
+        
+        stockTextField.anchor(
+            centerX: (anchor: stockLabel.centerXAnchor, constant: 0),
+            top: (anchor: stockLabel.bottomAnchor, constant: Constant.Margin.verticalSmall),
+            relativeWidth: (anchor: stockLabel.widthAnchor, multiplier: 1, constant: 0),
+            height: 40)
+        
+        amountLabel.anchor(
+            top: (anchor: stockTextField.bottomAnchor, constant: Constant.Margin.verticalNormal),
+            left: (anchor: stockTextField.leftAnchor, constant: 0),
+            right: (anchor: stockTextField.rightAnchor, constant: 0))
+        
+        amountTextField.anchor(
+            centerX: (anchor: amountLabel.centerXAnchor, constant: 0),
+            top: (anchor: amountLabel.bottomAnchor, constant: Constant.Margin.verticalSmall),
+            relativeHeight: (anchor: stockTextField.heightAnchor, multiplier: 1, constant: 0),
+            relativeWidth: (anchor: amountLabel.widthAnchor, multiplier: 1, constant: 0))
+        
+        priceLabel.anchor(
+            top: (anchor: amountTextField.bottomAnchor, constant: Constant.Margin.verticalNormal),
+            left: (anchor: amountTextField.leftAnchor, constant: 0),
+            right: (anchor: amountTextField.rightAnchor, constant: 0))
+        
+        priceTextField.anchor(
+            centerX: (anchor: priceLabel.centerXAnchor, constant: 0),
+            top: (anchor: priceLabel.bottomAnchor, constant: Constant.Margin.verticalSmall),
+            relativeHeight: (anchor: stockTextField.heightAnchor, multiplier: 1, constant: 0),
+            relativeWidth: (anchor: priceLabel.widthAnchor, multiplier: 1, constant: 0))
+        
+        dateLabel.anchor(
+            top: (anchor: priceTextField.bottomAnchor, constant: Constant.Margin.verticalNormal),
+            left: (anchor: priceTextField.leftAnchor, constant: 0),
+            right: (anchor: priceTextField.rightAnchor, constant: 0))
+        
+        dateTextField.anchor(
+            centerX: (anchor: dateLabel.centerXAnchor, constant: 0),
+            top: (anchor: dateLabel.bottomAnchor, constant: Constant.Margin.verticalSmall),
+            relativeHeight: (anchor: stockTextField.heightAnchor, multiplier: 1, constant: 0),
+            relativeWidth: (anchor: dateLabel.widthAnchor, multiplier: 1, constant: 0))
+        
+        
+        
+        
+        //        priceLabel
+        //        priceTextField
+        //        dateLabel
+        //        dateTextField
+        //        investButton
+        //        accessoryView
     }
     
     func setupExtraConfigurations() {
+        view.backgroundColor = .white
         stockTextField.delegate = self
         amountTextField.delegate = self
         priceTextField.delegate = self
