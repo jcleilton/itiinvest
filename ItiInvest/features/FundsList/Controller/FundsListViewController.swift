@@ -21,7 +21,7 @@ class FundsListViewController: UIViewController {
     
     let manager = CoreDataManager()
     weak var coordinator: FundsListCoordinator?
-    
+ 
     lazy var fundsListView: FundsListView = {
         let fundsListView = FundsListView()
         fundsListView.tableView.delegate = self
@@ -116,7 +116,7 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-            // edit item at indexPath
+            self.coordinator.showPurchaseFund?()
         }
 
         share.backgroundColor = UIColor.blue
