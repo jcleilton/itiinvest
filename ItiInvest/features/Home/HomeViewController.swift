@@ -104,7 +104,7 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 17)
                 label.textColor = .white
-        label.text = "ver meu perfil"
+        label.text = LocalizableStrings.homeProfile.localized()
         return label
     }()
     
@@ -113,7 +113,7 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = .white
-        label.text = "saldo iti"
+        label.text = LocalizableStrings.homeBalance.localized()
         return label
     }()
     
@@ -131,7 +131,7 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = .white
-        label.text = "tudo sobre seu iti"
+        label.text = LocalizableStrings.homeAllAbout.localized()
         return label
     }()
     
