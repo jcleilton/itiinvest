@@ -29,6 +29,8 @@ class DetailCoordinator: BaseCoordinator {
     }
     
     func showPurchaseFund() {
-        //
+        let child = PurchaseFundCoordinator(navigationController: navigationController)
+        childCoordinators.append(child)
+        child.start()
     }
 }

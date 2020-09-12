@@ -26,8 +26,4 @@ class PurchaseFundCoordinator: BaseCoordinator {
 
         navigationController.pushViewController(controller, animated: true)
     }
-
-    func showPurchaseFund() {
-        //
-    }
 }

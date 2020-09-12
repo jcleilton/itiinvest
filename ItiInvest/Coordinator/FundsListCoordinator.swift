@@ -29,6 +29,8 @@ class FundsListCoordinator: BaseCoordinator {
     }
 
     func showDetails() {
-        //
+        let child = DetailCoordinator(navigationController: navigationController)
+        childCoordinators.append(child)
+        child.start()
     }
 }
