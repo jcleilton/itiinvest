@@ -1,0 +1,18 @@
+/* 
+  localizable.strings
+  ItiInvest
+
+  Created by Pericles Junor on 05/09/20.
+  Copyright © 2020 DevBoostItau. All rights reserved.
+*/
+
+"hsButton" = "Ocultar ou exibir";
+"percentTitle" = "Percentual na carteira";
+"profile" = "ver meu perfil";
+"balance" = "saldo iti";
+"all_about" = "tudo sobre seu iti";
+
+"my_patrimony" = "meu patrimônio";
+"current_balance" = "saldo atual";
+"new_investment" = "novo investimento";
+"on_wallet" = "% na carteira";
