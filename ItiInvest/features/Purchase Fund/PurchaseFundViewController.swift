@@ -48,7 +48,7 @@ final class PurchaseFundViewController: UIViewController {
     // MARK: - IBOutlets
     
     let titleLabel: UILabel = {
-        let label = getLabel(text: "Preencha as informações sobre a sua nova compra de ações", type: .title)
+        let label = getLabel(text: "", type: .title)
         return label
     }()
     
@@ -159,7 +159,16 @@ final class PurchaseFundViewController: UIViewController {
     // MARK: - IBActions
     
     @objc private func closeTouched(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        guard let quantity = amountTextField.text, let name = stockTextField.text, let price = priceTextField.text else {
+            return
+        }
+        do {
+            try viewModel.save(quantity: quantity, buyDate: datePicker.date, name: name, price: price)
+            self.dismiss(animated: true, completion: nil)
+        } catch {
+            
+        }
+        
     }
     
     @objc func didChangePrice(_ sender: UITextField, value: String, forCurrency: Bool = true) {
@@ -331,6 +340,12 @@ extension PurchaseFundViewController: CodeView {
         amountTextField.inputAccessoryView = toolbar
         priceTextField.inputAccessoryView = toolbar
         dateTextField.inputAccessoryView = toolbar
+        
+        self.titleLabel.text = viewModel.getTitle
+        self.stockTextField.text = viewModel.stockName
+        self.amountTextField.text = viewModel.stockAmount
+        self.dateTextField.text = viewModel.stockDate
+        self.priceTextField.text = viewModel.stockPrice
     }
     
     
