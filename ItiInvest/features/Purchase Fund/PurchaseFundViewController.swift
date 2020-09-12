@@ -74,10 +74,12 @@ final class PurchaseFundViewController: UIViewController {
     }()
     let amountTextField: UITextField = {
         let textField = getTextField(placeholder: nil, keyboardType: UIKeyboardType.numberPad)
+        textField.tag = 1
         return textField
     }()
     let priceTextField: UITextField = {
         let textField = getTextField(placeholder: nil, keyboardType: UIKeyboardType.numberPad)
+        textField.tag = 2
         return textField
 
     }()
@@ -160,8 +162,8 @@ final class PurchaseFundViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func didChangePrice(_ sender: UITextField) {
-        sender.text = viewModel.currencyFormattedFrom(string: sender.text ?? "")
+    @objc func didChangePrice(_ sender: UITextField, value: String, forCurrency: Bool = true) {
+        sender.text = viewModel.currencyFormattedFrom(string: value, forCurrency: forCurrency)
     }
     
     // MARK: - Private Functions
@@ -336,12 +338,18 @@ extension PurchaseFundViewController: CodeView {
 
 extension PurchaseFundViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         switch textField.tag {
         case 0, 3:
             return true
         case 1, 2:
-            return NSCharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
+            if let text = textField.text,
+               let textRange = Range(range, in: text) {
+               let updatedText = text.replacingCharacters(in: textRange,
+                                                           with: string)
+                self.didChangePrice(textField, value: updatedText, forCurrency: textField.tag == 2)
+            }
+            
+            return false
         default:
             return false
         }
