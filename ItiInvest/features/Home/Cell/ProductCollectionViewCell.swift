@@ -9,8 +9,24 @@
 import UIKit
 
 final class ProductCollectionViewCell: UICollectionViewCell {
-    // MARK: - IBOutlets
-    @IBOutlet private(set) weak var backgroundImageView: UIImageView!
-    @IBOutlet private(set) weak var titleLabel: UILabel!
-    @IBOutlet private(set) weak var descriptionLabel: UILabel!
+    // MARK: - Visual Components
+    let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .white
+        return label
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = .white
+        return label
+    }()
 }
