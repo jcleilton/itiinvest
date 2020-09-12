@@ -97,8 +97,7 @@ class FundsListViewController: UIViewController {
 
 extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return manager.total
-        return 10
+        return manager.total
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
