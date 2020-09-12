@@ -23,16 +23,15 @@ class PurchaseFundViewModel {
         return dateFormatter.string(from: date)
     }
     
-    func currencyFormattedFrom(string: String) -> String {
-        let numbers = string
-        .components(separatedBy:CharacterSet.decimalDigits.inverted)
-        .joined()
+    func currencyFormattedFrom(string: String, forCurrency: Bool = true) -> String {
+        let currencySymbol: String = forCurrency ? "R$ " : ""
+        let numbers = string.replacingOccurrences(of: currencySymbol, with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: "")
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
+        formatter.numberStyle = .decimal
         formatter.locale = Locale(identifier: "pt_BR")
         let doubleValue = (Double(numbers) ?? 0) / 100
         
-        return formatter.string(from: NSNumber(value: doubleValue)) ?? ""
+        return currencySymbol + (formatter.string(from: NSNumber(value: doubleValue)) ?? "")
     }
     
 }

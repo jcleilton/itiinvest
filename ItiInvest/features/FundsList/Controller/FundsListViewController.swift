@@ -25,6 +25,7 @@ class FundsListViewController: UIViewController {
         let fundsListView = FundsListView()
         fundsListView.tableView.delegate = self
         fundsListView.tableView.dataSource = self
+        fundsListView.tableView.register(FundTableViewCell.self, forCellReuseIdentifier: FundTableViewCell.identifier)
         return fundsListView
         
     }()
@@ -122,6 +123,8 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
 
         return [delete, share]
     }
+    
+    
 }
 
 extension FundsListViewController: NSFetchedResultsControllerDelegate {

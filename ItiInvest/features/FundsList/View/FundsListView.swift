@@ -45,7 +45,7 @@ class FundsListView: UIView {
     
     let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -101,6 +101,7 @@ class FundsListView: UIView {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
     
