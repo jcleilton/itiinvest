@@ -10,19 +10,19 @@ import UIKit
 
 class FundTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var amountLabel: UILabel!
-    @IBOutlet weak var percentageLabel: UILabel!
-    @IBOutlet weak var amountTitleLabel: UILabel!
-    @IBOutlet weak var percentageTitleLabel: UILabel!
+//    @IBOutlet weak var titleLabel: UILabel!
+//    @IBOutlet weak var amountLabel: UILabel!
+//    @IBOutlet weak var percentageLabel: UILabel!
+//    @IBOutlet weak var amountTitleLabel: UILabel!
+//    @IBOutlet weak var percentageTitleLabel: UILabel!
     
     static let identifier = "fundCell"
 
     func setup(with title: String, amount: Double, userAmount: Double) {
-        titleLabel.text = title.uppercased()
-        amountLabel.text = "R$ \(amount)"
-
-        percentageLabel.text = "\((amount * 100/userAmount).rounded())%"
+//        titleLabel.text = title.uppercased()
+//        amountLabel.text = "R$ \(amount)"
+//
+//        percentageLabel.text = "\((amount * 100/userAmount).rounded())%"
         setupAccessibility()
     }
 
@@ -30,7 +30,7 @@ class FundTableViewCell: UITableViewCell {
 
 extension FundTableViewCell {
     func setupAccessibility() {
-        percentageTitleLabel.accessibilityLabel = ITIString.percentageTitle
-        self.accessibilityElements = [titleLabel,amountTitleLabel, amountLabel, percentageTitleLabel, percentageLabel]
+//        percentageTitleLabel.accessibilityLabel = ITIString.percentageTitle
+//        self.accessibilityElements = [titleLabel,amountTitleLabel, amountLabel, percentageTitleLabel, percentageLabel]
     }
 }
