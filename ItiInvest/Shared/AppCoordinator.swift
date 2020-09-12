@@ -8,6 +8,24 @@
 
 import UIKit
 
-class AppCoordinator: NSObject {
+class AppCoordinator {
+    
+}
 
+extension AppCoordinator: BaseCoordinator {
+    var navigationController: UINavigationController
+    
+    init() {
+        navigationController = UINavigationController()
+    }
+    
+    convenience init(<#parameters#>) {
+        <#statements#>
+    }
+    
+    func start() {
+        //
+    }
+    
+    
 }

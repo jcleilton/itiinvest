@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import UIKit
+
+protocol BaseCoordinator: AnyObject {
+
+    var navigationController: UINavigationController { get set }
+
+    func start()
+}
