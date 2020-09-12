@@ -23,15 +23,13 @@
 		688B783A2503E33A00F40EE2 /* FundsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B78392503E33A00F40EE2 /* FundsListViewModel.swift */; };
 		688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B783B2503E41900F40EE2 /* LocalizableStrings.swift */; };
 		7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935870D250CFFC500FD8CBF /* FundsListView.swift */; };
-		79358710250D023900FD8CBF /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935870F250D023900FD8CBF /* UIColor+Hex.swift */; };
-		79358712250D036200FD8CBF /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79358711250D036200FD8CBF /* UIViewExtension.swift */; };
+		79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79358714250D091B00FD8CBF /* UIColor+Hex.swift */; };
 		8626F5F52503FAE800AECFC7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F42503FAE800AECFC7 /* Service.swift */; };
 		8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */; };
 		8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F72503FAF000AECFC7 /* StockAPIError.swift */; };
 		9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */; };
 		9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */; };
 		BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610CF2503C10E00D66EED /* AppDelegate.swift */; };
-		BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D12503C10E00D66EED /* SceneDelegate.swift */; };
 		BA3610D42503C10E00D66EED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D32503C10E00D66EED /* ViewController.swift */; };
 		BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D82503C10E00D66EED /* ItiInvest.xcdatamodeld */; };
 		BA3610DC2503C10F00D66EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3610DB2503C10F00D66EED /* Assets.xcassets */; };
@@ -78,8 +76,7 @@
 		688B78392503E33A00F40EE2 /* FundsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewModel.swift; sourceTree = "<group>"; };
 		688B783B2503E41900F40EE2 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
 		7935870D250CFFC500FD8CBF /* FundsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListView.swift; sourceTree = "<group>"; };
-		7935870F250D023900FD8CBF /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		79358711250D036200FD8CBF /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		79358714250D091B00FD8CBF /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		8626F5F42503FAE800AECFC7 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIResult.swift; sourceTree = "<group>"; };
 		8626F5F72503FAF000AECFC7 /* StockAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIError.swift; sourceTree = "<group>"; };
@@ -87,7 +84,6 @@
 		9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundViewModel.swift; sourceTree = "<group>"; };
 		BA3610CC2503C10E00D66EED /* ItiInvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItiInvest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3610CF2503C10E00D66EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA3610D12503C10E00D66EED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BA3610D32503C10E00D66EED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA3610D92503C10E00D66EED /* ItiInvest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ItiInvest.xcdatamodel; sourceTree = "<group>"; };
 		BA3610DB2503C10F00D66EED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -244,6 +240,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		79358713250D089600FD8CBF /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		8626F5F22503FAC700AECFC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +280,7 @@
 				BA3610E82503C10F00D66EED /* ItiInvestTests */,
 				BA3610F32503C10F00D66EED /* ItiInvestUITests */,
 				BA3610CD2503C10E00D66EED /* Products */,
+				79358713250D089600FD8CBF /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -300,7 +304,6 @@
 				687DBFA32503C8EE00A0FBBB /* Constants */,
 				BA3611022503C3F300D66EED /* features */,
 				BA3610CF2503C10E00D66EED /* AppDelegate.swift */,
-				BA3610D12503C10E00D66EED /* SceneDelegate.swift */,
 				BA3610D32503C10E00D66EED /* ViewController.swift */,
 				BA3610DB2503C10F00D66EED /* Assets.xcassets */,
 				BA3610DD2503C10F00D66EED /* LaunchScreen.storyboard */,
@@ -353,14 +356,9 @@
 		BA36110A2503FEE400D66EED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				BA36110B2503FEFE00D66EED /* UIButton+Gradient.swift */,
-				7935870F250D023900FD8CBF /* UIColor+Hex.swift */,
-				79358711250D036200FD8CBF /* UIViewExtension.swift */,
-=======
 				BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */,
 				0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */,
->>>>>>> 2.0
+				79358714250D091B00FD8CBF /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,12 +505,8 @@
 				2F95EE9D2503F2B400D1B37A /* CoreDataManager.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
-<<<<<<< HEAD
-				BA36110C2503FEFE00D66EED /* UIButton+Gradient.swift in Sources */,
-				79358710250D023900FD8CBF /* UIColor+Hex.swift in Sources */,
-=======
 				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
->>>>>>> 2.0
+				79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */,
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
 				0AAB834D250D041800B8E3DB /* Constant.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
@@ -520,12 +514,10 @@
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
 				0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
-				BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */,
 				9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */,
 				9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */,
 				8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */,
 				0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */,
-				79358712250D036200FD8CBF /* UIViewExtension.swift in Sources */,
 				8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */,
 				687DBFA22503C7E000A0FBBB /* FundsListViewController.swift in Sources */,
 				2F95EE982503ED2E00D1B37A /* HomeViewController.swift in Sources */,
@@ -706,7 +698,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -727,7 +719,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

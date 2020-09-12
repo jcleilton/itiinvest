@@ -8,7 +8,6 @@
 
 import UIKit
 
-<<<<<<< HEAD:ItiInvest/Extensions/UIButton+Gradient.swift
 extension UIButton {
 //    func applyGradient(color1: UIColor, color2: UIColor, locations: [NSNumber]?) {
 //        let gradient: CAGradientLayer = CAGradientLayer()
@@ -18,7 +17,8 @@ extension UIButton {
 //        gradient.endPoint = CGPoint(x: 1, y: 0.5)
 //        self.layer.insertSublayer(gradient, at: 0)
 //    }
-=======
+}
+
 extension UIView {
     func applyGradient(color1: UIColor, color2: UIColor, locations: [NSNumber]?) {
         let gradient: CAGradientLayer = CAGradientLayer()
@@ -28,10 +28,10 @@ extension UIView {
         gradient.endPoint = CGPoint(x: 1, y: 0.5)
         self.layer.insertSublayer(gradient, at: 0)
     }
->>>>>>> 2.0:ItiInvest/Extensions/UIView+Gradient.swift
+
     
-//    func applyCornerRadius() {
-//        self.clipsToBounds = true
-//        self.layer.cornerRadius = 20
-//    }
+    func applyCornerRadius() {
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 20
+    }
 }

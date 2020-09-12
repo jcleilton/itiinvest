@@ -16,6 +16,7 @@ class FundsListView: UIView {
     // MARK: - Properties
     let contentView: UIView = {
         let view = UIView(frame: .zero)
+        view.backgroundColor = .orange
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -25,7 +26,7 @@ class FundsListView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "meu patrimônio"
         label.font = UIFont(name: "Helvetica Neue Bold", size:  16.0)
-        label.textColor = UIColor(hex: "f6b592")
+        label.textColor = UIColor(hex: "#f6b592")
         return label
     }()
     
@@ -47,6 +48,8 @@ class FundsListView: UIView {
     
     init(){
         super.init(frame: .zero)
+        backgroundColor = .red
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -57,15 +60,21 @@ class FundsListView: UIView {
 
 extension FundsListView: CodeView{
     func setupComponents() {
+        print("setupComponents")
         addSubview(contentView)
     }
     
     func setupConstraints() {
-        
+        print("setupConstraints")
+        contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        contentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        contentView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        contentView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
     func setupExtraConfigurations() {
-        //TODO: Colocar .applyGradient na contentView
+        print("setupExtraConfigurations")
+        
     }
     
     
