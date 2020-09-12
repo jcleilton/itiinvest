@@ -23,7 +23,7 @@ class DetailViewController: UIViewController, HasCustomView {
     
     private var viewModel: DetailViewModel
     
-    weak var cordinator: DetailCoordinator?
+    weak var coordinator: DetailCoordinator?
     
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel

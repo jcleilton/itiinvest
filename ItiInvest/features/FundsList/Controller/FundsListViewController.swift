@@ -20,6 +20,7 @@ class FundsListViewController: UIViewController {
 //    @IBOutlet weak var newInvestmentButton: UIButton!
     
     let manager = CoreDataManager()
+    weak var coordinator: FundsListCoordinator?
     
     lazy var fundsListView: FundsListView = {
         let fundsListView = FundsListView()
@@ -124,6 +125,9 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         return [delete, share]
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.showDetails(stock: manager.getStockAt(indexPath))
+    }
     
 }
 
