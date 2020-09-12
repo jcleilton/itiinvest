@@ -9,7 +9,6 @@
 import UIKit
 
 class AppCoordinator: BaseCoordinator {
-
     var navigationController: UINavigationController
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
 
