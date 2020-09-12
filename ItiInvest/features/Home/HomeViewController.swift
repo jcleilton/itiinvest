@@ -49,6 +49,8 @@ enum Product: CaseIterable {
 
 final class HomeViewController: UIViewController {
     // MARK: - IBOutlets
+    private let 
+    
     @IBOutlet private weak var balanceValueLabel: UILabel!
     @IBOutlet private weak var balanceVisibilityButton: UIButton!
     @IBOutlet private weak var productCollectionView: UICollectionView! {
@@ -68,8 +70,19 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Variables
     private let products: [Product] = Product.allCases
+    private let viewModel: HomeViewModeling
     
     // MARK: - Life Cycle
+    init(viewModel: HomeViewModeling) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configView()
