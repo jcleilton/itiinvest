@@ -159,7 +159,16 @@ final class PurchaseFundViewController: UIViewController {
     // MARK: - IBActions
     
     @objc private func closeTouched(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        guard let quantity = amountTextField.text, let name = stockTextField.text, let price = priceTextField.text else {
+            return
+        }
+        do {
+            try viewModel.save(quantity: quantity, buyDate: datePicker.date, name: name, price: price)
+            self.dismiss(animated: true, completion: nil)
+        } catch {
+            
+        }
+        
     }
     
     @objc func didChangePrice(_ sender: UITextField, value: String, forCurrency: Bool = true) {
