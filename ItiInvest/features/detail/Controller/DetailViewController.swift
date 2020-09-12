@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, HasCustomView {
+    typealias CustomView = DetailView
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
@@ -20,11 +21,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var percentualValue: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
+    override func loadView() {
+        let customView = DetailView()
+        customView.setup()
+        view = customView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         fetchStockPrice()
-        
     }
     
     fileprivate func fetchStockPrice() {
@@ -33,8 +39,10 @@ class DetailViewController: UIViewController {
             guard let self = self else {return}
             switch result{
             case .success(let price):
-                self.todayCote.text = "\(price)"
-                //TODO: Atualizar o todayVaue com o price * quantidade
+                DispatchQueue.main.async {
+                    self.customView.todaysCotationValueLabel.text = "\(price)"
+                    //TODO: Atualizar o todayVaue com o price * quantidade
+                }
                 
             case .failure(_):
                 let alert = UIAlertController(title: "Erro!", message: "Ocorreu um erro na requisição", preferredStyle: .alert)
@@ -53,7 +61,7 @@ class DetailViewController: UIViewController {
     }
     
     func setupView() {
-        closeButton.setImage(UIImage(named: "close"), for: .normal)
+        
     }
     
     func setupAccessibility() {
