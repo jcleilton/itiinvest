@@ -164,6 +164,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Variables
     private let products: [Product] = Product.allCases
     private let viewModel: HomeViewModeling
+    weak var coordinator: HomeCoordinator?
     
     // MARK: - Life Cycle
     init(viewModel: HomeViewModeling) {
@@ -291,6 +292,6 @@ extension HomeViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        coordinator?.showFundsList()
     }
 }
