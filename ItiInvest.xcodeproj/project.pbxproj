@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */; };
+		0AAB834D250D041800B8E3DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834C250D041800B8E3DB /* Constant.swift */; };
+		0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */; };
+		2F281DC3250D14CA009C39CE /* UIView+LayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F281DC2250D14CA009C39CE /* UIView+LayoutGuide.swift */; };
 		2F5E4B5B250CF70900C1C16A /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E4B5A250CF70900C1C16A /* HomeFactory.swift */; };
 		2F5E4B5D250CF72000C1C16A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E4B5C250CF72000C1C16A /* HomeViewModel.swift */; };
 		2F95EE982503ED2E00D1B37A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F95EE932503ED2E00D1B37A /* HomeViewController.swift */; };
@@ -20,14 +24,20 @@
 		688B78342503E26000F40EE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 688B78332503E26000F40EE2 /* Localizable.strings */; };
 		688B783A2503E33A00F40EE2 /* FundsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B78392503E33A00F40EE2 /* FundsListViewModel.swift */; };
 		688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B783B2503E41900F40EE2 /* LocalizableStrings.swift */; };
+		68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */; };
+		68F53F4E250CFE8D00A796F5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */; };
+		68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */; };
+		68F53F52250D047300A796F5 /* FundsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F51250D047300A796F5 /* FundsListCoordinator.swift */; };
+		68F53F57250D064B00A796F5 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F56250D064B00A796F5 /* DetailCoordinator.swift */; };
+		68F53F59250D066000A796F5 /* PurchaseFundCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */; };
+		7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935870D250CFFC500FD8CBF /* FundsListView.swift */; };
+		79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79358714250D091B00FD8CBF /* UIColor+Hex.swift */; };
 		8626F5F52503FAE800AECFC7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F42503FAE800AECFC7 /* Service.swift */; };
 		8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */; };
 		8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F72503FAF000AECFC7 /* StockAPIError.swift */; };
-		9B0D5A642503C88F003E7C17 /* PurchaseFund.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0D5A632503C88F003E7C17 /* PurchaseFund.storyboard */; };
 		9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */; };
 		9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */; };
 		BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610CF2503C10E00D66EED /* AppDelegate.swift */; };
-		BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D12503C10E00D66EED /* SceneDelegate.swift */; };
 		BA3610D42503C10E00D66EED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D32503C10E00D66EED /* ViewController.swift */; };
 		BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D82503C10E00D66EED /* ItiInvest.xcdatamodeld */; };
 		BA3610DC2503C10F00D66EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3610DB2503C10F00D66EED /* Assets.xcassets */; };
@@ -37,7 +47,7 @@
 		BA3611052503C5F000D66EED /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3611042503C5F000D66EED /* Detail.storyboard */; };
 		BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3611062503CF2500D66EED /* DetailViewController.swift */; };
 		BA3611092503D0EA00D66EED /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3611082503D0EA00D66EED /* DetailViewModel.swift */; };
-		BA36110C2503FEFE00D66EED /* UIButton+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36110B2503FEFE00D66EED /* UIButton+Gradient.swift */; };
+		BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +68,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		0AAB834C250D041800B8E3DB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrants.swift"; sourceTree = "<group>"; };
+		2F281DC2250D14CA009C39CE /* UIView+LayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+LayoutGuide.swift"; sourceTree = "<group>"; };
 		2F5E4B5A250CF70900C1C16A /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
 		2F5E4B5C250CF72000C1C16A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		2F95EE932503ED2E00D1B37A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -71,15 +85,21 @@
 		688B78332503E26000F40EE2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		688B78392503E33A00F40EE2 /* FundsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewModel.swift; sourceTree = "<group>"; };
 		688B783B2503E41900F40EE2 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		68F53F51250D047300A796F5 /* FundsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListCoordinator.swift; sourceTree = "<group>"; };
+		68F53F56250D064B00A796F5 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundCoordinator.swift; sourceTree = "<group>"; };
+		7935870D250CFFC500FD8CBF /* FundsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListView.swift; sourceTree = "<group>"; };
+		79358714250D091B00FD8CBF /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		8626F5F42503FAE800AECFC7 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIResult.swift; sourceTree = "<group>"; };
 		8626F5F72503FAF000AECFC7 /* StockAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIError.swift; sourceTree = "<group>"; };
-		9B0D5A632503C88F003E7C17 /* PurchaseFund.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PurchaseFund.storyboard; sourceTree = "<group>"; };
 		9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundViewController.swift; sourceTree = "<group>"; };
 		9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundViewModel.swift; sourceTree = "<group>"; };
 		BA3610CC2503C10E00D66EED /* ItiInvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItiInvest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3610CF2503C10E00D66EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA3610D12503C10E00D66EED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BA3610D32503C10E00D66EED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA3610D92503C10E00D66EED /* ItiInvest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ItiInvest.xcdatamodel; sourceTree = "<group>"; };
 		BA3610DB2503C10F00D66EED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,7 +114,7 @@
 		BA3611042503C5F000D66EED /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		BA3611062503CF2500D66EED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BA3611082503D0EA00D66EED /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		BA36110B2503FEFE00D66EED /* UIButton+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Gradient.swift"; sourceTree = "<group>"; };
+		BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AAB8349250CFC4E00B8E3DB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		2F95EE922503ED2E00D1B37A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +172,7 @@
 		2F95EE9B2503F28600D1B37A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0AAB8349250CFC4E00B8E3DB /* Protocol */,
 				2F95EE9C2503F2B400D1B37A /* CoreDataManager.swift */,
 			);
 			path = Utils;
@@ -179,6 +208,7 @@
 		687DBFA32503C8EE00A0FBBB /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				0AAB834C250D041800B8E3DB /* Constant.swift */,
 				687DBFA42503C92200A0FBBB /* ITIColor.swift */,
 				687DBFA92503D90D00A0FBBB /* ITIString.swift */,
 				688B783B2503E41900F40EE2 /* LocalizableStrings.swift */,
@@ -190,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				687DBFA72503D34200A0FBBB /* FundTableViewCell.swift */,
+				7935870D250CFFC500FD8CBF /* FundsListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +257,33 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		68F53F49250CFE2900A796F5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		68F53F4C250CFE7900A796F5 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */,
+				68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */,
+				68F53F51250D047300A796F5 /* FundsListCoordinator.swift */,
+				68F53F56250D064B00A796F5 /* DetailCoordinator.swift */,
+				68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		79358713250D089600FD8CBF /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		8626F5F22503FAC700AECFC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +304,6 @@
 		9B0D5A622503C868003E7C17 /* Purchase Fund */ = {
 			isa = PBXGroup;
 			children = (
-				9B0D5A632503C88F003E7C17 /* PurchaseFund.storyboard */,
 				9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */,
 				9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */,
 			);
@@ -260,6 +317,7 @@
 				BA3610E82503C10F00D66EED /* ItiInvestTests */,
 				BA3610F32503C10F00D66EED /* ItiInvestUITests */,
 				BA3610CD2503C10E00D66EED /* Products */,
+				79358713250D089600FD8CBF /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -276,6 +334,8 @@
 		BA3610CE2503C10E00D66EED /* ItiInvest */ = {
 			isa = PBXGroup;
 			children = (
+				68F53F4C250CFE7900A796F5 /* Coordinator */,
+				68F53F49250CFE2900A796F5 /* Shared */,
 				2F95EE9B2503F28600D1B37A /* Utils */,
 				BA36110A2503FEE400D66EED /* Extensions */,
 				8626F5F32503FAD200AECFC7 /* Service */,
@@ -283,7 +343,6 @@
 				687DBFA32503C8EE00A0FBBB /* Constants */,
 				BA3611022503C3F300D66EED /* features */,
 				BA3610CF2503C10E00D66EED /* AppDelegate.swift */,
-				BA3610D12503C10E00D66EED /* SceneDelegate.swift */,
 				BA3610D32503C10E00D66EED /* ViewController.swift */,
 				BA3610DB2503C10F00D66EED /* Assets.xcassets */,
 				BA3610DD2503C10F00D66EED /* LaunchScreen.storyboard */,
@@ -336,7 +395,10 @@
 		BA36110A2503FEE400D66EED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BA36110B2503FEFE00D66EED /* UIButton+Gradient.swift */,
+				BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */,
+				0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */,
+				79358714250D091B00FD8CBF /* UIColor+Hex.swift */,
+				2F281DC2250D14CA009C39CE /* UIView+LayoutGuide.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -447,7 +509,6 @@
 			files = (
 				BA3610DF2503C10F00D66EED /* LaunchScreen.storyboard in Resources */,
 				BA3610DC2503C10F00D66EED /* Assets.xcassets in Resources */,
-				9B0D5A642503C88F003E7C17 /* PurchaseFund.storyboard in Resources */,
 				688B78342503E26000F40EE2 /* Localizable.strings in Resources */,
 				BA3611052503C5F000D66EED /* Detail.storyboard in Resources */,
 				687DBF9F2503C6A500A0FBBB /* FundsList.storyboard in Resources */,
@@ -477,23 +538,34 @@
 			files = (
 				BA3610D42503C10E00D66EED /* ViewController.swift in Sources */,
 				2F5E4B5B250CF70900C1C16A /* HomeFactory.swift in Sources */,
+				68F53F52250D047300A796F5 /* FundsListCoordinator.swift in Sources */,
 				688B783A2503E33A00F40EE2 /* FundsListViewModel.swift in Sources */,
+				68F53F57250D064B00A796F5 /* DetailCoordinator.swift in Sources */,
 				8626F5F52503FAE800AECFC7 /* Service.swift in Sources */,
 				2F95EE9A2503ED2E00D1B37A /* ProductCollectionViewCell.swift in Sources */,
 				2F5E4B5D250CF72000C1C16A /* HomeViewModel.swift in Sources */,
 				BA3611092503D0EA00D66EED /* DetailViewModel.swift in Sources */,
 				2F95EE9D2503F2B400D1B37A /* CoreDataManager.swift in Sources */,
+				68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */,
+				68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
-				BA36110C2503FEFE00D66EED /* UIButton+Gradient.swift in Sources */,
+				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
+				79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */,
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
+				2F281DC3250D14CA009C39CE /* UIView+LayoutGuide.swift in Sources */,
+				0AAB834D250D041800B8E3DB /* Constant.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
+				7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */,
+				68F53F4E250CFE8D00A796F5 /* AppCoordinator.swift in Sources */,
+				68F53F59250D066000A796F5 /* PurchaseFundCoordinator.swift in Sources */,
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
+				0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
-				BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */,
 				9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */,
 				9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */,
 				8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */,
+				0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */,
 				8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */,
 				687DBFA22503C7E000A0FBBB /* FundsListViewController.swift in Sources */,
 				2F95EE982503ED2E00D1B37A /* HomeViewController.swift in Sources */,
@@ -666,7 +738,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -687,7 +759,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

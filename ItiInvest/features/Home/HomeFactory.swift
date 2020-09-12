@@ -12,6 +12,6 @@ enum HomeFactory {
     static func make() -> UIViewController {
         let viewModel = HomeViewModel()
         let viewController = HomeViewController(viewModel: viewModel)
-        return UINavigationController(rootViewController: viewController)
+        return viewController
     }
 }

@@ -1,14 +1,15 @@
 //
-//  UIButton+Gradient.swift
+//  UIViewExtension.swift
 //  ItiInvest
 //
-//  Created by Develop on 05/09/20.
+//  Created by Islas Girão Garcia on 12/09/20.
 //  Copyright © 2020 DevBoostItau. All rights reserved.
 //
 
 import UIKit
 
-extension UIButton {
+extension UIView{
+    
     func applyGradient(color1: UIColor, color2: UIColor, locations: [NSNumber]?) {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = self.bounds
