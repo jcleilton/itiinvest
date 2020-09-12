@@ -22,6 +22,8 @@
 		688B78342503E26000F40EE2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 688B78332503E26000F40EE2 /* Localizable.strings */; };
 		688B783A2503E33A00F40EE2 /* FundsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B78392503E33A00F40EE2 /* FundsListViewModel.swift */; };
 		688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B783B2503E41900F40EE2 /* LocalizableStrings.swift */; };
+		7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935870D250CFFC500FD8CBF /* FundsListView.swift */; };
+		79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79358714250D091B00FD8CBF /* UIColor+Hex.swift */; };
 		68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */; };
 		68F53F4E250CFE8D00A796F5 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */; };
 		68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */; };
@@ -34,7 +36,6 @@
 		9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */; };
 		9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */; };
 		BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610CF2503C10E00D66EED /* AppDelegate.swift */; };
-		BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D12503C10E00D66EED /* SceneDelegate.swift */; };
 		BA3610D42503C10E00D66EED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D32503C10E00D66EED /* ViewController.swift */; };
 		BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D82503C10E00D66EED /* ItiInvest.xcdatamodeld */; };
 		BA3610DC2503C10F00D66EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3610DB2503C10F00D66EED /* Assets.xcassets */; };
@@ -80,6 +81,8 @@
 		688B78332503E26000F40EE2 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		688B78392503E33A00F40EE2 /* FundsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewModel.swift; sourceTree = "<group>"; };
 		688B783B2503E41900F40EE2 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		7935870D250CFFC500FD8CBF /* FundsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListView.swift; sourceTree = "<group>"; };
+		79358714250D091B00FD8CBF /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		68F53F4A250CFE3B00A796F5 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		68F53F4D250CFE8D00A796F5 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		68F53F4F250D004F00A796F5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -93,7 +96,6 @@
 		9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundViewModel.swift; sourceTree = "<group>"; };
 		BA3610CC2503C10E00D66EED /* ItiInvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItiInvest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3610CF2503C10E00D66EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA3610D12503C10E00D66EED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BA3610D32503C10E00D66EED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA3610D92503C10E00D66EED /* ItiInvest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ItiInvest.xcdatamodel; sourceTree = "<group>"; };
 		BA3610DB2503C10F00D66EED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				687DBFA72503D34200A0FBBB /* FundTableViewCell.swift */,
+				7935870D250CFFC500FD8CBF /* FundsListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,6 +252,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		79358713250D089600FD8CBF /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+
 		68F53F49250CFE2900A796F5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +278,7 @@
 				68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */,
 			);
 			path = Coordinator;
+
 			sourceTree = "<group>";
 		};
 		8626F5F22503FAC700AECFC7 /* Models */ = {
@@ -302,6 +314,7 @@
 				BA3610E82503C10F00D66EED /* ItiInvestTests */,
 				BA3610F32503C10F00D66EED /* ItiInvestUITests */,
 				BA3610CD2503C10E00D66EED /* Products */,
+				79358713250D089600FD8CBF /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -327,7 +340,6 @@
 				687DBFA32503C8EE00A0FBBB /* Constants */,
 				BA3611022503C3F300D66EED /* features */,
 				BA3610CF2503C10E00D66EED /* AppDelegate.swift */,
-				BA3610D12503C10E00D66EED /* SceneDelegate.swift */,
 				BA3610D32503C10E00D66EED /* ViewController.swift */,
 				BA3610DB2503C10F00D66EED /* Assets.xcassets */,
 				BA3610DD2503C10F00D66EED /* LaunchScreen.storyboard */,
@@ -382,6 +394,7 @@
 			children = (
 				BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */,
 				0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */,
+				79358714250D091B00FD8CBF /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -533,15 +546,18 @@
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
 				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
+				79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */,
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
 				0AAB834D250D041800B8E3DB /* Constant.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
+				7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */,
+
 				68F53F4E250CFE8D00A796F5 /* AppCoordinator.swift in Sources */,
 				68F53F59250D066000A796F5 /* PurchaseFundCoordinator.swift in Sources */,
+
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
 				0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
-				BA3610D22503C10E00D66EED /* SceneDelegate.swift in Sources */,
 				9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */,
 				9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */,
 				8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */,
@@ -726,7 +742,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -747,7 +763,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
