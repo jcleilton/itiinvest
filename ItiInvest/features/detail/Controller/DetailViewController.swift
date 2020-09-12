@@ -23,6 +23,8 @@ class DetailViewController: UIViewController, HasCustomView {
     
     private var viewModel: DetailViewModel
     
+    weak var cordinator: DetailCoordinator?
+    
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
         
@@ -43,6 +45,12 @@ class DetailViewController: UIViewController, HasCustomView {
         super.viewDidLoad()
         
         viewModel.todaysStockUpdated = updateTodaysValue
+        setupView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        customView.editButton.applyCornerRadius()
+        customView.editButton.applyGradient(color1: ITIColor.orange, color2: ITIColor.purple, locations: [0.0, 1.0])
     }
     
     func setupView() {
@@ -53,16 +61,22 @@ class DetailViewController: UIViewController, HasCustomView {
         customView.todaysPriceValueLabel.text = viewModel.todaysPrice
         customView.todaysCotationValueLabel.text = viewModel.todaysCotation
         
-    }
-    
-    func updateTodaysValue() {
-        print("atualiza as parada \(viewModel.todaysProfit)")
+        customView.editButton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
         
     }
     
-    @IBAction func editAction(_ sender: Any) {
+    func updateTodaysValue() {
+        DispatchQueue.main.async {
+            self.customView.todaysCotationValueLabel.text = self.viewModel.todaysCotation
+            self.customView.todaysPriceValueLabel.text = self.viewModel.todaysPrice
+            self.customView.todaysProfitabilityValueLabel.text = self.viewModel.todaysProfit
+        }
     }
     
-    @IBAction func closeAction(_ sender: Any) {
+    @objc func editAction() {
+        
+    }
+    
+    @objc func closeAction() {
     }
 }
