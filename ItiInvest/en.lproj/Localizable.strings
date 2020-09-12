@@ -36,6 +36,7 @@
 
 "form.title" = "Fill in the information about your new stock purchase";
 "form.active" = "Active";
+"form.invest" = "invest";
 "form.required" = "Required Field";
 "form.quantity" = "Quantity";
 "form.purchasePrice" = "Purchase Price";

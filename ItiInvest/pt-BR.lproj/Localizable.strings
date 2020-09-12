@@ -25,6 +25,7 @@
 
 "form.title" = "Preencha as informações sobre a sua nova compra de ações";
 "form.active" = "Ativo";
+"form.invest" = "investir";
 "form.required" = "Campo Obrigatório";
 "form.quantity" = "Quantidade";
 "form.purchasePrice" = "Preço de Compra";
