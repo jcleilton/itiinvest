@@ -19,5 +19,5 @@ protocol BaseCoordinator: AnyObject {
 
     @objc optional func showFundsList()
     @objc optional func showDetails()
-    @objc optional func showPurchaseFund()
+    @objc optional func showPurchaseFund(viewModel: PurchaseFundViewModel)
 }

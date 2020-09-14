@@ -21,7 +21,7 @@ class FundsListViewController: UIViewController {
     
     let manager = CoreDataManager()
     weak var coordinator: FundsListCoordinator?
-    
+ 
     lazy var fundsListView: FundsListView = {
         let fundsListView = FundsListView()
         fundsListView.tableView.delegate = self
@@ -118,11 +118,9 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
             // delete item at indexPath
         }
 
-        let share = UITableViewRowAction(style: .normal, title: "Edit") { [weak self] (action, indexPath) in
-            // edit item at indexPath
-            guard let self = self else { return }
-            let viewController = PurchaseFundViewController(viewModel: PurchaseFundViewModel(stock: self.manager.getStockAt(indexPath)))
-            self.show(viewController, sender: self)
+        let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+
+            self.coordinator?.showPurchaseFund(viewModel: PurchaseFundViewModel?(stock:manager.getStockAt(indexPath)))
         }
 
         share.backgroundColor = UIColor.blue

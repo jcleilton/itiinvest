@@ -8,7 +8,8 @@
 
 import Foundation
 
-class PurchaseFundViewModel {
+@objc
+class PurchaseFundViewModel: NSObject {
     private var stock: Stock?
     
     init(stock: Stock? = nil) {
