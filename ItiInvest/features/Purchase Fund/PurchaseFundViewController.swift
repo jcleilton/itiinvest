@@ -207,6 +207,15 @@ final class PurchaseFundViewController: UIViewController {
         }
     }
     
+    @objc func action() {
+        do {
+            try viewModel.save(quantity: amountTextField.text!, buyDate: datePicker.date, name: stockTextField.text!, price: priceTextField.text!)
+            self.navigationController?.popViewController(animated: true)
+        } catch {
+            print(error)
+        }
+    }
+    
     @objc private func doneEditing() {
         view.endEditing(true)
     }
@@ -352,6 +361,8 @@ extension PurchaseFundViewController: CodeView {
         self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
         self.priceTextField.text = viewModel.stockPrice
+        
+        self.investButton.addTarget(self, action: #selector(self.action), for: UIControl.Event.touchUpInside)
     }
     
     

@@ -69,6 +69,7 @@ class FundsListViewController: UIViewController {
         
 //        self.newInvestmentButton.applyGradient(color1: ITIColor.orange, color2: ITIColor.purple, locations: [0.0, 1.0])
 //        self.newInvestmentButton.applyCornerRadius()
+        fundsListView.bottomButton.addTarget(self, action: #selector(self.goToNewStock(_:)), for: UIControl.Event.touchUpInside)
         
     }
 
@@ -93,6 +94,9 @@ class FundsListViewController: UIViewController {
 //            self.navigationController?.pushViewController(viewController, animated: true)
 //        }
         
+        let viewController = PurchaseFundViewController(viewModel: PurchaseFundViewModel(stock: nil))
+        self.show(viewController, sender: self)
+        
     }
 }
 
@@ -106,7 +110,6 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
 
         let stock = manager.getStockAt(indexPath)
         cell.setup(with: stock.name ?? "", amount: stock.price, userAmount: amountValue())
-
         return cell
     }
     
@@ -114,14 +117,12 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             // delete item at indexPath
         }
-
-        let share = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-
-            self.coordinator?.showPurchaseFund(viewModel: PurchaseFundViewModel?(stock:manager.getStockAt(indexPath)))
+        let share = UITableViewRowAction(style: .normal, title: "Edit") { [weak self] (action, indexPath) in
+            guard let self = self else { return }
+            let viewModel = PurchaseFundViewModel(stock: self.manager.getStockAt(indexPath))
+            self.coordinator?.showPurchaseFund(viewModel: viewModel)
         }
-
         share.backgroundColor = UIColor.blue
-
         return [delete, share]
     }
     
