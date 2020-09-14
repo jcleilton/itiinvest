@@ -20,7 +20,7 @@ class HomeCoordinator: BaseCoordinator {
 
     func start() {
         let controller = HomeFactory.make()
-//        controller.coordinator = self
+        controller.coordinator = self
         navigationController.pushViewController(controller, animated: true)
     }
     
