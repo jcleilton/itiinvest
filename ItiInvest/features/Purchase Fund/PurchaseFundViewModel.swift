@@ -56,21 +56,21 @@ class PurchaseFundViewModel: NSObject {
     }
     
     func currencyFormattedFrom(string: String, forCurrency: Bool = true) -> String {
-        let currencySymbol: String = forCurrency ? "R$ " : ""
+        let currencySymbol: String = "R$"
         let numbers = string
             .replacingOccurrences(of: currencySymbol, with: "")
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: " ", with: "")
             .replacingOccurrences(of: ".", with: "")
             .replacingOccurrences(of: ",", with: "")
-        var zero = ""
-        if numbers.last == "0" {
-            zero = "0"
-        }
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.locale = Locale(identifier: "pt_BR")
-        let doubleValue = (Double(numbers) ?? 0) / (zero == "" ? 100 : 1)
         
-        return currencySymbol + (formatter.string(from: NSNumber(value: doubleValue)) ?? "")
+        let doubleValue: Double = (Double(Int(numbers) ?? 0)).rounded(FloatingPointRoundingRule.down) / 100
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "pt_BR")
+        let value = forCurrency ? (formatter.string(from: NSNumber(value: doubleValue)) ?? "") : (formatter.string(from: NSNumber(value: doubleValue)) ?? "").replacingOccurrences(of: currencySymbol, with: "")
+        return value
     }
     
     func save(quantity: String, buyDate: Date, name: String, price: String) throws {
