@@ -362,10 +362,55 @@ extension PurchaseFundViewController: CodeView {
         self.dateTextField.text = viewModel.stockDate
         self.priceTextField.text = viewModel.stockPrice
         
-        self.investButton.addTarget(self, action: #selector(self.action), for: UIControl.Event.touchUpInside)
+        self.investButton.addTarget(self, action: #selector(self.validateFields), for: UIControl.Event.touchUpInside)
+    }
+
+    private func setState(on textField: UITextField, toShow warning: Bool) -> Bool {
+        let currentLabelTitle = getRespectiveLabelFor(textField: textField)
+        if warning {
+            textField.textColor = .red
+            currentLabelTitle.textColor = .red
+            textField.text = LocalizableStrings.formRequiredField.localized()
+            return true
+        } else {
+
+            if textField === priceTextField || textField === amountTextField {
+                print(textField.text)
+                textField.text = "0,00"
+            }
+
+            textField.textColor = .darkGray
+            currentLabelTitle.textColor = .darkGray
+            
+        }
+        return false
     }
     
-    
+    func getRespectiveLabelFor(textField: UITextField) -> UILabel {
+        switch textField {
+        case stockTextField:
+            return stockLabel
+        case amountTextField:
+            return amountLabel
+        case priceTextField:
+            return priceLabel
+        default:
+            return UILabel() // Will never be executed
+        }
+    }
+
+    @objc private func validateFields() {
+        
+        let stockFieldIsInvalid = setState(on: stockTextField, toShow: stockTextField.text?.isEmpty ?? true)
+        let amountFieldIsInvalid = setState(on: amountTextField, toShow: amountTextField.text == "0,00")
+        let priceFieldIsInvalid = setState(on: priceTextField, toShow: priceTextField.text == "0,00")
+
+        if !stockFieldIsInvalid, !amountFieldIsInvalid, !priceFieldIsInvalid {
+            action()
+        } else {
+            print("----")
+        }
+    }
 }
 
 extension PurchaseFundViewController: UITextFieldDelegate {

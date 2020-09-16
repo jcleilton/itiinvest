@@ -41,3 +41,4 @@
 "form.quantity" = "Cantidad";
 "form.purchasePrice" = "Precio de compra";
 "form.startingDate" = "Fecha de inicio";
+"form.requiredField" = "Campo obligatorio";
