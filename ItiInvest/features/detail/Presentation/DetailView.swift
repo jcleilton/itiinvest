@@ -11,7 +11,7 @@ import UIKit
 class DetailView: UIView {
     
     let stockNameLabel = ItiLabel(text: "ITSA4 - ITAUSA", type: .title)
-
+    
     let quantityLabel = ItiLabel(text: LocalizableStrings.stockQuantity.localized(), type: .secondary)
     let quantityValueLabel = ItiLabel(text: "#Valor", type: .primary)
     let quantityStackView = DetailsStackView(axis: .vertical, alignment: .leading)
@@ -60,14 +60,27 @@ class DetailView: UIView {
     }()
     let todaysProfitabilityStackView = DetailsStackView(axis: .vertical, alignment: .center, distribution: .fill)
     
-    let editButton = ItiButton(titleText: LocalizableStrings.stockEditInformations.localized())
+    let editButton: UIButton = {
+        let button = GradientButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
+        button.setTitle(LocalizableStrings.stockEditInformations.localized(), for: .normal)
+        return button
+    }()
     
+    let closeButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(named: "close"), for: UIControl.State.normal)
+        return button
+    }()
 }
 
 extension DetailView: CodeView {
     func setupComponents() {
         backgroundColor = .white
         
+        self.addSubview(closeButton)
         quantityStackView.addArrangedSubview(quantityLabel)
         quantityStackView.addArrangedSubview(quantityValueLabel)
         priceStackView.addArrangedSubview(priceLabel)
@@ -96,7 +109,12 @@ extension DetailView: CodeView {
     }
     
     func setupConstraints() {
-        stockNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constant.Margin.verticalExtraLarge).isActive = true
+        closeButton.anchor(
+            top: (anchor: self.topAnchor, constant: Constant.Margin.verticalNormal),
+            right: (anchor: self.rightAnchor, constant: -Constant.Margin.horizontalNormal),
+            relativeWidth: (anchor: closeButton.heightAnchor, multiplier: 1, constant: 0),
+            height: 30)
+        stockNameLabel.topAnchor.constraint(equalTo: closeButton.topAnchor, constant: Constant.Margin.verticalLarge).isActive = true
         stockNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constant.Margin.horizontalLarge).isActive = true
         stockNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constant.Margin.horizontalLarge).isActive = true
         

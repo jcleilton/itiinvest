@@ -96,11 +96,17 @@ final class PurchaseFundViewController: UIViewController {
     }()
     
     let investButton: UIButton = {
+        let button = GradientButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
+        button.setTitle("Investir", for: .normal)
+        return button
+    }()
+    
+    let closeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.applyCornerRadius()
-        button.setTitle("Investir", for: .normal)
-        button.backgroundColor = ITIColor.orange
+        button.setBackgroundImage(UIImage(named: "close"), for: UIControl.State.normal)
         return button
     }()
     
@@ -264,13 +270,20 @@ extension PurchaseFundViewController: CodeView {
         view.addSubview(dateTextField)
         view.addSubview(investButton)
         view.addSubview(accessoryView)
+        view.addSubview(closeButton)
     }
     
     func setupConstraints() {
+        closeButton.anchor(
+            top: (anchor: view.safeAreaLayoutGuide.topAnchor, constant: Constant.Margin.verticalNormal),
+            right: (anchor: view.rightAnchor, constant: -Constant.Margin.horizontalNormal),
+            relativeWidth: (anchor: closeButton.heightAnchor, multiplier: 1, constant: 0),
+            height: 30)
+        
         titleLabel.anchor(
             left: (anchor: view.leftAnchor, constant: Constant.Margin.horizontalNormal),
             right: (anchor: view.rightAnchor, constant: -Constant.Margin.horizontalNormal))
-        let topConstraint = titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.Margin.verticalNormal)
+        let topConstraint = titleLabel.topAnchor.constraint(equalTo: closeButton.topAnchor, constant: Constant.Margin.verticalLarge)
         topConstraint.priority = .defaultLow
         topConstraint.isActive = true
         
@@ -332,7 +345,6 @@ extension PurchaseFundViewController: CodeView {
 
         self.bottomConstraint = investButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.Margin.verticalNormal)
         self.bottomConstraint?.isActive = true
-        
     }
     
     func setupExtraConfigurations() {
@@ -362,7 +374,7 @@ extension PurchaseFundViewController: CodeView {
         
         self.titleLabel.text = viewModel.getTitle
         self.stockTextField.text = viewModel.stockName
-        self.amountTextField.text = viewModel.stockAmount
+//        self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
         self.priceTextField.text = viewModel.stockPrice
         
@@ -377,7 +389,7 @@ extension PurchaseFundViewController: UITextFieldDelegate {
         switch textField.tag {
         case 0, 3:
             return true
-        case 1, 2:
+        case 2:
             if let text = textField.text,
                let textRange = Range(range, in: text) {
                let updatedText = text.replacingCharacters(in: textRange,
@@ -387,7 +399,7 @@ extension PurchaseFundViewController: UITextFieldDelegate {
             
             return false
         default:
-            return false
+            return true
         }
     }
 }
