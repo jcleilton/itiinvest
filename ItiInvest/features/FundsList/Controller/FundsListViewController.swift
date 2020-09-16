@@ -64,9 +64,7 @@ class FundsListViewController: UIViewController {
     }
     
     @objc func goToNewStock(_ sender: Any) {
-        let viewController = PurchaseFundViewController(viewModel: PurchaseFundViewModel(stock: nil))
-        self.show(viewController, sender: self)
-        
+        coordinator?.showPurchaseFund(viewModel: PurchaseFundViewModel())
     }
     
     deinit {
