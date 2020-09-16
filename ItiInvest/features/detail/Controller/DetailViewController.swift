@@ -56,7 +56,7 @@ class DetailViewController: UIViewController, HasCustomView {
         customView.todaysCotationValueLabel.text = viewModel.todaysCotation
         
         customView.editButton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
-        customView.closeButton.addTarget(self, action: #selector(closeButton), for: .touchUpInside)
+        customView.closeButton.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
     }
     
     func updateTodaysValue() {
