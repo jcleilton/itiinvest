@@ -43,13 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupNavigationBarAppearance() {
-//        let navBarAppearance = UINavigationBar.appearance()
-//        let standartAppearance = UINavigationBarAppearance()
-//        standartAppearance.configureWithOpaqueBackground()
-//        standartAppearance.shadowColor = .clear
-//        standartAppearance.backgroundColor = UIColor(named: "DarkGray")
-//        navBarAppearance.standardAppearance = standartAppearance
-//        navBarAppearance.tintColor = UIColor.white
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.tintColor = UIColor.white
     }
 
     
