@@ -358,7 +358,7 @@ extension PurchaseFundViewController: CodeView {
         
         self.titleLabel.text = viewModel.getTitle
         self.stockTextField.text = viewModel.stockName
-        self.amountTextField.text = viewModel.stockAmount
+//        self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
         self.priceTextField.text = viewModel.stockPrice
         
@@ -373,7 +373,7 @@ extension PurchaseFundViewController: UITextFieldDelegate {
         switch textField.tag {
         case 0, 3:
             return true
-        case 1, 2:
+        case 2:
             if let text = textField.text,
                let textRange = Range(range, in: text) {
                let updatedText = text.replacingCharacters(in: textRange,
@@ -383,7 +383,7 @@ extension PurchaseFundViewController: UITextFieldDelegate {
             
             return false
         default:
-            return false
+            return true
         }
     }
 }
