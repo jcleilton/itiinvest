@@ -10,18 +10,10 @@ import UIKit
 import CoreData
 
 class FundsListViewController: UIViewController {
-
-//    // MARK: - Outlets
-//    @IBOutlet weak var backgroundGradientView: UIView!
-//    @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var totalAmountLabel: UILabel!
-//    @IBOutlet weak var hideAmountButton: UIButton!
-//    @IBOutlet weak var patrimonyLabel: UILabel!
-//    @IBOutlet weak var newInvestmentButton: UIButton!
-    
+    // MARK: - Properties
     let manager = CoreDataManager()
     weak var coordinator: FundsListCoordinator?
- 
+    
     lazy var fundsListView: FundsListView = {
         let fundsListView = FundsListView()
         fundsListView.tableView.delegate = self
@@ -31,51 +23,34 @@ class FundsListViewController: UIViewController {
         
     }()
     
+    // MARK: - Super Methods
     override func loadView() {
         super.loadView()
         fundsListView.tableView.delegate = self
         fundsListView.tableView.dataSource = self
         view = fundsListView
-        
     }
     
-
-    // MARK: - Parameters
-
-    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         manager.delegate = self
         manager.performFetch()
         setupView()
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
     
     // MARK: - Private Methods
-    
     private func setupView() {
-//        tableView.delegate = self
-//        tableView.dataSource = self
-
         let gradient = CAGradientLayer()
-
-//        gradient.frame = backgroundGradientView.bounds
-//        gradient.colors = [UIColor.white.cgColor, UIColor.black.cgColor]
-
+        
         view.layer.insertSublayer(gradient, at: 0)
         
-//        self.newInvestmentButton.applyGradient(color1: ITIColor.orange, color2: ITIColor.purple, locations: [0.0, 1.0])
-//        self.newInvestmentButton.applyCornerRadius()
         fundsListView.bottomButton.addTarget(self, action: #selector(self.goToNewStock(_:)), for: UIControl.Event.touchUpInside)
-        
     }
-
-    private func roundCorners() {
-        // TODO: -
-    }
+    
     private func amountValue() -> Double {
         let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
             (stock.price * Double(Int(stock.quantity))) + result
@@ -87,13 +62,8 @@ class FundsListViewController: UIViewController {
     private func setupAccessibility() {
         //hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
     }
-  
-    @IBAction func goToNewStock(_ sender: Any) {
-//        let storyBoard = UIStoryboard.init(name: "Detail", bundle: nil)
-//        if let viewController = storyBoard.instantiateInitialViewController() {
-//            self.navigationController?.pushViewController(viewController, animated: true)
-//        }
-        
+    
+    @objc func goToNewStock(_ sender: Any) {
         let viewController = PurchaseFundViewController(viewModel: PurchaseFundViewModel(stock: nil))
         self.show(viewController, sender: self)
         
@@ -111,23 +81,38 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FundTableViewCell.identifier) as? FundTableViewCell else { return UITableViewCell() }
-
+        
         let stock = manager.getStockAt(indexPath)
         cell.setup(with: stock.name ?? "", amount: stock.price, userAmount: amountValue())
         return cell
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            // delete item at indexPath
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let shareAction = UIContextualAction(style: .normal, title: "Delete") { [weak self] (action, view, handler) in
+            guard let self = self else { return }
+            let stock = self.manager.getStockAt(indexPath)
+            do {
+                try self.manager.delete(data: stock)
+            } catch {
+                
+            }
         }
-        let share = UITableViewRowAction(style: .normal, title: "Edit") { [weak self] (action, indexPath) in
+        shareAction.backgroundColor = UIColor.red
+        let configuration = UISwipeActionsConfiguration(actions: [shareAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let shareAction = UIContextualAction(style: .normal, title: "Editar") { [weak self] (action, view, handler) in
             guard let self = self else { return }
             let viewModel = PurchaseFundViewModel(stock: self.manager.getStockAt(indexPath))
             self.coordinator?.showPurchaseFund(viewModel: viewModel)
         }
-        share.backgroundColor = UIColor.blue
-        return [delete, share]
+        shareAction.backgroundColor = UIColor.systemBlue
+        let configuration = UISwipeActionsConfiguration(actions: [shareAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
