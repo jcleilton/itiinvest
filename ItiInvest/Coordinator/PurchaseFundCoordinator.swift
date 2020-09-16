@@ -21,9 +21,8 @@ class PurchaseFundCoordinator: BaseCoordinator {
         let viewModel = PurchaseFundViewModel()
         let controller = PurchaseFundViewController(viewModel: viewModel)
 
-//        controller.viewModel = viewModel
-//        controller.coordinator = self
+        controller.coordinator = self
 
-        navigationController.pushViewController(controller, animated: true)
+        navigationController.present(controller, animated: true)
     }
 }

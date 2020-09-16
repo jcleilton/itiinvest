@@ -23,14 +23,10 @@ class DetailCoordinator: BaseCoordinator {
     }
 
     func start() {
-        let fundsController = FundsListViewController()
-        
-    
         detailViewController = DetailViewController(viewModel: detailViewModel!)
         detailViewController?.coordinator = self
 
-        navigationController.pushViewController(fundsController, animated: true)
-        fundsController.present(detailViewController!, animated: true)
+        navigationController.present(detailViewController!, animated: true)
     }
     
     func showPurchaseFund() {
