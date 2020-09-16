@@ -43,14 +43,8 @@ class DetailViewController: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel.todaysStockUpdated = updateTodaysValue
         setupView()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        customView.editButton.applyCornerRadius()
-        customView.editButton.applyGradient(color1: ITIColor.orange, color2: ITIColor.purple, locations: [0.0, 1.0])
     }
     
     func setupView() {
@@ -62,7 +56,7 @@ class DetailViewController: UIViewController, HasCustomView {
         customView.todaysCotationValueLabel.text = viewModel.todaysCotation
         
         customView.editButton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
-        
+        customView.closeButton.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
     }
     
     func updateTodaysValue() {
