@@ -24,17 +24,7 @@ class FundCellView: UIView{
         view.backgroundColor = UIColor(rgb: 0xff007e)
         return view
     }()
-    
-    let titleLabel: UIView = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Corretora"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor(rgb: 0x3c3c43)
-        
-        return label
-    }()
-    
+
     let subTitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -151,7 +141,6 @@ extension FundCellView: CodeView{
         addSubview(containerView)
         containerView.addSubview(accessoryDetailView)
         containerView.addSubview(mainStackView)
-        mainStackView.addArrangedSubview(titleLabel)
         mainStackView.addArrangedSubview(subTitleLabel)
         mainStackView.addArrangedSubview(secondaryStackView)
         
