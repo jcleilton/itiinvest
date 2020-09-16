@@ -245,6 +245,10 @@ final class PurchaseFundViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.view.layoutIfNeeded()
     }
+    
+    deinit {
+        coordinator?.childDidFinish(nil)
+    }
 }
 
 extension PurchaseFundViewController: CodeView {

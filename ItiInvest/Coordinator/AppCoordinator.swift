@@ -9,22 +9,29 @@
 import UIKit
 
 class AppCoordinator: BaseCoordinator {
+    
     var navigationController: UINavigationController
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
 
     init() {
         navigationController = UINavigationController()
         
-        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController.navigationBar.shadowImage = UIImage()
-        navigationController.navigationBar.isTranslucent = true
+        setupNavigationController()
     }
 
     func start() {
         let child = HomeCoordinator(navigationController: navigationController)
         
-        childCoordinators.append(child)
+        add(childCoordinator: child)
         child.start()
+    }
+    
+    private func setupNavigationController() {
+        UINavigationBar.appearance().tintColor = .white
+        
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
     }
     
 }

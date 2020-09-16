@@ -98,6 +98,10 @@ class FundsListViewController: UIViewController {
         self.show(viewController, sender: self)
         
     }
+    
+    deinit {
+        coordinator?.childDidFinish(nil)
+    }
 }
 
 extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
