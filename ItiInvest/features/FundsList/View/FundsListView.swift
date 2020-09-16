@@ -161,9 +161,9 @@ extension FundsListView: CodeView{
         headerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         headerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         headerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 190).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 220).isActive = true
         
-        mainStackView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 80).isActive = true
+        mainStackView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 100).isActive = true
         mainStackView.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -40).isActive = true
         mainStackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20).isActive = true
         mainStackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
