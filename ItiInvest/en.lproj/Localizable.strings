@@ -41,3 +41,5 @@
 "form.quantity" = "Quantity";
 "form.purchasePrice" = "Purchase Price";
 "form.startingDate" = "Starting Date";
+"form.requiredField" = "Required Field";
+"form.titleEdit" = "Edit informations";

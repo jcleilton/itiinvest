@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A98EDE92512DF41007792DC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98EDE82512DF41007792DC /* Alert.swift */; };
 		0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */; };
 		0AAB834D250D041800B8E3DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834C250D041800B8E3DB /* Constant.swift */; };
 		0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A98EDE82512DF41007792DC /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		0AAB834C250D041800B8E3DB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		0AAB834E250D05AE00B8E3DB /* UIView+Constrants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constrants.swift"; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				9B97D589250CFDB100FB46C9 /* ItiButton.swift */,
 				9B97D58D250CFDE600FB46C9 /* ItiLabel.swift */,
 				9B97D58F250D104B00FB46C9 /* DetailsStackView.swift */,
+				0A98EDE82512DF41007792DC /* Alert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
 				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
 				79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */,
+				0A98EDE92512DF41007792DC /* Alert.swift in Sources */,
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
 				9B97D58A250CFDB100FB46C9 /* ItiButton.swift in Sources */,
 				2F281DC3250D14CA009C39CE /* UIView+LayoutGuide.swift in Sources */,
