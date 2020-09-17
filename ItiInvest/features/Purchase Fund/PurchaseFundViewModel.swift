@@ -75,6 +75,7 @@ class PurchaseFundViewModel: NSObject {
         guard let quantity = getInt(from: quantity), let price = getDoubleFrom(from: price) else {
             throw StockAPIError.invalidSymbol
         }
+
         guard let stock = stock else {
             do {
                 try CoreDataManager().create(
@@ -107,6 +108,7 @@ class PurchaseFundViewModel: NSObject {
     }
     
     private func getDoubleFrom(from string: String) -> Double? {
+
         let currencySymbol: String = "R$"
         let numbers = string.replacingOccurrences(of: currencySymbol, with: "")
             .replacingOccurrences(of: " ", with: "")

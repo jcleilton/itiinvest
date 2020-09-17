@@ -387,7 +387,7 @@ extension PurchaseFundViewController: CodeView {
             return true
         } else {
 
-            if textField === priceTextField {
+            if textField === priceTextField, textField.text == LocalizableStrings.formRequiredField.localized() {
                 textField.text = "0,00"
             }
 

@@ -45,12 +45,12 @@ class FundsListViewController: UIViewController {
     // MARK: - Private Methods
     private func setupView() {
         let gradient = CAGradientLayer()
-        
+
         view.layer.insertSublayer(gradient, at: 0)
-        
+
         fundsListView.bottomButton.addTarget(self, action: #selector(self.goToNewStock(_:)), for: UIControl.Event.touchUpInside)
     }
-    
+
     private func amountValue() -> Double {
         let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
             (stock.price * Double(Int(stock.quantity))) + result
@@ -58,15 +58,11 @@ class FundsListViewController: UIViewController {
         self.fundsListView.valueLabel.text = "R$ \(stockValue ?? 0.0)"
         return stockValue ?? 0.0
     }
-    
-    private func setupAccessibility() {
-        
-    }
-    
+
     @objc func goToNewStock(_ sender: Any) {
         coordinator?.showPurchaseFund(viewModel: PurchaseFundViewModel())
     }
-    
+
     deinit {
         coordinator?.childDidFinish(nil)
     }
