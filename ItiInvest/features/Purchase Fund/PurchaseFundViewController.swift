@@ -170,24 +170,15 @@ final class PurchaseFundViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @objc private func closeTouched(_ sender: UIButton) {
-        guard let quantity = amountTextField.text, let name = stockTextField.text, let price = priceTextField.text else {
-            return
-        }
-        do {
-            try viewModel.save(quantity: quantity, buyDate: datePicker.date, name: name, price: price)
-            self.dismiss(animated: true, completion: nil)
-        } catch {
-            
-        }
-        
-    }
     
     @objc func didChangePrice(_ sender: UITextField, value: String, forCurrency: Bool = true) {
         sender.text = viewModel.currencyFormattedFrom(string: value, forCurrency: forCurrency)
     }
     
     // MARK: - Private Functions
+    @objc private func closeTouched() {
+        dismiss(animated: true, completion: nil)
+    }
     
     @objc private func previousTextField() {
         if stockTextField.isEditing {
@@ -250,6 +241,10 @@ final class PurchaseFundViewController: UIViewController {
         self.bottomConstraint?.constant = -Constant.Margin.verticalNormal
         self.navigationController?.navigationBar.isHidden = false
         self.view.layoutIfNeeded()
+    }
+    
+    deinit {
+        coordinator?.childDidFinish(nil)
     }
 }
 
@@ -370,12 +365,14 @@ extension PurchaseFundViewController: CodeView {
         
         self.titleLabel.text = viewModel.getTitle
         self.stockTextField.text = viewModel.stockName
-//        self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
 
         self.priceTextField.text = String(viewModel.stockPrice.dropFirst())
-        
+  
         self.investButton.addTarget(self, action: #selector(self.validateFields), for: UIControl.Event.touchUpInside)
+
+        investButton.addTarget(self, action: #selector(self.action), for: UIControl.Event.touchUpInside)
+        closeButton.addTarget(self, action: #selector(closeTouched), for: .touchUpInside)
     }
 
     private func setState(on textField: UITextField, toShow warning: Bool) -> Bool {
@@ -419,8 +416,6 @@ extension PurchaseFundViewController: CodeView {
 
         if !stockFieldIsInvalid, !amountFieldIsInvalid, !priceFieldIsInvalid {
             action()
-        } else {
-            print("----")
         }
     }
 }

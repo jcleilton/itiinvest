@@ -72,5 +72,10 @@ class DetailViewController: UIViewController, HasCustomView {
     }
     
     @objc func closeAction() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    deinit {
+        coordinator?.childDidFinish(nil)
     }
 }

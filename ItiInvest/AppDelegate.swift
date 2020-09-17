@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupNavigationBarAppearance()
+        
         window = window ?? UIWindow()
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
@@ -41,12 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator?.start()
         return true
     }
-    
-    private func setupNavigationBarAppearance() {
-        let navBarAppearance = UINavigationBar.appearance()
-        navBarAppearance.tintColor = UIColor.white
-    }
-
     
 
     // MARK: - Core Data stack
