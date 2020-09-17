@@ -209,7 +209,9 @@ final class PurchaseFundViewController: UIViewController {
             try viewModel.save(quantity: amountTextField.text!, buyDate: datePicker.date, name: stockTextField.text!, price: priceTextField.text!)
             self.navigationController?.popViewController(animated: true)
         } catch {
-            print(error)
+            Alert.defaultWithOKButton(in: self, title: "Erro!", subtitle: "Não foi possível cadastrar esse novo investimento. Tente novamente mais tarde") {
+                print("Do something")
+            }
         }
     }
     
