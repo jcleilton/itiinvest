@@ -99,7 +99,7 @@ final class PurchaseFundViewController: UIViewController {
         let button = GradientButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .white
-        button.setTitle("Investir", for: .normal)
+        button.setTitle(LocalizableStrings.formInvest.localized(), for: .normal)
         return button
     }()
     
@@ -235,7 +235,7 @@ final class PurchaseFundViewController: UIViewController {
             self?.navigationController?.navigationBar.isHidden = true
             self?.view.layoutIfNeeded()
         }) { (success) in
-            print("Teclado terminou de aparecer")
+            // TODO: - do something
         }
     }
     

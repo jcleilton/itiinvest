@@ -44,6 +44,7 @@ enum LocalizableStrings: String {
     case formPurchasePrice = "form.purchasePrice"
     case formStartingDate = "form.startingDate"
     case formRequiredField = "form.requiredField"
+    case formTitleEdit = "form.titleEdit"
 
     func localized() -> String { rawValue.localized() }
 }
