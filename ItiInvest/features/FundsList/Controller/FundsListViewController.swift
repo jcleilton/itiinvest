@@ -60,7 +60,7 @@ class FundsListViewController: UIViewController {
     }
     
     private func setupAccessibility() {
-        //hideAmountButton.accessibilityLabel = LocalizableStrings.hideShowButton.localized()
+        
     }
     
     @objc func goToNewStock(_ sender: Any) {
