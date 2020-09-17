@@ -31,7 +31,7 @@ class PurchaseFundViewModel: NSObject {
     }
     
     var stockAmount: String {
-        currencyFormattedFrom(string: "\(stock?.quantity ?? 0)", forCurrency: false)
+        "\(stock?.quantity ?? 0)"
     }
     
     var stockPrice: String {

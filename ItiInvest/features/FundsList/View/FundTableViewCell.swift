@@ -154,7 +154,6 @@ extension FundCellView: CodeView{
         percentStackView.addArrangedSubview(percentLabel)
         percentStackView.addArrangedSubview(percentValueLabel)
         
-        
     }
     
     func setupConstraints() {
@@ -174,25 +173,15 @@ extension FundCellView: CodeView{
         mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20).isActive = true
         
         percentStackView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor).isActive = true
-        
     }
     
     func setupExtraConfigurations() {
         
     }
-    
-    
+
 }
 
-
-
 class FundTableViewCell: UITableViewCell {
-
-//    @IBOutlet weak var titleLabel: UILabel!
-//    @IBOutlet weak var amountLabel: UILabel!
-//    @IBOutlet weak var percentageLabel: UILabel!
-//    @IBOutlet weak var amountTitleLabel: UILabel!
-//    @IBOutlet weak var percentageTitleLabel: UILabel!
     
     static let identifier = "fundCell"
 
@@ -217,14 +206,8 @@ class FundTableViewCell: UITableViewCell {
         fundCellView.subTitleLabel.text = title.uppercased()
         fundCellView.currentBalanceValueLabel.text = "R$ \(amount)"
         fundCellView.percentValueLabel.text = "\((amount * 100/userAmount).rounded())%"
+        selectionStyle = .none
         
-        
-        
-        
-//        titleLabel.text = title.uppercased()
-//        amountLabel.text = "R$ \(amount)"
-//
-//        percentageLabel.text = "\((amount * 100/userAmount).rounded())%"
         setupAccessibility()
     }
 
@@ -232,11 +215,6 @@ class FundTableViewCell: UITableViewCell {
 
 extension FundTableViewCell {
     func setupAccessibility() {
-////        percentageTitleLabel.accessibilityLabel = ITIString.percentageTitle
-//<<<<<<< HEAD
-////        self.accessibilityElements = [titleLabel,amountTitleLabel, amountLabel, percentageTitleLabel, percentageLabel]
-//=======
-//        self.accessibilityElements = [titleLabel,amountTitleLabel, amountLabel, percentageTitleLabel, percentageLabel]
-//>>>>>>> dev/2.0
+
     }
 }

@@ -10,17 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController, HasCustomView {
     typealias CustomView = DetailView
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var salePriceLabel: UILabel!
-    @IBOutlet weak var saleDateLabel: UILabel!
-    @IBOutlet weak var totalVallueLabel: UILabel!
-    @IBOutlet weak var todayCote: UILabel!
-    @IBOutlet weak var todayValue: UILabel!
-    @IBOutlet weak var percentualValue: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
-    
+        
     private var viewModel: DetailViewModel
     
     weak var coordinator: DetailCoordinator?
@@ -68,7 +58,7 @@ class DetailViewController: UIViewController, HasCustomView {
     }
     
     @objc func editAction() {
-        
+        coordinator?.showPurchaseFund()
     }
     
     @objc func closeAction() {

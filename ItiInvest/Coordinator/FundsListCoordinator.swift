@@ -35,7 +35,7 @@ class FundsListCoordinator: BaseCoordinator {
     }
     
     func showPurchaseFund(viewModel: PurchaseFundViewModel) {
-        let child = PurchaseFundCoordinator(navigationController: navigationController)
+        let child = PurchaseFundCoordinator(navigationController: navigationController, purchaseFundViewModel: viewModel)
         
         add(childCoordinator: child)
         child.start()
