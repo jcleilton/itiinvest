@@ -89,8 +89,9 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
             let stock = self.manager.getStockAt(indexPath)
             do {
                 try self.manager.delete(data: stock)
+                tableView.reloadData()
             } catch {
-                
+                self.showFailDeleteAlert()
             }
         }
         shareAction.backgroundColor = UIColor.red
@@ -113,6 +114,15 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator?.showDetails(stock: manager.getStockAt(indexPath))
+    }
+    
+    private func showFailDeleteAlert() {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            Alert.defaultWithOKButton(in: self, title: "Atenção", subtitle: "Não foi possível apagar...") {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
 }

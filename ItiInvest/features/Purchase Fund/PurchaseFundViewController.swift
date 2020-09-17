@@ -180,7 +180,6 @@ final class PurchaseFundViewController: UIViewController {
         } catch {
             
         }
-        
     }
     
     @objc func didChangePrice(_ sender: UITextField, value: String, forCurrency: Bool = true) {
