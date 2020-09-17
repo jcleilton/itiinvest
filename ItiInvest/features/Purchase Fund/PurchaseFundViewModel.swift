@@ -69,7 +69,7 @@ class PurchaseFundViewModel: NSObject {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "pt_BR")
-        let value = forCurrency ? (formatter.string(from: NSNumber(value: doubleValue)) ?? "") : (formatter.string(from: NSNumber(value: doubleValue)) ?? "").replacingOccurrences(of: currencySymbol, with: "")
+        let value = forCurrency ? (formatter.string(from: NSNumber(value: doubleValue)) ?? "") : (formatter.string(from: NSNumber(value: doubleValue)) ?? "").replacingOccurrences(of: currencySymbol, with: "").replacingOccurrences(of: " ", with: "")
         return value
     }
     
