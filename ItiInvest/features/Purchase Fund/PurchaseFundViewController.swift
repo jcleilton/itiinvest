@@ -170,23 +170,15 @@ final class PurchaseFundViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @objc private func closeTouched(_ sender: UIButton) {
-        guard let quantity = amountTextField.text, let name = stockTextField.text, let price = priceTextField.text else {
-            return
-        }
-        do {
-            try viewModel.save(quantity: quantity, buyDate: datePicker.date, name: name, price: price)
-            self.dismiss(animated: true, completion: nil)
-        } catch {
-            
-        }
-    }
     
     @objc func didChangePrice(_ sender: UITextField, value: String, forCurrency: Bool = true) {
         sender.text = viewModel.currencyFormattedFrom(string: value, forCurrency: forCurrency)
     }
     
     // MARK: - Private Functions
+    @objc private func closeTouched() {
+        dismiss(animated: true, completion: nil)
+    }
     
     @objc private func previousTextField() {
         if stockTextField.isEditing {
@@ -249,6 +241,10 @@ final class PurchaseFundViewController: UIViewController {
         self.bottomConstraint?.constant = -Constant.Margin.verticalNormal
         self.navigationController?.navigationBar.isHidden = false
         self.view.layoutIfNeeded()
+    }
+    
+    deinit {
+        coordinator?.childDidFinish(nil)
     }
 }
 
@@ -371,15 +367,84 @@ extension PurchaseFundViewController: CodeView {
         self.stockTextField.text = viewModel.stockName
 //        self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
-        self.priceTextField.text = viewModel.stockPrice
-        
-        self.investButton.addTarget(self, action: #selector(self.action), for: UIControl.Event.touchUpInside)
+
+        self.priceTextField.text = String(viewModel.stockPrice.dropFirst())
+  
+        self.investButton.addTarget(self, action: #selector(self.validateFields), for: UIControl.Event.touchUpInside)
+
+        investButton.addTarget(self, action: #selector(self.action), for: UIControl.Event.touchUpInside)
+        closeButton.addTarget(self, action: #selector(closeTouched), for: .touchUpInside)
+    }
+
+    private func setState(on textField: UITextField, toShow warning: Bool) -> Bool {
+        let currentLabelTitle = getRespectiveLabelFor(textField: textField)
+        if warning {
+            textField.textColor = .red
+            currentLabelTitle.textColor = .red
+            textField.text = LocalizableStrings.formRequiredField.localized()
+            return true
+        } else {
+
+            if textField === priceTextField {
+                textField.text = "0,00"
+            }
+
+            textField.textColor = .darkGray
+            currentLabelTitle.textColor = .darkGray
+            
+        }
+        return false
     }
     
-    
+    func getRespectiveLabelFor(textField: UITextField) -> UILabel {
+        switch textField {
+        case stockTextField:
+            return stockLabel
+        case amountTextField:
+            return amountLabel
+        case priceTextField:
+            return priceLabel
+        default:
+            return UILabel() // Will never be executed
+        }
+    }
+
+    @objc private func validateFields() {
+        
+        let stockFieldIsInvalid = setState(on: stockTextField, toShow: (stockTextField.text?.isEmpty ?? true) || stockTextField.text == LocalizableStrings.formRequiredField.localized())
+        let amountFieldIsInvalid = setState(on: amountTextField, toShow: (amountTextField.text?.isEmpty ?? true) || (Int(amountTextField.text ?? "0") ?? 0) <= 0 || stockTextField.text == LocalizableStrings.formRequiredField.localized())
+        let priceFieldIsInvalid = setState(on: priceTextField, toShow: priceTextField.text == "0,00" || stockTextField.text == LocalizableStrings.formRequiredField.localized())
+
+        if !stockFieldIsInvalid, !amountFieldIsInvalid, !priceFieldIsInvalid {
+            action()
+        }
+    }
 }
 
 extension PurchaseFundViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+
+        textField.textColor = .darkGray
+
+        let label = self.getRespectiveLabelFor(textField: textField)
+
+        label.textColor = .darkGray
+
+        if textField.text == LocalizableStrings.formRequiredField.localized() {
+            switch textField {
+            case stockTextField:
+                stockTextField.text = String()
+            case amountTextField:
+                amountTextField.text = "0"
+            case priceTextField:
+                priceTextField.text = "0,00"
+            default:
+                break
+            }
+        }
+    }
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField.tag {
         case 0, 3:
