@@ -21,9 +21,7 @@ class PurchaseFundViewModel: NSObject {
     }
     
     var getTitle: String {
-        isEditing
-            ? "Edite as informações"
-            : "Preencha as informações sobre a sua nova compra de ações"
+        isEditing ? LocalizableStrings.formTitleEdit.localized() : LocalizableStrings.formTitle.localized()
     }
     
     var stockName: String {
