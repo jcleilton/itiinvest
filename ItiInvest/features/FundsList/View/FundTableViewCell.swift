@@ -213,7 +213,7 @@ class FundTableViewCell: UITableViewCell {
     }
     
     func setup(with title: String, amount: Double, userAmount: Double) {
-        
+
         fundCellView.subTitleLabel.text = title.uppercased()
         fundCellView.currentBalanceValueLabel.text = "R$ \(amount)"
         fundCellView.percentValueLabel.text = "\((amount * 100/userAmount).rounded())%"
