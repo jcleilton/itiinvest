@@ -367,7 +367,7 @@ extension PurchaseFundViewController: CodeView {
         
         self.titleLabel.text = viewModel.getTitle
         self.stockTextField.text = viewModel.stockName
-//        self.amountTextField.text = viewModel.stockAmount
+        self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
 
         self.priceTextField.text = String(viewModel.stockPrice.dropFirst())

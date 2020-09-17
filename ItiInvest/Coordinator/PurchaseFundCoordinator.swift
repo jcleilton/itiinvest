@@ -10,19 +10,21 @@ import UIKit
 
 class PurchaseFundCoordinator: BaseCoordinator {
     var navigationController: UINavigationController
-
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
-
-    init(navigationController: UINavigationController) {
+    
+    private var purchaseFundViewController: PurchaseFundViewController
+    private var purchaseFundViewModel: PurchaseFundViewModel
+    
+    init(navigationController: UINavigationController, purchaseFundViewModel: PurchaseFundViewModel = PurchaseFundViewModel()) {
         self.navigationController = navigationController
+        
+        self.purchaseFundViewModel = purchaseFundViewModel
+        purchaseFundViewController = PurchaseFundViewController(viewModel: purchaseFundViewModel)
     }
 
     func start() {
-        let viewModel = PurchaseFundViewModel()
-        let controller = PurchaseFundViewController(viewModel: viewModel)
+        purchaseFundViewController.coordinator = self
 
-        controller.coordinator = self
-
-        navigationController.present(controller, animated: true)
+        navigationController.present(purchaseFundViewController, animated: true)
     }
 }
