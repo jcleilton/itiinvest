@@ -11,11 +11,10 @@ import UIKit
 class DetailCoordinator: BaseCoordinator {
 
     var navigationController: UINavigationController
-
+    var parentCoordinator: BaseCoordinator?
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
     
-    var detailViewModel: DetailViewModel?
-    private var detailViewController: DetailViewController?
+    private var detailViewModel: DetailViewModel
     
     init(navigationController: UINavigationController, viewModel: DetailViewModel) {
         self.navigationController = navigationController
@@ -23,15 +22,25 @@ class DetailCoordinator: BaseCoordinator {
     }
 
     func start() {
-        detailViewController = DetailViewController(viewModel: detailViewModel!)
-        detailViewController?.coordinator = self
+        let detailViewController = DetailViewController(viewModel: detailViewModel)
+        detailViewController.coordinator = self
 
-        navigationController.present(detailViewController!, animated: true)
+        navigationController.present(detailViewController, animated: true)
+        print("inicializou")
     }
     
     func showPurchaseFund() {
-        let child = PurchaseFundCoordinator(navigationController: navigationController)
-        childCoordinators.append(child)
+        let child = PurchaseFundCoordinator(navigationController: navigationController, purchaseFundViewModel: detailViewModel.purchaseFundViewModel)
+        add(childCoordinator: child)
+        
         child.start()
+    }
+    
+    func childDidFinish(_ child: BaseCoordinator?) {
+        parentCoordinator?.childDidFinish(self)
+    }
+    
+    deinit {
+        print("desinicializou")
     }
 }

@@ -58,14 +58,19 @@ class DetailViewController: UIViewController, HasCustomView {
     }
     
     @objc func editAction() {
+        dismiss(animated: true, completion: nil)
+        
         coordinator?.showPurchaseFund()
     }
     
     @objc func closeAction() {
+        viewModel.todaysStockUpdated = nil
+        
         dismiss(animated: true, completion: nil)
     }
     
     deinit {
+        print("deinit detail VC")
         coordinator?.childDidFinish(nil)
     }
 }

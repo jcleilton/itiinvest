@@ -9,10 +9,10 @@
 import UIKit
 
 class HomeCoordinator: BaseCoordinator {
-
+    
     var navigationController: UINavigationController
-
     var childCoordinators: [BaseCoordinator] = []
+    var parentCoordinator: BaseCoordinator?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -26,7 +26,12 @@ class HomeCoordinator: BaseCoordinator {
     
     func showFundsList() {
         let child = FundsListCoordinator(navigationController: navigationController)
+        
         add(childCoordinator: child)
         child.start()
+    }
+    
+    func childDidFinish(_ child: BaseCoordinator?) {
+        parentCoordinator?.childDidFinish(self)
     }
 }

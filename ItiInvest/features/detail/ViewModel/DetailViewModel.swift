@@ -24,6 +24,8 @@ class DetailViewModel {
     
     var todaysStockUpdated: (() -> Void)?
     
+    var purchaseFundViewModel: PurchaseFundViewModel { PurchaseFundViewModel(stock: stock) }
+    
     private var stock: Stock
     
     private var todaysCotationValue: Double = 0

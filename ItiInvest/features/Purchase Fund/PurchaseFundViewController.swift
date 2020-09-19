@@ -204,10 +204,10 @@ final class PurchaseFundViewController: UIViewController {
         }
     }
     
-    @objc func action() {
+    @objc func invest() {
         do {
             try viewModel.save(quantity: amountTextField.text!, buyDate: datePicker.date, name: stockTextField.text!, price: priceTextField.text!)
-            self.navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         } catch {
             Alert.defaultWithOKButton(in: self, title: "Erro!", subtitle: "Não foi possível cadastrar esse novo investimento. Tente novamente mais tarde") {
                 print("Do something")
@@ -235,7 +235,6 @@ final class PurchaseFundViewController: UIViewController {
             self?.navigationController?.navigationBar.isHidden = true
             self?.view.layoutIfNeeded()
         }) { (success) in
-            // TODO: - do something
         }
     }
     
@@ -246,7 +245,8 @@ final class PurchaseFundViewController: UIViewController {
     }
     
     deinit {
-        coordinator?.childDidFinish(nil)
+        print("purchase fund VC deinit")
+        coordinator?.childDidFinish(coordinator)
     }
 }
 
@@ -374,7 +374,6 @@ extension PurchaseFundViewController: CodeView {
   
         self.investButton.addTarget(self, action: #selector(self.validateFields), for: UIControl.Event.touchUpInside)
 
-        investButton.addTarget(self, action: #selector(self.action), for: UIControl.Event.touchUpInside)
         closeButton.addTarget(self, action: #selector(closeTouched), for: .touchUpInside)
     }
 
@@ -418,7 +417,7 @@ extension PurchaseFundViewController: CodeView {
         let priceFieldIsInvalid = setState(on: priceTextField, toShow: priceTextField.text == "0,00" || stockTextField.text == LocalizableStrings.formRequiredField.localized())
 
         if !stockFieldIsInvalid, !amountFieldIsInvalid, !priceFieldIsInvalid {
-            action()
+            invest()
         }
     }
 }

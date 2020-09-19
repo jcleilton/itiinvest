@@ -11,7 +11,7 @@ import UIKit
 class FundsListCoordinator: BaseCoordinator {
 
     var navigationController: UINavigationController
-
+    var parentCoordinator: BaseCoordinator?
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
 
     init(navigationController: UINavigationController) {
@@ -40,4 +40,5 @@ class FundsListCoordinator: BaseCoordinator {
         add(childCoordinator: child)
         child.start()
     }
+
 }

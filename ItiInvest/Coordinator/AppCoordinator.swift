@@ -12,6 +12,7 @@ class AppCoordinator: BaseCoordinator {
     
     var navigationController: UINavigationController
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
+    var parentCoordinator: BaseCoordinator?
 
     init() {
         navigationController = UINavigationController()
@@ -21,6 +22,7 @@ class AppCoordinator: BaseCoordinator {
 
     func start() {
         let child = HomeCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
         
         add(childCoordinator: child)
         child.start()
@@ -33,5 +35,4 @@ class AppCoordinator: BaseCoordinator {
         navigationController.navigationBar.shadowImage = UIImage()
         navigationController.navigationBar.isTranslucent = true
     }
-    
 }
