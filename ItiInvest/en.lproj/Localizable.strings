@@ -7,22 +7,22 @@
 */
 
 // MARK: - Home
-
 "home.hsButton" = "Hide or Show";
 "home.percentTitle" = "Percentage on wallet";
 "home.profile" = "see my profile";
 "home.balance" = "iti balance";
 "home.all_about" = "all about your iti";
+"home.invest_your_money" = "invest your money";
+"home.card_credit" = "card";
+"home.money_card" = "money back";
 
 // MARK: - Funds List
-
 "list.my_patrimony" = "my patrimony";
 "list.current_balance" = "current balance";
 "list.new_investment" = "new investment";
 "list.on_wallet" = "% on wallet";
 
 // MARK: - Detail View
-
 "stock.quantity" = "Quantity";
 "stock.price" = "Purchase Price";
 "stock.buyDate" = "Purchase Date";
@@ -33,7 +33,6 @@
 "stock.editInformations" = "Edit informations";
 
 // MARK: - Purchase Fund
-
 "form.title" = "Fill in the information about your new stock purchase";
 "form.active" = "Active";
 "form.invest" = "invest";

@@ -122,7 +122,7 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
         label.textColor = .white
-        label.text = "R$ ******"
+        label.text = "R$******"
         return label
     }()
     
@@ -138,7 +138,9 @@ final class HomeViewController: UIViewController {
     private let balanceVisibilityButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(#imageLiteral(resourceName: "eye"), for: .normal)
+        let image = UIImage(systemName: "eye.fill") as UIImage?
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
         button.isSelected = false
         return button
     }()
@@ -193,11 +195,14 @@ final class HomeViewController: UIViewController {
         balanceVisibilityButton.isSelected = !balanceVisibilityButton.isSelected
         
         if balanceVisibilityButton.isSelected {
-            balanceVisibilityButton.setImage(#imageLiteral(resourceName: "invisible"), for: .normal)
+
+            let image = UIImage(systemName: "eye.slash.fill") as UIImage?
+            balanceVisibilityButton.setImage(image, for: .normal)
             balanceValueLabel.text = "R$00,00"
         } else {
-            balanceVisibilityButton.setImage(#imageLiteral(resourceName: "eye"), for: .normal)
-            balanceValueLabel.text = "R$ ******"
+            let image = UIImage(systemName: "eye.fill") as UIImage?
+            balanceVisibilityButton.setImage(image, for: .normal)
+            balanceValueLabel.text = "R$******"
         }
     }
 }
