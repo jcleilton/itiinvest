@@ -8,13 +8,22 @@
 
 import UIKit
 
+// MARK: - UI Update Delegate
+protocol DetailViewControllerUIUpateDelegate: class {
+    func shouldUpdateTodaysStock()
+}
+
+// MARK: - Detail View Controller
 class DetailViewController: UIViewController, HasCustomView {
     typealias CustomView = DetailView
         
+    // MARK: - Private Properties
     private var viewModel: DetailViewModel
     
+    // MARK: - Public Properties
     weak var coordinator: DetailCoordinator?
     
+    // MARK: - VC Life Cycle
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
         
@@ -33,11 +42,16 @@ class DetailViewController: UIViewController, HasCustomView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.todaysStockUpdated = updateTodaysValue
+        viewModel.delegate = self
         setupView()
     }
     
-    func setupView() {
+    deinit {
+        coordinator?.childDidFinish(nil)
+    }
+    
+    // MARK: - Private Functions
+    private func setupView() {
         customView.quantityValueLabel.text = viewModel.quantity
         customView.priceValueLabel.text = viewModel.buyPrice
         customView.buyDateValueLabel.text = viewModel.buyDate
@@ -49,7 +63,7 @@ class DetailViewController: UIViewController, HasCustomView {
         customView.closeButton.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
     }
     
-    func updateTodaysValue() {
+    private func updateTodaysValue() {
         DispatchQueue.main.async {
             self.customView.todaysCotationValueLabel.text = self.viewModel.todaysCotation
             self.customView.todaysPriceValueLabel.text = self.viewModel.todaysPrice
@@ -57,15 +71,21 @@ class DetailViewController: UIViewController, HasCustomView {
         }
     }
     
-    @objc func editAction() {
+    @objc private func editAction() {
+        dismiss(animated: true, completion: nil)
+        
         coordinator?.showPurchaseFund()
     }
     
-    @objc func closeAction() {
+    @objc private func closeAction() {
         dismiss(animated: true, completion: nil)
     }
     
-    deinit {
-        coordinator?.childDidFinish(nil)
+}
+
+// MARK: - UI Update Extension
+extension DetailViewController: DetailViewControllerUIUpateDelegate {
+    func shouldUpdateTodaysStock() {
+        updateTodaysValue()
     }
 }

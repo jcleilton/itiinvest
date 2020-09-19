@@ -46,14 +46,14 @@ class CoreDataManager {
         data.buyDate = buyDate
         data.price = price
         do {
-            try self.save(data: data)
+            try self.save()
         } catch {
             throw error
         }
         
     }
     
-    func save(data: Stock) throws {
+    func save() throws {
         do {
             try context.save()
         } catch {
@@ -63,5 +63,6 @@ class CoreDataManager {
     
     func delete(data: Stock) throws {
         context.delete(data)
+        try save()
     }
 }

@@ -79,7 +79,7 @@ class PurchaseFundViewModel: NSObject {
             stock.price = price
             stock.buyDate = buyDate
             stock.quantity = Int64(quantity)
-            try CoreDataManager().save(data: stock)
+            try CoreDataManager().save()
         } catch {
             throw error
         }
