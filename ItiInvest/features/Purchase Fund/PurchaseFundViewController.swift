@@ -370,7 +370,7 @@ extension PurchaseFundViewController: CodeView {
         self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
 
-        self.priceTextField.text = String(viewModel.stockPrice.dropFirst())
+        self.priceTextField.text = viewModel.stockPrice
   
         self.investButton.addTarget(self, action: #selector(self.validateFields), for: UIControl.Event.touchUpInside)
 
