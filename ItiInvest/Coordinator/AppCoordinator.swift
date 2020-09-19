@@ -16,7 +16,6 @@ class AppCoordinator: BaseCoordinator {
 
     init() {
         navigationController = UINavigationController()
-        
         setupNavigationController()
     }
 

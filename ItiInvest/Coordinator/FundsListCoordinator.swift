@@ -22,9 +22,9 @@ class FundsListCoordinator: BaseCoordinator {
         let controller = FundsListViewController()
         let manager = CoreDataManager()
         let viewModel = FundsListViewModel(manager: manager)
+        manager.setDelegate(delegate: viewModel)
         controller.viewModel = viewModel
         viewModel.delegate = controller
-        manager.delegate = viewModel
         controller.coordinator = self
 
         navigationController.pushViewController(controller, animated: true)

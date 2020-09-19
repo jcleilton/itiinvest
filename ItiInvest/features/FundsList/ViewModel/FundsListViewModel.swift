@@ -14,7 +14,7 @@ protocol FundsListViewModelDelegate: class {
 }
 
 class FundsListViewModel: NSObject {
-    private let manager: CoreDataManager
+    private let manager: CoreDataManagerProtocol
     weak var delegate: FundsListViewModelDelegate?
     
     var total: Int {
@@ -25,9 +25,10 @@ class FundsListViewModel: NSObject {
         Formatter.currencyStringFromDouble(amountValue())
     }
     
-    init(manager: CoreDataManager) {
+    init(manager: CoreDataManagerProtocol) {
         self.manager = manager
         super.init()
+        performFetch()
     }
     
     func performFetch() {
@@ -46,10 +47,10 @@ class FundsListViewModel: NSObject {
     }
     
     private func amountValue() -> Double {
-        let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
+        let stockValue = manager.getStocks().reduce(0.0, { (result, stock) -> Double in
             (stock.price * Double(Int(stock.quantity))) + result
         })
-        return stockValue ?? 0.0
+        return stockValue
     }
     
     func deleteStock(at indexPath: IndexPath) throws {

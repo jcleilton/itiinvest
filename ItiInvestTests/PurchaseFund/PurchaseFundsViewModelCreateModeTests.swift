@@ -10,30 +10,30 @@ import XCTest
 @testable import ItiInvest
 
 class PurchaseFundsViewModelCreateModeTests: XCTestCase {
-    var uit: PurchaseFundViewModel!
+    var sut: PurchaseFundViewModel!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        uit = PurchaseFundViewModel()
+        sut = PurchaseFundViewModel()
     }
 
     override func tearDownWithError() throws {
-        uit = nil
+        sut = nil
         try super.tearDownWithError()
     }
 
     func testBindingName() throws {
-        let name = uit.stockName
+        let name = sut.stockName
         XCTAssertEqual(name, "", "Wrong name")
     }
     
     func testBindingQuantity() throws {
-        let quantity = uit.stockAmount
+        let quantity = sut.stockAmount
         XCTAssertEqual(quantity, "0", "Wrong name")
     }
     
     func testBindingBuyDate() throws {
-        let date = uit.stockDate
+        let date = sut.stockDate
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         dateFormatter.locale = Locale.init(identifier: "pt-br")
@@ -44,12 +44,12 @@ class PurchaseFundsViewModelCreateModeTests: XCTestCase {
     }
     
     func testBindingPrice() throws {
-        let price = uit.stockPrice
+        let price = sut.stockPrice
         XCTAssertEqual(price, "R$ 0,00", "Wrong name")
     }
     
     func testBindingTitle() throws {
-        let title = uit.getTitle
+        let title = sut.getTitle
         let editTitle = LocalizableStrings.formTitle.localized()
         XCTAssertEqual(title, editTitle, "Wrong name")
     }
