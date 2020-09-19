@@ -35,7 +35,6 @@ class Service{
             }
         })
         task.resume()
-
     }
     
     
