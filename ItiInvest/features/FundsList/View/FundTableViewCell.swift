@@ -37,6 +37,7 @@ class FundCellView: UIView{
     let currentBalanceLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "saldo atual"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(rgb: 0x3c3c43)
         
@@ -46,6 +47,7 @@ class FundCellView: UIView{
     let percentLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "% na carteira"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(rgb: 0x3c3c43)
         
