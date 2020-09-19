@@ -33,7 +33,7 @@ class PurchaseFundViewModel: NSObject {
     }
     
     var stockPrice: String {
-        currencyFormattedFrom(string: "\(stock?.price ?? 0.0)", forCurrency: false)
+        currencyFormattedFrom(string: "\(stock?.price ?? 0.0)")
     }
     
     var stockDate: String {
@@ -67,7 +67,13 @@ class PurchaseFundViewModel: NSObject {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "pt_BR")
-        let value = forCurrency ? (formatter.string(from: NSNumber(value: doubleValue)) ?? "") : (formatter.string(from: NSNumber(value: doubleValue)) ?? "").replacingOccurrences(of: currencySymbol, with: "").replacingOccurrences(of: " ", with: "")
+        let value = forCurrency ? (formatter.string(from: NSNumber(value: doubleValue)) ?? "")
+            : (formatter.string(from: NSNumber(value: doubleValue)) ?? "")
+                .replacingOccurrences(of: currencySymbol, with: "")
+                .replacingOccurrences(of: " ", with: "")
+                .replacingOccurrences(of: " ", with: "")
+                .replacingOccurrences(of: ".", with: "")
+                .replacingOccurrences(of: ",", with: "")
         return value
     }
     
