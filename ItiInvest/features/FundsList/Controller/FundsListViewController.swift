@@ -48,6 +48,8 @@ class FundsListViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 0)
 
         fundsListView.bottomButton.addTarget(self, action: #selector(self.goToNewStock(_:)), for: UIControl.Event.touchUpInside)
+        
+        self.fundsListView.valueLabel.text = viewModel?.userTotal
     }
 
     

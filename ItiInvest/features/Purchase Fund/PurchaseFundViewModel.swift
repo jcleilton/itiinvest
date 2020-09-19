@@ -94,7 +94,6 @@ class PurchaseFundViewModel: NSObject {
     }
     
     private func getDoubleFrom(from string: String) -> Double? {
-
         let currencySymbol: String = "R$"
         let numbers = string.replacingOccurrences(of: currencySymbol, with: "")
             .replacingOccurrences(of: " ", with: "")
