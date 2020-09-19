@@ -29,7 +29,7 @@ class PurchaseFundsViewModelCreateModeTests: XCTestCase {
     
     func testBindingQuantity() throws {
         let quantity = uit.stockAmount
-        XCTAssertEqual(quantity, "", "Wrong name")
+        XCTAssertEqual(quantity, "0", "Wrong name")
     }
     
     func testBindingBuyDate() throws {

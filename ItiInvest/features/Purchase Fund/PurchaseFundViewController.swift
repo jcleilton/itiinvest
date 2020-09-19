@@ -231,7 +231,7 @@ final class PurchaseFundViewController: UIViewController {
         let animation = UIView.AnimationOptions(rawValue: userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as! UInt)
         
         UIView.animate(withDuration: duration, delay: 0.0, options: animation, animations: { [weak self] in
-            self?.bottomConstraint?.constant = (Constant.Margin.verticalNormal + keyboardFrame.height) * -1
+            self?.bottomConstraint?.constant = (keyboardFrame.height) * -1
             self?.navigationController?.navigationBar.isHidden = true
             self?.view.layoutIfNeeded()
         }) { (success) in
