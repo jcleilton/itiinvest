@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A71F9C9251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */; };
 		0A71F9CB2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CA2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift */; };
+		0A71F9CD2516476E0023A841 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CC2516476E0023A841 /* Formatter.swift */; };
+		0A71F9CF251648C20023A841 /* FundsListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CE251648C20023A841 /* FundsListCellViewModel.swift */; };
 		0A98EDE92512DF41007792DC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98EDE82512DF41007792DC /* Alert.swift */; };
 		0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */; };
 		0AAB834D250D041800B8E3DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834C250D041800B8E3DB /* Constant.swift */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundsViewModelStockBindTests.swift; sourceTree = "<group>"; };
 		0A71F9CA2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundsViewModelCreateModeTests.swift; sourceTree = "<group>"; };
+		0A71F9CC2516476E0023A841 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		0A71F9CE251648C20023A841 /* FundsListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListCellViewModel.swift; sourceTree = "<group>"; };
 		0A98EDE82512DF41007792DC /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		0AAB834C250D041800B8E3DB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 				9B97D588250CFD4D00FB46C9 /* Components */,
 				0AAB8349250CFC4E00B8E3DB /* Protocol */,
 				2F95EE9C2503F2B400D1B37A /* CoreDataManager.swift */,
+				0A71F9CC2516476E0023A841 /* Formatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				688B78392503E33A00F40EE2 /* FundsListViewModel.swift */,
+				0A71F9CE251648C20023A841 /* FundsListCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -595,6 +601,7 @@
 				9B97D590250D104B00FB46C9 /* DetailsStackView.swift in Sources */,
 				68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */,
 				68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */,
+				0A71F9CF251648C20023A841 /* FundsListCellViewModel.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
 				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
@@ -603,6 +610,7 @@
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
 				9B97D58A250CFDB100FB46C9 /* ItiButton.swift in Sources */,
 				2F281DC3250D14CA009C39CE /* UIView+LayoutGuide.swift in Sources */,
+				0A71F9CD2516476E0023A841 /* Formatter.swift in Sources */,
 				0AAB834D250D041800B8E3DB /* Constant.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
 				7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */,

@@ -11,8 +11,8 @@ import CoreData
 
 class FundsListViewController: UIViewController {
     // MARK: - Properties
-    let manager = CoreDataManager()
     weak var coordinator: FundsListCoordinator?
+    var viewModel: FundsListViewModel?
     
     lazy var fundsListView: FundsListView = {
         let fundsListView = FundsListView()
@@ -33,8 +33,7 @@ class FundsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.delegate = self
-        manager.performFetch()
+        self.viewModel?.performFetch()
         setupView()
     }
     
@@ -51,16 +50,12 @@ class FundsListViewController: UIViewController {
         fundsListView.bottomButton.addTarget(self, action: #selector(self.goToNewStock(_:)), for: UIControl.Event.touchUpInside)
     }
 
-    private func amountValue() -> Double {
-        let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
-            (stock.price * Double(Int(stock.quantity))) + result
-        })
-        self.fundsListView.valueLabel.text = "R$ \(stockValue ?? 0.0)"
-        return stockValue ?? 0.0
-    }
+    
 
     @objc func goToNewStock(_ sender: Any) {
-        coordinator?.showPurchaseFund(viewModel: PurchaseFundViewModel())
+        if let purchaseViewModel = self.viewModel?.getCreationViewModel() {
+            coordinator?.showPurchaseFund(viewModel: purchaseViewModel)
+        }
     }
 
     deinit {
@@ -70,23 +65,24 @@ class FundsListViewController: UIViewController {
 
 extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manager.total
+        return viewModel?.total ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FundTableViewCell.identifier) as? FundTableViewCell else { return UITableViewCell() }
         
-        let stock = manager.getStockAt(indexPath)
-        cell.setup(with: stock.name ?? "", amount: stock.price, userAmount: amountValue())
+        if let stockViewModel = viewModel?.getListCellViewModel(from: indexPath) {
+            cell.setup(viewModel: stockViewModel)
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let shareAction = UIContextualAction(style: .normal, title: "Delete") { [weak self] (action, view, handler) in
             guard let self = self else { return }
-            let stock = self.manager.getStockAt(indexPath)
             do {
-                try self.manager.delete(data: stock)
+                try self.viewModel?.deleteStock(at: indexPath)
                 tableView.reloadData()
             } catch {
                 self.showFailDeleteAlert()
@@ -101,8 +97,9 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let shareAction = UIContextualAction(style: .normal, title: "Editar") { [weak self] (action, view, handler) in
             guard let self = self else { return }
-            let viewModel = PurchaseFundViewModel(stock: self.manager.getStockAt(indexPath))
-            self.coordinator?.showPurchaseFund(viewModel: viewModel)
+            if let viewModel = self.viewModel?.getEditionViewModel(from: indexPath) {
+                self.coordinator?.showPurchaseFund(viewModel: viewModel)
+            }
         }
         shareAction.backgroundColor = UIColor.systemBlue
         let configuration = UISwipeActionsConfiguration(actions: [shareAction])
@@ -111,7 +108,9 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showDetails(stock: manager.getStockAt(indexPath))
+        if let detailViewModel = self.viewModel?.getDetailViewModel(from: indexPath) {
+            coordinator?.showDetails(viewModel: detailViewModel)
+        }
     }
     
     private func showFailDeleteAlert() {
@@ -125,8 +124,9 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension FundsListViewController: NSFetchedResultsControllerDelegate {
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        fundsListView.tableView.reloadData()
+extension FundsListViewController: FundsListViewModelDelegate {
+    func didFinishFetching() {
+        self.fundsListView.valueLabel.text = viewModel?.userTotal
+        self.fundsListView.tableView.reloadData()
     }
 }
