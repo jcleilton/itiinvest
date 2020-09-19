@@ -161,6 +161,62 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		0AAC5BB02516224000B4779F /* PurchaseFund */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PurchaseFund;
+			sourceTree = "<group>";
+		};
+		0AAC5BB12516228A00B4779F /* FundList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FundList;
+			sourceTree = "<group>";
+		};
+		0AAC5BB22516229900B4779F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0AAC5BB3251622AA00B4779F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		0AAC5BB4251622BB00B4779F /* PurchaseFund */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PurchaseFund;
+			sourceTree = "<group>";
+		};
+		0AAC5BB5251622C600B4779F /* FundList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FundList;
+			sourceTree = "<group>";
+		};
+		0AAC5BB6251622CF00B4779F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0AAC5BB7251622D700B4779F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		2F95EE922503ED2E00D1B37A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +434,10 @@
 		BA3610E82503C10F00D66EED /* ItiInvestTests */ = {
 			isa = PBXGroup;
 			children = (
+				0AAC5BB3251622AA00B4779F /* Detail */,
+				0AAC5BB22516229900B4779F /* Home */,
+				0AAC5BB12516228A00B4779F /* FundList */,
+				0AAC5BB02516224000B4779F /* PurchaseFund */,
 				BA3610E92503C10F00D66EED /* ItiInvestTests.swift */,
 				BA3610EB2503C10F00D66EED /* Info.plist */,
 			);
@@ -387,6 +447,10 @@
 		BA3610F32503C10F00D66EED /* ItiInvestUITests */ = {
 			isa = PBXGroup;
 			children = (
+				0AAC5BB7251622D700B4779F /* Detail */,
+				0AAC5BB6251622CF00B4779F /* Home */,
+				0AAC5BB5251622C600B4779F /* FundList */,
+				0AAC5BB4251622BB00B4779F /* PurchaseFund */,
 				BA3610F42503C10F00D66EED /* ItiInvestUITests.swift */,
 				BA3610F62503C11000D66EED /* Info.plist */,
 			);
