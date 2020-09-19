@@ -11,6 +11,10 @@
 		0A71F9CB2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CA2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift */; };
 		0A71F9CD2516476E0023A841 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CC2516476E0023A841 /* Formatter.swift */; };
 		0A71F9CF251648C20023A841 /* FundsListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CE251648C20023A841 /* FundsListCellViewModel.swift */; };
+		0A71F9D22516777C0023A841 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D12516777C0023A841 /* CoreDataManagerTests.swift */; };
+		0A71F9D4251684700023A841 /* FundsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D3251684700023A841 /* FundsListViewModelTests.swift */; };
+		0A71F9D6251685C20023A841 /* CoreDataManagerMocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D5251685C20023A841 /* CoreDataManagerMocked.swift */; };
+		0A71F9D8251688210023A841 /* CoreDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D7251688210023A841 /* CoreDataManagerProtocol.swift */; };
 		0A98EDE92512DF41007792DC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98EDE82512DF41007792DC /* Alert.swift */; };
 		0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */; };
 		0AAB834D250D041800B8E3DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834C250D041800B8E3DB /* Constant.swift */; };
@@ -72,6 +76,10 @@
 		0A71F9CA2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundsViewModelCreateModeTests.swift; sourceTree = "<group>"; };
 		0A71F9CC2516476E0023A841 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		0A71F9CE251648C20023A841 /* FundsListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListCellViewModel.swift; sourceTree = "<group>"; };
+		0A71F9D12516777C0023A841 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
+		0A71F9D3251684700023A841 /* FundsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewModelTests.swift; sourceTree = "<group>"; };
+		0A71F9D5251685C20023A841 /* CoreDataManagerMocked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMocked.swift; sourceTree = "<group>"; };
+		0A71F9D7251688210023A841 /* CoreDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerProtocol.swift; sourceTree = "<group>"; };
 		0A98EDE82512DF41007792DC /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		0AAB834C250D041800B8E3DB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -143,11 +151,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A71F9D02516774B0023A841 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0A71F9D12516777C0023A841 /* CoreDataManagerTests.swift */,
+				0A71F9D5251685C20023A841 /* CoreDataManagerMocked.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		0AAB8349250CFC4E00B8E3DB /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
 				0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */,
 				9B26316F250D14D900DB7984 /* HasCustomView.swift */,
+				0A71F9D7251688210023A841 /* CoreDataManagerProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -164,6 +182,7 @@
 		0AAC5BB12516228A00B4779F /* FundList */ = {
 			isa = PBXGroup;
 			children = (
+				0A71F9D3251684700023A841 /* FundsListViewModelTests.swift */,
 			);
 			path = FundList;
 			sourceTree = "<group>";
@@ -429,6 +448,7 @@
 		BA3610E82503C10F00D66EED /* ItiInvestTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A71F9D02516774B0023A841 /* Shared */,
 				0AAC5BB3251622AA00B4779F /* Detail */,
 				0AAC5BB22516229900B4779F /* Home */,
 				0AAC5BB12516228A00B4779F /* FundList */,
@@ -619,6 +639,7 @@
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
 				0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
+				0A71F9D8251688210023A841 /* CoreDataManagerProtocol.swift in Sources */,
 				9B97D58E250CFDE600FB46C9 /* ItiLabel.swift in Sources */,
 				9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */,
 				9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */,
@@ -636,7 +657,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A71F9C9251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift in Sources */,
+				0A71F9D22516777C0023A841 /* CoreDataManagerTests.swift in Sources */,
 				0A71F9CB2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift in Sources */,
+				0A71F9D4251684700023A841 /* FundsListViewModelTests.swift in Sources */,
+				0A71F9D6251685C20023A841 /* CoreDataManagerMocked.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

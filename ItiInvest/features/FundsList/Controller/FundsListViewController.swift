@@ -33,7 +33,6 @@ class FundsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel?.performFetch()
         setupView()
     }
     
