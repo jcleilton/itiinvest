@@ -20,15 +20,18 @@ class FundsListCoordinator: BaseCoordinator {
 
     func start() {
         let controller = FundsListViewController()
-        let viewModel = FundsListViewModel()
-        
+        let manager = CoreDataManager()
+        let viewModel = FundsListViewModel(manager: manager)
+        controller.viewModel = viewModel
+        viewModel.delegate = controller
+        manager.delegate = viewModel
         controller.coordinator = self
 
         navigationController.pushViewController(controller, animated: true)
     }
 
-    func showDetails(stock: Stock) {
-        let child = DetailCoordinator(navigationController: navigationController, viewModel: DetailViewModel(stock: stock))
+    func showDetails(viewModel: DetailViewModel) {
+        let child = DetailCoordinator(navigationController: navigationController, viewModel: viewModel)
         
         add(childCoordinator: child)
         child.start()

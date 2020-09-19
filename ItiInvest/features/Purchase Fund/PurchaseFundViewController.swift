@@ -171,8 +171,8 @@ final class PurchaseFundViewController: UIViewController {
     // MARK: - IBActions
     
     
-    @objc func didChangePrice(_ sender: UITextField, value: String, forCurrency: Bool = true) {
-        sender.text = viewModel.currencyFormattedFrom(string: value, forCurrency: forCurrency)
+    @objc func didChangePrice(_ sender: UITextField, value: String) {
+        sender.text = viewModel.currencyFormattedFrom(string: value)
     }
     
     // MARK: - Private Functions
@@ -456,7 +456,7 @@ extension PurchaseFundViewController: UITextFieldDelegate {
                let textRange = Range(range, in: text) {
                let updatedText = text.replacingCharacters(in: textRange,
                                                            with: string)
-                self.didChangePrice(textField, value: updatedText, forCurrency: textField.tag == 2)
+                self.didChangePrice(textField, value: updatedText)
             }
             
             return false

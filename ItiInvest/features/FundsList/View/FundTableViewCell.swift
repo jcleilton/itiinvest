@@ -28,7 +28,6 @@ class FundCellView: UIView{
     let subTitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "IPV4-PCNC"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(rgb: 0x3c3c43)
         
@@ -38,7 +37,6 @@ class FundCellView: UIView{
     let currentBalanceLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "saldo atual"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(rgb: 0x3c3c43)
         
@@ -48,7 +46,6 @@ class FundCellView: UIView{
     let percentLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "% na carteira"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(rgb: 0x3c3c43)
         
@@ -58,7 +55,6 @@ class FundCellView: UIView{
     let currentBalanceValueLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "R$ 1400,00"
         label.font = UIFont.systemFont(ofSize: 17)
         label.textColor = UIColor(rgb: 0xff007e)
         
@@ -68,7 +64,6 @@ class FundCellView: UIView{
     let percentValueLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "16,48%"
         label.font = UIFont.systemFont(ofSize: 17)
         label.textColor = UIColor(rgb: 0xff007e)
         
@@ -201,13 +196,11 @@ class FundTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup(with title: String, amount: Double, userAmount: Double) {
-
-        fundCellView.subTitleLabel.text = title.uppercased()
-        fundCellView.currentBalanceValueLabel.text = "R$ \(amount)"
-        fundCellView.percentValueLabel.text = "\((amount * 100/userAmount).rounded())%"
+    func setup(viewModel: FundsListCellViewModel) {
+        fundCellView.subTitleLabel.text = viewModel.name
+        fundCellView.currentBalanceValueLabel.text = viewModel.amount
+        fundCellView.percentValueLabel.text = viewModel.percentual
         selectionStyle = .none
-        
         setupAccessibility()
     }
 
