@@ -66,18 +66,11 @@ class DetailViewController: UIViewController, HasCustomView {
     private func updateTodaysValue() {
         DispatchQueue.main.async {
             self.customView.todaysCotationValueLabel.text = self.viewModel.todaysCotation
+            self.customView.todaysCotationValueLabel.textColor = self.viewModel.hadProfit ? ITIColor.green : ITIColor.red
             self.customView.todaysPriceValueLabel.text = self.viewModel.todaysPrice
+            self.customView.todaysPriceValueLabel.textColor = self.viewModel.hadProfit ? ITIColor.green : ITIColor.red
             self.customView.todaysProfitabilityValueLabel.text = self.viewModel.todaysProfit
-            
-            self.customView.todaysProfitabilityValueLabel.textColor = self.viewModel.labelColor
-            
-            self.customView.todaysCotationValueLabel.textColor = self.viewModel.labelColor
-            
-            self.customView.todaysPriceValueLabel.textColor = self.viewModel.labelColor
-            
-            
-            
-            
+            self.customView.todaysProfitabilityValueLabel.textColor = self.viewModel.hadProfit ? ITIColor.green : ITIColor.red
         }
     }
     

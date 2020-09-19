@@ -24,6 +24,7 @@ class DetailViewModel {
     var todaysCotation: String { currencyFormattedFrom(string: String(todaysCotationValue)) }
     var todaysPrice: String { currencyFormattedFrom(string: String(todaysPriceValue)) }
     var todaysProfit: String { return "\(NSString(format: "%.0f", todaysProfitValue))%" }
+    var hadProfit: Bool { return todaysProfitValue >= 0 }
     
     var labelColor: UIColor{
         return todaysProfitValue >= 0 ? UIColor(rgb: 0x52ad06) : .black
