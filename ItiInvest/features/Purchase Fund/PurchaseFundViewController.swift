@@ -245,8 +245,7 @@ final class PurchaseFundViewController: UIViewController {
     }
     
     deinit {
-        print("purchase fund VC deinit")
-        coordinator?.childDidFinish(coordinator)
+        coordinator?.childDidFinish(nil)
     }
 }
 

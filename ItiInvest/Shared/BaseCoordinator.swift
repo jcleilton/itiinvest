@@ -36,6 +36,7 @@ extension BaseCoordinator {
     }
     
     func childDidFinish(_ child: BaseCoordinator?) {
+        parentCoordinator?.childDidFinish(self)
         guard let child = child else { return }
         remove(childCoordinator: child)
     }

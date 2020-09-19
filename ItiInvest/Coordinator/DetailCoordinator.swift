@@ -26,7 +26,6 @@ class DetailCoordinator: BaseCoordinator {
         detailViewController.coordinator = self
 
         navigationController.present(detailViewController, animated: true)
-        print("inicializou")
     }
     
     func showPurchaseFund() {
@@ -37,10 +36,9 @@ class DetailCoordinator: BaseCoordinator {
     }
     
     func childDidFinish(_ child: BaseCoordinator?) {
+        guard let child = child else { return }
         parentCoordinator?.childDidFinish(self)
+        remove(childCoordinator: child)
     }
     
-    deinit {
-        print("desinicializou")
-    }
 }

@@ -18,9 +18,7 @@ class PurchaseFundCoordinator: BaseCoordinator {
     
     init(navigationController: UINavigationController, purchaseFundViewModel: PurchaseFundViewModel = PurchaseFundViewModel()) {
         self.navigationController = navigationController
-        
         self.purchaseFundViewModel = purchaseFundViewModel
-        print("purchase fund init")
     }
 
     func start() {
@@ -29,12 +27,5 @@ class PurchaseFundCoordinator: BaseCoordinator {
 
         navigationController.present(purchaseFundViewController, animated: true)
     }
-    
-    func childDidFinish(_ child: BaseCoordinator?) {
-        parentCoordinator?.childDidFinish(self)
-    }
-    
-    deinit {
-        print("purchase fund deinit")
-    }
+
 }
