@@ -32,4 +32,20 @@ struct Formatter {
                 .replacingOccurrences(of: ",", with: "")
         return value
     }
+    
+    static func currencyStringFromDouble(_ value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "pt_BR")
+        let valueStr = (formatter.string(from: NSNumber(value: value)))
+        return valueStr ?? "–"
+    }
+    
+    static func decimalStringFromDouble(_ value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale(identifier: "pt_BR")
+        let valueStr = (formatter.string(from: NSNumber(value: value)))
+        return valueStr ?? "–"
+    }
 }

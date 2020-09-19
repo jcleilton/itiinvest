@@ -22,7 +22,7 @@ class FundsListViewModel: NSObject {
     }
     
     var userTotal: String {
-        Formatter.currencyFormattedFrom(string: "\(amountValue())")
+        Formatter.currencyStringFromDouble(amountValue())
     }
     
     init(manager: CoreDataManager) {
@@ -40,8 +40,8 @@ class FundsListViewModel: NSObject {
         let percentual = (stock.price * 100.0) / amountTotal
         let viewModel = FundsListCellViewModel(
             name: stock.name ?? "",
-            amount: Formatter.currencyFormattedFrom(string: "\(stock.price)"),
-            percentual: Formatter.currencyFormattedFrom(string: "\(percentual)"))
+            amount: Formatter.currencyStringFromDouble(stock.price),
+            percentual: Formatter.decimalStringFromDouble(percentual) + "%")
         return viewModel
     }
     
