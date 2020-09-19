@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A71F9C9251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */; };
 		0A98EDE92512DF41007792DC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98EDE82512DF41007792DC /* Alert.swift */; };
 		0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */; };
 		0AAB834D250D041800B8E3DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834C250D041800B8E3DB /* Constant.swift */; };
@@ -47,11 +48,10 @@
 		BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA3610D82503C10E00D66EED /* ItiInvest.xcdatamodeld */; };
 		BA3610DC2503C10F00D66EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3610DB2503C10F00D66EED /* Assets.xcassets */; };
 		BA3610DF2503C10F00D66EED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3610DD2503C10F00D66EED /* LaunchScreen.storyboard */; };
-		BA3610EA2503C10F00D66EED /* ItiInvestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610E92503C10F00D66EED /* ItiInvestTests.swift */; };
-		BA3610F52503C10F00D66EED /* ItiInvestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3610F42503C10F00D66EED /* ItiInvestUITests.swift */; };
 		BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3611062503CF2500D66EED /* DetailViewController.swift */; };
 		BA3611092503D0EA00D66EED /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3611082503D0EA00D66EED /* DetailViewModel.swift */; };
 		BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */; };
+		DDE4895825163B1900F446D3 /* bitrise.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDE4895725163B1800F446D3 /* bitrise.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundsViewModelStockBindTests.swift; sourceTree = "<group>"; };
 		0A98EDE82512DF41007792DC /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		0AAB834C250D041800B8E3DB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -117,14 +118,13 @@
 		BA3610DE2503C10F00D66EED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA3610E02503C10F00D66EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA3610E52503C10F00D66EED /* ItiInvestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItiInvestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA3610E92503C10F00D66EED /* ItiInvestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItiInvestTests.swift; sourceTree = "<group>"; };
 		BA3610EB2503C10F00D66EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA3610F02503C10F00D66EED /* ItiInvestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItiInvestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA3610F42503C10F00D66EED /* ItiInvestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItiInvestUITests.swift; sourceTree = "<group>"; };
 		BA3610F62503C11000D66EED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA3611062503CF2500D66EED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BA3611082503D0EA00D66EED /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		DDE4895725163B1800F446D3 /* bitrise.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = bitrise.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +159,63 @@
 				9B26316F250D14D900DB7984 /* HasCustomView.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		0AAC5BB02516224000B4779F /* PurchaseFund */ = {
+			isa = PBXGroup;
+			children = (
+				0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */,
+			);
+			path = PurchaseFund;
+			sourceTree = "<group>";
+		};
+		0AAC5BB12516228A00B4779F /* FundList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FundList;
+			sourceTree = "<group>";
+		};
+		0AAC5BB22516229900B4779F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0AAC5BB3251622AA00B4779F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		0AAC5BB4251622BB00B4779F /* PurchaseFund */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PurchaseFund;
+			sourceTree = "<group>";
+		};
+		0AAC5BB5251622C600B4779F /* FundList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FundList;
+			sourceTree = "<group>";
+		};
+		0AAC5BB6251622CF00B4779F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0AAC5BB7251622D700B4779F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		2F95EE922503ED2E00D1B37A /* Home */ = {
@@ -368,6 +425,7 @@
 				BA3610D32503C10E00D66EED /* ViewController.swift */,
 				BA3610DB2503C10F00D66EED /* Assets.xcassets */,
 				BA3610DD2503C10F00D66EED /* LaunchScreen.storyboard */,
+				DDE4895725163B1800F446D3 /* bitrise.yml */,
 				BA3610E02503C10F00D66EED /* Info.plist */,
 				BA3610D82503C10E00D66EED /* ItiInvest.xcdatamodeld */,
 				68F0020D250D1ECF00A219D3 /* Localizable.strings */,
@@ -378,7 +436,10 @@
 		BA3610E82503C10F00D66EED /* ItiInvestTests */ = {
 			isa = PBXGroup;
 			children = (
-				BA3610E92503C10F00D66EED /* ItiInvestTests.swift */,
+				0AAC5BB3251622AA00B4779F /* Detail */,
+				0AAC5BB22516229900B4779F /* Home */,
+				0AAC5BB12516228A00B4779F /* FundList */,
+				0AAC5BB02516224000B4779F /* PurchaseFund */,
 				BA3610EB2503C10F00D66EED /* Info.plist */,
 			);
 			path = ItiInvestTests;
@@ -387,7 +448,10 @@
 		BA3610F32503C10F00D66EED /* ItiInvestUITests */ = {
 			isa = PBXGroup;
 			children = (
-				BA3610F42503C10F00D66EED /* ItiInvestUITests.swift */,
+				0AAC5BB7251622D700B4779F /* Detail */,
+				0AAC5BB6251622CF00B4779F /* Home */,
+				0AAC5BB5251622C600B4779F /* FundList */,
+				0AAC5BB4251622BB00B4779F /* PurchaseFund */,
 				BA3610F62503C11000D66EED /* Info.plist */,
 			);
 			path = ItiInvestUITests;
@@ -534,6 +598,7 @@
 				BA3610DF2503C10F00D66EED /* LaunchScreen.storyboard in Resources */,
 				BA3610DC2503C10F00D66EED /* Assets.xcassets in Resources */,
 				68F0020B250D1ECF00A219D3 /* Localizable.strings in Resources */,
+				DDE4895825163B1900F446D3 /* bitrise.yml in Resources */,
 				687DBF9F2503C6A500A0FBBB /* FundsList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,7 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA3610EA2503C10F00D66EED /* ItiInvestTests.swift in Sources */,
+				0A71F9C9251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +678,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA3610F52503C10F00D66EED /* ItiInvestUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
