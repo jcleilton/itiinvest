@@ -8,7 +8,8 @@
 
 import Foundation
 
-class PurchaseFundViewModel {
+@objc
+class PurchaseFundViewModel: NSObject {
     private var stock: Stock?
     
     init(stock: Stock? = nil) {
@@ -20,9 +21,7 @@ class PurchaseFundViewModel {
     }
     
     var getTitle: String {
-        isEditing
-            ? "Edite as informações"
-            : "Preencha as informações sobre a sua nova compra de ações"
+        isEditing ? LocalizableStrings.formTitleEdit.localized() : LocalizableStrings.formTitle.localized()
     }
     
     var stockName: String {
@@ -30,7 +29,7 @@ class PurchaseFundViewModel {
     }
     
     var stockAmount: String {
-        currencyFormattedFrom(string: "\(stock?.quantity ?? 0)", forCurrency: false)
+        "\(stock?.quantity ?? 0)"
     }
     
     var stockPrice: String {
@@ -55,20 +54,28 @@ class PurchaseFundViewModel {
     }
     
     func currencyFormattedFrom(string: String, forCurrency: Bool = true) -> String {
-        let currencySymbol: String = forCurrency ? "R$ " : ""
-        let numbers = string.replacingOccurrences(of: currencySymbol, with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: "")
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.locale = Locale(identifier: "pt_BR")
-        let doubleValue = (Double(numbers) ?? 0) / 100
+        let currencySymbol: String = "R$"
+        let numbers = string
+            .replacingOccurrences(of: currencySymbol, with: "")
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: ".", with: "")
+            .replacingOccurrences(of: ",", with: "")
         
-        return currencySymbol + (formatter.string(from: NSNumber(value: doubleValue)) ?? "")
+        let doubleValue: Double = (Double(Int(numbers) ?? 0)).rounded(FloatingPointRoundingRule.down) / 100
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "pt_BR")
+        let value = forCurrency ? (formatter.string(from: NSNumber(value: doubleValue)) ?? "") : (formatter.string(from: NSNumber(value: doubleValue)) ?? "").replacingOccurrences(of: currencySymbol, with: "").replacingOccurrences(of: " ", with: "")
+        return value
     }
     
     func save(quantity: String, buyDate: Date, name: String, price: String) throws {
         guard let quantity = getInt(from: quantity), let price = getDoubleFrom(from: price) else {
             throw StockAPIError.invalidSymbol
         }
+
         guard let stock = stock else {
             do {
                 try CoreDataManager().create(
@@ -101,8 +108,13 @@ class PurchaseFundViewModel {
     }
     
     private func getDoubleFrom(from string: String) -> Double? {
-        let currencySymbol: String = "R$ "
-        let numbers = string.replacingOccurrences(of: currencySymbol, with: "").replacingOccurrences(of: ".", with: "").replacingOccurrences(of: ",", with: "")
+
+        let currencySymbol: String = "R$"
+        let numbers = string.replacingOccurrences(of: currencySymbol, with: "")
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: " ", with: "")
+            .replacingOccurrences(of: ".", with: "")
+            .replacingOccurrences(of: ",", with: "")
         if let value = Double(numbers) {
             return value / 100
         }

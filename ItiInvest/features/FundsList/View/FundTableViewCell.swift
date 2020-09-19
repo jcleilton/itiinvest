@@ -24,17 +24,7 @@ class FundCellView: UIView{
         view.backgroundColor = UIColor(rgb: 0xff007e)
         return view
     }()
-    
-    let titleLabel: UIView = {
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Corretora"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = UIColor(rgb: 0x3c3c43)
-        
-        return label
-    }()
-    
+
     let subTitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -151,7 +141,6 @@ extension FundCellView: CodeView{
         addSubview(containerView)
         containerView.addSubview(accessoryDetailView)
         containerView.addSubview(mainStackView)
-        mainStackView.addArrangedSubview(titleLabel)
         mainStackView.addArrangedSubview(subTitleLabel)
         mainStackView.addArrangedSubview(secondaryStackView)
         
@@ -164,7 +153,6 @@ extension FundCellView: CodeView{
         
         percentStackView.addArrangedSubview(percentLabel)
         percentStackView.addArrangedSubview(percentValueLabel)
-        
         
     }
     
@@ -185,25 +173,15 @@ extension FundCellView: CodeView{
         mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20).isActive = true
         
         percentStackView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor).isActive = true
-        
     }
     
     func setupExtraConfigurations() {
         
     }
-    
-    
+
 }
 
-
-
 class FundTableViewCell: UITableViewCell {
-
-//    @IBOutlet weak var titleLabel: UILabel!
-//    @IBOutlet weak var amountLabel: UILabel!
-//    @IBOutlet weak var percentageLabel: UILabel!
-//    @IBOutlet weak var amountTitleLabel: UILabel!
-//    @IBOutlet weak var percentageTitleLabel: UILabel!
     
     static let identifier = "fundCell"
 
@@ -224,18 +202,12 @@ class FundTableViewCell: UITableViewCell {
     }
     
     func setup(with title: String, amount: Double, userAmount: Double) {
-        
+
         fundCellView.subTitleLabel.text = title.uppercased()
         fundCellView.currentBalanceValueLabel.text = "R$ \(amount)"
         fundCellView.percentValueLabel.text = "\((amount * 100/userAmount).rounded())%"
+        selectionStyle = .none
         
-        
-        
-        
-//        titleLabel.text = title.uppercased()
-//        amountLabel.text = "R$ \(amount)"
-//
-//        percentageLabel.text = "\((amount * 100/userAmount).rounded())%"
         setupAccessibility()
     }
 
@@ -243,11 +215,6 @@ class FundTableViewCell: UITableViewCell {
 
 extension FundTableViewCell {
     func setupAccessibility() {
-////        percentageTitleLabel.accessibilityLabel = ITIString.percentageTitle
-//<<<<<<< HEAD
-////        self.accessibilityElements = [titleLabel,amountTitleLabel, amountLabel, percentageTitleLabel, percentageLabel]
-//=======
-//        self.accessibilityElements = [titleLabel,amountTitleLabel, amountLabel, percentageTitleLabel, percentageLabel]
-//>>>>>>> dev/2.0
+
     }
 }

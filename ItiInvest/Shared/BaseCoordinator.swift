@@ -9,15 +9,33 @@
 import Foundation
 import UIKit
 
-@objc
+
 protocol BaseCoordinator: AnyObject {
 
     var navigationController: UINavigationController { get set }
     var childCoordinators: [BaseCoordinator] { get set }
+    
+    func add(childCoordinator coordinator: BaseCoordinator)
+    func remove(childCoordinator coordinator: BaseCoordinator)
+    func childDidFinish(_ child: BaseCoordinator?)
+    
+    func start()
+    
+}
 
-    @objc func start()
-
-    @objc optional func showFundsList()
-    @objc optional func showDetails()
-    @objc optional func showPurchaseFund()
+extension BaseCoordinator {
+    
+    func add(childCoordinator coordinator: BaseCoordinator) {
+        childCoordinators.append(coordinator)
+    }
+    
+    func remove(childCoordinator coordinator: BaseCoordinator) {
+        childCoordinators = childCoordinators.filter{$0 !== coordinator}
+    }
+    
+    func childDidFinish(_ child: BaseCoordinator?) {
+        guard let child = child else { return }
+        remove(childCoordinator: child)
+    }
+    
 }

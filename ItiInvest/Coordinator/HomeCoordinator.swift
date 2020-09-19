@@ -12,7 +12,7 @@ class HomeCoordinator: BaseCoordinator {
 
     var navigationController: UINavigationController
 
-    var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
+    var childCoordinators: [BaseCoordinator] = []
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -26,7 +26,7 @@ class HomeCoordinator: BaseCoordinator {
     
     func showFundsList() {
         let child = FundsListCoordinator(navigationController: navigationController)
-        childCoordinators.append(child)
+        add(childCoordinator: child)
         child.start()
     }
 }
