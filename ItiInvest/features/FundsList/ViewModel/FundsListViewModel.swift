@@ -37,7 +37,7 @@ class FundsListViewModel: NSObject {
     func getListCellViewModel(from indexPath: IndexPath) -> FundsListCellViewModel {
         let stock = manager.getStockAt(indexPath)
         let amountTotal = amountValue()
-        let percentual = (stock.price * 100.0) / amountTotal
+        let percentual = ((stock.price * Double(stock.quantity)) * 100.0) / amountTotal
         let viewModel = FundsListCellViewModel(
             name: stock.name ?? "",
             amount: Formatter.currencyStringFromDouble(stock.price),
