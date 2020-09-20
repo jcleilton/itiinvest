@@ -46,6 +46,13 @@ enum LocalizableStrings: String {
     case formRequiredField = "form.requiredField"
     case formTitleEdit = "form.titleEdit"
 
+    // MARK: - Accessibility
+
+    case qrCode = "home.qrCode"
+    case promotions = "home.promotions"
+    case iti = "home.iti"
+    case username = "home.user"
+
     func localized() -> String { rawValue.localized() }
 }
 
