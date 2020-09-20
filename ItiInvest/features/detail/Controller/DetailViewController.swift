@@ -68,6 +68,16 @@ class DetailViewController: UIViewController, HasCustomView {
             self.customView.todaysCotationValueLabel.text = self.viewModel.todaysCotation
             self.customView.todaysPriceValueLabel.text = self.viewModel.todaysPrice
             self.customView.todaysProfitabilityValueLabel.text = self.viewModel.todaysProfit
+            
+            self.customView.todaysProfitabilityValueLabel.textColor = self.viewModel.labelColor
+            
+            self.customView.todaysCotationValueLabel.textColor = self.viewModel.labelColor
+            
+            self.customView.todaysPriceValueLabel.textColor = self.viewModel.labelColor
+            
+            
+            
+            
         }
     }
     

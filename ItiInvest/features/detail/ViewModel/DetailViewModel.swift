@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Detail View Model
 class DetailViewModel {
@@ -23,6 +24,10 @@ class DetailViewModel {
     var todaysCotation: String { currencyFormattedFrom(string: String(todaysCotationValue)) }
     var todaysPrice: String { currencyFormattedFrom(string: String(todaysPriceValue)) }
     var todaysProfit: String { return "\(NSString(format: "%.0f", todaysProfitValue))%" }
+    
+    var labelColor: UIColor{
+        return todaysProfitValue >= 0 ? UIColor(rgb: 0x52ad06) : .black
+    }
     
     weak var delegate: DetailViewControllerUIUpateDelegate?
     
