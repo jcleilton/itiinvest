@@ -84,7 +84,7 @@ class DetailViewModel {
             case .success(let price):
                 self.todaysPriceValue = price
                 self.todaysCotationValue = price * Double(self.stock.quantity)
-                self.todaysProfitValue = 100 * self.todaysCotationValue / self.stock.price - 100
+                self.todaysProfitValue = 100 * self.todaysPriceValue / self.stock.price - 100
             case .failure(let error):
                 break
 //                let alert = UIAlertController(title: "Erro!", message: "Ocorreu um erro na requisição", preferredStyle: .alert)
