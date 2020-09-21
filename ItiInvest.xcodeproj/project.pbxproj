@@ -3,12 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0A71F9C9251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */; };
 		0A71F9CB2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CA2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift */; };
+		0A71F9CD2516476E0023A841 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CC2516476E0023A841 /* Formatter.swift */; };
+		0A71F9CF251648C20023A841 /* FundsListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CE251648C20023A841 /* FundsListCellViewModel.swift */; };
+		0A71F9D22516777C0023A841 /* CoreDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D12516777C0023A841 /* CoreDataManagerTests.swift */; };
+		0A71F9D4251684700023A841 /* FundsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D3251684700023A841 /* FundsListViewModelTests.swift */; };
+		0A71F9D6251685C20023A841 /* CoreDataManagerMocked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D5251685C20023A841 /* CoreDataManagerMocked.swift */; };
+		0A71F9D8251688210023A841 /* CoreDataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D7251688210023A841 /* CoreDataManagerProtocol.swift */; };
+		0A71F9DA251694F40023A841 /* APIPreparing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9D9251694F40023A841 /* APIPreparing.swift */; };
+		0A71F9DC251699730023A841 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A71F9DB251699730023A841 /* GoogleService-Info.plist */; };
+		0A71F9DE2516A8800023A841 /* FIRStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9DD2516A8800023A841 /* FIRStock.swift */; };
 		0A98EDE92512DF41007792DC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A98EDE82512DF41007792DC /* Alert.swift */; };
 		0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */; };
 		0AAB834D250D041800B8E3DB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB834C250D041800B8E3DB /* Constant.swift */; };
@@ -37,6 +46,7 @@
 		8626F5F52503FAE800AECFC7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F42503FAE800AECFC7 /* Service.swift */; };
 		8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */; };
 		8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F72503FAF000AECFC7 /* StockAPIError.swift */; };
+		8EB985B4756C7D0337EDF13D /* Pods_ItiInvest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB238D45D70B8B7E109D5559 /* Pods_ItiInvest.framework */; };
 		9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A652503DC23003E7C17 /* PurchaseFundViewController.swift */; };
 		9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0D5A672503E558003E7C17 /* PurchaseFundViewModel.swift */; };
 		9B263170250D14D900DB7984 /* HasCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B26316F250D14D900DB7984 /* HasCustomView.swift */; };
@@ -52,7 +62,8 @@
 		BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3611062503CF2500D66EED /* DetailViewController.swift */; };
 		BA3611092503D0EA00D66EED /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3611082503D0EA00D66EED /* DetailViewModel.swift */; };
 		BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */; };
-		DDE4895825163B1900F446D3 /* bitrise.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDE4895725163B1800F446D3 /* bitrise.yml */; };
+		DDE48960251644EB00F446D3 /* bitrise.yml in Resources */ = {isa = PBXBuildFile; fileRef = DDE4895F251644EB00F446D3 /* bitrise.yml */; };
+		F3CED526D01017A948DB0A40 /* Pods_ItiInvestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E8A8EE544FCA1771BE1335F /* Pods_ItiInvestTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +79,15 @@
 /* Begin PBXFileReference section */
 		0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundsViewModelStockBindTests.swift; sourceTree = "<group>"; };
 		0A71F9CA2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundsViewModelCreateModeTests.swift; sourceTree = "<group>"; };
+		0A71F9CC2516476E0023A841 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		0A71F9CE251648C20023A841 /* FundsListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListCellViewModel.swift; sourceTree = "<group>"; };
+		0A71F9D12516777C0023A841 /* CoreDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerTests.swift; sourceTree = "<group>"; };
+		0A71F9D3251684700023A841 /* FundsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewModelTests.swift; sourceTree = "<group>"; };
+		0A71F9D5251685C20023A841 /* CoreDataManagerMocked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerMocked.swift; sourceTree = "<group>"; };
+		0A71F9D7251688210023A841 /* CoreDataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManagerProtocol.swift; sourceTree = "<group>"; };
+		0A71F9D9251694F40023A841 /* APIPreparing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPreparing.swift; sourceTree = "<group>"; };
+		0A71F9DB251699730023A841 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0A71F9DD2516A8800023A841 /* FIRStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRStock.swift; sourceTree = "<group>"; };
 		0A98EDE82512DF41007792DC /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		0AAB834C250D041800B8E3DB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -78,6 +98,7 @@
 		2F95EE932503ED2E00D1B37A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2F95EE972503ED2E00D1B37A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F95EE9C2503F2B400D1B37A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		684188788E62413B3630EE13 /* Pods-ItiInvest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItiInvest.release.xcconfig"; path = "Target Support Files/Pods-ItiInvest/Pods-ItiInvest.release.xcconfig"; sourceTree = "<group>"; };
 		687DBF9E2503C6A500A0FBBB /* FundsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FundsList.storyboard; sourceTree = "<group>"; };
 		687DBFA12503C7E000A0FBBB /* FundsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListViewController.swift; sourceTree = "<group>"; };
 		687DBFA42503C92200A0FBBB /* ITIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITIColor.swift; sourceTree = "<group>"; };
@@ -95,6 +116,7 @@
 		68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundCoordinator.swift; sourceTree = "<group>"; };
 		7935870D250CFFC500FD8CBF /* FundsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListView.swift; sourceTree = "<group>"; };
 		79358714250D091B00FD8CBF /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		7E8A8EE544FCA1771BE1335F /* Pods_ItiInvestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItiInvestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8626F5F42503FAE800AECFC7 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIResult.swift; sourceTree = "<group>"; };
 		8626F5F72503FAF000AECFC7 /* StockAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIError.swift; sourceTree = "<group>"; };
@@ -105,6 +127,7 @@
 		9B97D58B250CFDBE00FB46C9 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9B97D58D250CFDE600FB46C9 /* ItiLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItiLabel.swift; sourceTree = "<group>"; };
 		9B97D58F250D104B00FB46C9 /* DetailsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsStackView.swift; sourceTree = "<group>"; };
+		9BACBBC5C8FBAF3DA10F908B /* Pods-ItiInvestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItiInvestTests.release.xcconfig"; path = "Target Support Files/Pods-ItiInvestTests/Pods-ItiInvestTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA3610CC2503C10E00D66EED /* ItiInvest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItiInvest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3610CF2503C10E00D66EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA3610D32503C10E00D66EED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,7 +141,10 @@
 		BA3611062503CF2500D66EED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BA3611082503D0EA00D66EED /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		BA36110B2503FEFE00D66EED /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
-		DDE4895725163B1800F446D3 /* bitrise.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = bitrise.yml; sourceTree = "<group>"; };
+		C2D29F8C43F8DDB2E37E7D94 /* Pods-ItiInvest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItiInvest.debug.xcconfig"; path = "Target Support Files/Pods-ItiInvest/Pods-ItiInvest.debug.xcconfig"; sourceTree = "<group>"; };
+		CB238D45D70B8B7E109D5559 /* Pods_ItiInvest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ItiInvest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE4895F251644EB00F446D3 /* bitrise.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = bitrise.yml; sourceTree = "<group>"; };
+		FBE0F57B9B6D1B09931ACF36 /* Pods-ItiInvestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ItiInvestTests.debug.xcconfig"; path = "Target Support Files/Pods-ItiInvestTests/Pods-ItiInvestTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EB985B4756C7D0337EDF13D /* Pods_ItiInvest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,17 +160,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3CED526D01017A948DB0A40 /* Pods_ItiInvestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A71F9D02516774B0023A841 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0A71F9D12516777C0023A841 /* CoreDataManagerTests.swift */,
+				0A71F9D5251685C20023A841 /* CoreDataManagerMocked.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		0AAB8349250CFC4E00B8E3DB /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
 				0AAB834A250CFC6F00B8E3DB /* ViewCodeProtocol.swift */,
 				9B26316F250D14D900DB7984 /* HasCustomView.swift */,
+				0A71F9D7251688210023A841 /* CoreDataManagerProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -160,6 +198,7 @@
 		0AAC5BB12516228A00B4779F /* FundList */ = {
 			isa = PBXGroup;
 			children = (
+				0A71F9D3251684700023A841 /* FundsListViewModelTests.swift */,
 			);
 			path = FundList;
 			sourceTree = "<group>";
@@ -231,6 +270,8 @@
 				9B97D588250CFD4D00FB46C9 /* Components */,
 				0AAB8349250CFC4E00B8E3DB /* Protocol */,
 				2F95EE9C2503F2B400D1B37A /* CoreDataManager.swift */,
+				0A71F9CC2516476E0023A841 /* Formatter.swift */,
+				0A71F9D9251694F40023A841 /* APIPreparing.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -309,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				688B78392503E33A00F40EE2 /* FundsListViewModel.swift */,
+				0A71F9CE251648C20023A841 /* FundsListCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -345,6 +387,7 @@
 			children = (
 				8626F5F72503FAF000AECFC7 /* StockAPIError.swift */,
 				8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */,
+				0A71F9DD2516A8800023A841 /* FIRStock.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -385,6 +428,8 @@
 				BA3610F32503C10F00D66EED /* ItiInvestUITests */,
 				BA3610CD2503C10E00D66EED /* Products */,
 				79358713250D089600FD8CBF /* Recovered References */,
+				D200F11DB66DDADBC3BB1954 /* Pods */,
+				CB03973BF1FC75227BDC1BE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,6 +445,7 @@
 		BA3610CE2503C10E00D66EED /* ItiInvest */ = {
 			isa = PBXGroup;
 			children = (
+				0A71F9DB251699730023A841 /* GoogleService-Info.plist */,
 				68F53F4C250CFE7900A796F5 /* Coordinator */,
 				68F53F49250CFE2900A796F5 /* Shared */,
 				2F95EE9B2503F28600D1B37A /* Utils */,
@@ -412,7 +458,7 @@
 				BA3610D32503C10E00D66EED /* ViewController.swift */,
 				BA3610DB2503C10F00D66EED /* Assets.xcassets */,
 				BA3610DD2503C10F00D66EED /* LaunchScreen.storyboard */,
-				DDE4895725163B1800F446D3 /* bitrise.yml */,
+				DDE4895F251644EB00F446D3 /* bitrise.yml */,
 				BA3610E02503C10F00D66EED /* Info.plist */,
 				BA3610D82503C10E00D66EED /* ItiInvest.xcdatamodeld */,
 				68F0020D250D1ECF00A219D3 /* Localizable.strings */,
@@ -423,6 +469,7 @@
 		BA3610E82503C10F00D66EED /* ItiInvestTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A71F9D02516774B0023A841 /* Shared */,
 				0AAC5BB3251622AA00B4779F /* Detail */,
 				0AAC5BB22516229900B4779F /* Home */,
 				0AAC5BB12516228A00B4779F /* FundList */,
@@ -476,6 +523,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CB03973BF1FC75227BDC1BE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB238D45D70B8B7E109D5559 /* Pods_ItiInvest.framework */,
+				7E8A8EE544FCA1771BE1335F /* Pods_ItiInvestTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D200F11DB66DDADBC3BB1954 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2D29F8C43F8DDB2E37E7D94 /* Pods-ItiInvest.debug.xcconfig */,
+				684188788E62413B3630EE13 /* Pods-ItiInvest.release.xcconfig */,
+				FBE0F57B9B6D1B09931ACF36 /* Pods-ItiInvestTests.debug.xcconfig */,
+				9BACBBC5C8FBAF3DA10F908B /* Pods-ItiInvestTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -483,9 +550,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA3610F92503C11000D66EED /* Build configuration list for PBXNativeTarget "ItiInvest" */;
 			buildPhases = (
+				0B65979D448FD146B8726D44 /* [CP] Check Pods Manifest.lock */,
 				BA3610C82503C10E00D66EED /* Sources */,
 				BA3610C92503C10E00D66EED /* Frameworks */,
 				BA3610CA2503C10E00D66EED /* Resources */,
+				102C0DDA51B314A43D5C7523 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -500,6 +569,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA3610FC2503C11000D66EED /* Build configuration list for PBXNativeTarget "ItiInvestTests" */;
 			buildPhases = (
+				8E53223217A34CE82BF18E7C /* [CP] Check Pods Manifest.lock */,
 				BA3610E12503C10F00D66EED /* Sources */,
 				BA3610E22503C10F00D66EED /* Frameworks */,
 				BA3610E32503C10F00D66EED /* Resources */,
@@ -560,10 +630,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3610DF2503C10F00D66EED /* LaunchScreen.storyboard in Resources */,
+				DDE48960251644EB00F446D3 /* bitrise.yml in Resources */,
 				BA3610DC2503C10F00D66EED /* Assets.xcassets in Resources */,
 				68F0020B250D1ECF00A219D3 /* Localizable.strings in Resources */,
-				DDE4895825163B1900F446D3 /* bitrise.yml in Resources */,
 				687DBF9F2503C6A500A0FBBB /* FundsList.storyboard in Resources */,
+				0A71F9DC251699730023A841 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +646,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B65979D448FD146B8726D44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ItiInvest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		102C0DDA51B314A43D5C7523 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ItiInvest/Pods-ItiInvest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ItiInvest/Pods-ItiInvest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ItiInvest/Pods-ItiInvest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E53223217A34CE82BF18E7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ItiInvestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA3610C82503C10E00D66EED /* Sources */ = {
@@ -595,14 +730,17 @@
 				9B97D590250D104B00FB46C9 /* DetailsStackView.swift in Sources */,
 				68F53F4B250CFE3B00A796F5 /* BaseCoordinator.swift in Sources */,
 				68F53F50250D004F00A796F5 /* HomeCoordinator.swift in Sources */,
+				0A71F9CF251648C20023A841 /* FundsListCellViewModel.swift in Sources */,
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
 				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
+				0A71F9DE2516A8800023A841 /* FIRStock.swift in Sources */,
 				79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */,
 				0A98EDE92512DF41007792DC /* Alert.swift in Sources */,
 				687DBFA52503C92200A0FBBB /* ITIColor.swift in Sources */,
 				9B97D58A250CFDB100FB46C9 /* ItiButton.swift in Sources */,
 				2F281DC3250D14CA009C39CE /* UIView+LayoutGuide.swift in Sources */,
+				0A71F9CD2516476E0023A841 /* Formatter.swift in Sources */,
 				0AAB834D250D041800B8E3DB /* Constant.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
 				7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */,
@@ -611,6 +749,7 @@
 				688B783C2503E41900F40EE2 /* LocalizableStrings.swift in Sources */,
 				0AAB834F250D05AE00B8E3DB /* UIView+Constrants.swift in Sources */,
 				687DBFA82503D34200A0FBBB /* FundTableViewCell.swift in Sources */,
+				0A71F9D8251688210023A841 /* CoreDataManagerProtocol.swift in Sources */,
 				9B97D58E250CFDE600FB46C9 /* ItiLabel.swift in Sources */,
 				9B0D5A682503E558003E7C17 /* PurchaseFundViewModel.swift in Sources */,
 				9B0D5A662503DC23003E7C17 /* PurchaseFundViewController.swift in Sources */,
@@ -619,6 +758,7 @@
 				0AAB834B250CFC6F00B8E3DB /* ViewCodeProtocol.swift in Sources */,
 				8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */,
 				687DBFA22503C7E000A0FBBB /* FundsListViewController.swift in Sources */,
+				0A71F9DA251694F40023A841 /* APIPreparing.swift in Sources */,
 				2F95EE982503ED2E00D1B37A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,7 +768,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A71F9C9251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift in Sources */,
+				0A71F9D22516777C0023A841 /* CoreDataManagerTests.swift in Sources */,
 				0A71F9CB2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift in Sources */,
+				0A71F9D4251684700023A841 /* FundsListViewModelTests.swift in Sources */,
+				0A71F9D6251685C20023A841 /* CoreDataManagerMocked.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,18 +925,19 @@
 		};
 		BA3610FA2503C11000D66EED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2D29F8C43F8DDB2E37E7D94 /* Pods-ItiInvest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22SPKR75FE;
+				DEVELOPMENT_TEAM = 64P7QK2DWH;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devboostitau.ItiInvest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devboostitau.ItiInvest1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -803,18 +947,19 @@
 		};
 		BA3610FB2503C11000D66EED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 684188788E62413B3630EE13 /* Pods-ItiInvest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 22SPKR75FE;
+				DEVELOPMENT_TEAM = 64P7QK2DWH;
 				INFOPLIST_FILE = ItiInvest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.devboostitau.ItiInvest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.devboostitau.ItiInvest1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -824,10 +969,12 @@
 		};
 		BA3610FD2503C11000D66EED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBE0F57B9B6D1B09931ACF36 /* Pods-ItiInvestTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64P7QK2DWH;
 				INFOPLIST_FILE = ItiInvestTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -845,10 +992,12 @@
 		};
 		BA3610FE2503C11000D66EED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BACBBC5C8FBAF3DA10F908B /* Pods-ItiInvestTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64P7QK2DWH;
 				INFOPLIST_FILE = ItiInvestTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (

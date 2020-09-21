@@ -30,7 +30,6 @@ class GradientButton: UIButton{
         applyGradient(color1: UIColor(rgb: 0xfb5990), color2: UIColor(rgb: 0xe96e1f), locations: [0.0, 1.0])
         applyCornerRadius()
     }
-    
 }
 
 class FundsListView: UIView {
@@ -41,7 +40,6 @@ class FundsListView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
     
     let containerView: UIView = {
         let view = UIView()
@@ -70,7 +68,6 @@ class FundsListView: UIView {
         return stackView
     }()
     
-    
     let patrimonyLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +80,7 @@ class FundsListView: UIView {
     let valueLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "R$ 0.00"
+        label.text = "R$ *****"
         label.font = UIFont(name: "HelveticaNeue-Bold", size:  33.0)
         label.textColor = .white
         return label
@@ -91,7 +88,8 @@ class FundsListView: UIView {
     
     let hideValueButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.setImage(UIImage(named: "eye"), for: .normal)
+        let image = UIImage(systemName: "eye.fill") as UIImage?
+        button.setImage(image, for: .normal)
         button.tintColor = .white
         button.backgroundColor = .clear
         return button
@@ -144,14 +142,6 @@ extension FundsListView: CodeView{
         mainStackView.addArrangedSubview(valueStackView)
         valueStackView.addArrangedSubview(valueLabel)
         valueStackView.addArrangedSubview(hideValueButton)
-        
-        
-        
-        
-//        headerView.addSubview(patrimonyLabel)
-//        headerView.addSubview(valueLabel)
-//        headerView.addSubview(hideValueButton)
-        
         containerView.addSubview(tableView)
         containerView.addSubview(bottomButton)
     }
@@ -168,8 +158,8 @@ extension FundsListView: CodeView{
         mainStackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20).isActive = true
         mainStackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
         
-        hideValueButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        hideValueButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        hideValueButton.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        hideValueButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
 
         containerView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
@@ -186,12 +176,8 @@ extension FundsListView: CodeView{
         tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         
         tableView.bottomAnchor.constraint(equalTo: bottomButton.topAnchor, constant: -20).isActive = true
-        
     }
     
     func setupExtraConfigurations() {
-        
-        
     }
-    
 }

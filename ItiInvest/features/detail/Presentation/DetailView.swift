@@ -145,8 +145,4 @@ extension DetailView: CodeView {
         editButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Constant.Margin.verticalNormal).isActive = true
         editButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
-    
-    func setupExtraConfigurations() {
-        
-    }
 }

@@ -9,8 +9,8 @@
 import UIKit
 import CoreData
 
-class CoreDataManager {
-    weak var delegate: NSFetchedResultsControllerDelegate?
+class CoreDataManager: CoreDataManagerProtocol {
+    weak private var delegate: NSFetchedResultsControllerDelegate?
     
     lazy var fetchedResultsController: NSFetchedResultsController<Stock> = {
         let fetchRequest: NSFetchRequest<Stock> = Stock.fetchRequest()
@@ -18,7 +18,6 @@ class CoreDataManager {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController.delegate = delegate
         
         return fetchedResultsController
     }()
@@ -39,6 +38,10 @@ class CoreDataManager {
         fetchedResultsController.object(at: indexPath)
     }
     
+    func getStocks() -> [Stock] {
+        fetchedResultsController.fetchedObjects ?? []
+    }
+    
     func create(quantity: Int, buyDate: Date, name: String, price: Double) throws {
         let data = Stock(context: context)
         data.quantity = Int64(quantity)
@@ -46,14 +49,14 @@ class CoreDataManager {
         data.buyDate = buyDate
         data.price = price
         do {
-            try self.save(data: data)
+            try self.save()
         } catch {
             throw error
         }
         
     }
     
-    func save(data: Stock) throws {
+    func save() throws {
         do {
             try context.save()
         } catch {
@@ -63,5 +66,11 @@ class CoreDataManager {
     
     func delete(data: Stock) throws {
         context.delete(data)
+        try save()
+    }
+    
+    func setDelegate(delegate: NSFetchedResultsControllerDelegate?) {
+        self.delegate = delegate
+        fetchedResultsController.delegate = self.delegate
     }
 }

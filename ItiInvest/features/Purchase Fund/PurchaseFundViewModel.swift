@@ -33,7 +33,11 @@ class PurchaseFundViewModel: NSObject {
     }
     
     var stockPrice: String {
-        currencyFormattedFrom(string: "\(stock?.price ?? 0.0)")
+        Formatter.currencyFormattedFrom(string: "\(stock?.price ?? 0.0)")
+    }
+    
+    func currencyFormattedFrom(string: String) -> String {
+        Formatter.currencyFormattedFrom(string: string)
     }
     
     var stockDate: String {
@@ -51,30 +55,6 @@ class PurchaseFundViewModel: NSObject {
     
     func dateString(from date: Date) -> String {
         return dateFormatter.string(from: date)
-    }
-    
-    func currencyFormattedFrom(string: String, forCurrency: Bool = true) -> String {
-        let currencySymbol: String = "R$"
-        let numbers = string
-            .replacingOccurrences(of: currencySymbol, with: "")
-            .replacingOccurrences(of: " ", with: "")
-            .replacingOccurrences(of: " ", with: "")
-            .replacingOccurrences(of: ".", with: "")
-            .replacingOccurrences(of: ",", with: "")
-        
-        let doubleValue: Double = (Double(Int(numbers) ?? 0)).rounded(FloatingPointRoundingRule.down) / 100
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale(identifier: "pt_BR")
-        let value = forCurrency ? (formatter.string(from: NSNumber(value: doubleValue)) ?? "")
-            : (formatter.string(from: NSNumber(value: doubleValue)) ?? "")
-                .replacingOccurrences(of: currencySymbol, with: "")
-                .replacingOccurrences(of: " ", with: "")
-                .replacingOccurrences(of: " ", with: "")
-                .replacingOccurrences(of: ".", with: "")
-                .replacingOccurrences(of: ",", with: "")
-        return value
     }
     
     func save(quantity: String, buyDate: Date, name: String, price: String) throws {
@@ -99,7 +79,7 @@ class PurchaseFundViewModel: NSObject {
             stock.price = price
             stock.buyDate = buyDate
             stock.quantity = Int64(quantity)
-            try CoreDataManager().save(data: stock)
+            try CoreDataManager().save()
         } catch {
             throw error
         }
@@ -114,7 +94,6 @@ class PurchaseFundViewModel: NSObject {
     }
     
     private func getDoubleFrom(from string: String) -> Double? {
-
         let currencySymbol: String = "R$"
         let numbers = string.replacingOccurrences(of: currencySymbol, with: "")
             .replacingOccurrences(of: " ", with: "")

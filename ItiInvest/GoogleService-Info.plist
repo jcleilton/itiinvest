@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>984899532134-09gssg1ugejc7f5on1mfv3bpv2i9jp5n.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.984899532134-09gssg1ugejc7f5on1mfv3bpv2i9jp5n</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAYz1pt4VLh6Qq65js6Gnhi7jv44KeTzfM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>984899532134</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.devboostitau.ItiInvest1</string>
+	<key>PROJECT_ID</key>
+	<string>devboostiti</string>
+	<key>STORAGE_BUCKET</key>
+	<string>devboostiti.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:984899532134:ios:86131763d88659387884a7</string>
+	<key>DATABASE_URL</key>
+	<string>https://devboostiti.firebaseio.com</string>
+</dict>
+</plist>
