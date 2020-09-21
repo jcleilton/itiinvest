@@ -121,7 +121,13 @@ final class PurchaseFundViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(updateDate), for: .valueChanged)
         return datePicker
     }()
-    
+    private lazy var stockPicker: UIPickerView = {
+        let picker = UIPickerView(frame: .zero)
+        picker.delegate = self
+        picker.dataSource = self
+        
+        return picker
+    }()
     private let toolbar: UIToolbar = {
         let toolbar = UIToolbar(frame: .zero)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -355,6 +361,7 @@ extension PurchaseFundViewController: CodeView {
         amountTextField.keyboardType = .numberPad
         priceTextField.keyboardType = .numberPad
         
+        stockTextField.inputView = stockPicker
         dateTextField.inputView = datePicker
         
         toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
@@ -462,4 +469,25 @@ extension PurchaseFundViewController: UITextFieldDelegate {
             return true
         }
     }
+}
+
+extension PurchaseFundViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        stockTextField.text = viewModel.stockDescription(for: row)
+    }
+}
+
+extension PurchaseFundViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        viewModel.stockDescriptionsCount
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        viewModel.stockDescription(for: row)
+    }
+    
 }
