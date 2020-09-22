@@ -30,10 +30,10 @@
 Projeto desenvolvido com a finalidade de avaliar nossas skills dentro do programa Dev Boost Itaú. Buscamos de incluir todos os tópicos ministrados pelo professor Erick Brito para demostrar nosso aprendimento e interesse no assunto.
 
 ### Built With
-CocoaPods utilizados
+Bibliotecas utilizadas
 * [Firebase](https://firebase.com)
-* [UIKit](https://apple.com/developer)
-* [CoreData](https://apple.com/developer)
+* [UIKit](https://developer.apple.com/documentation/uikit)
+* [CoreData](https://developer.apple.com/documentation/coredata)
 
 
 
