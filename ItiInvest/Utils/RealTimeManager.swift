@@ -11,7 +11,21 @@ import Firebase
 
 fileprivate let collection = "stocks"
 
-class RealTimeManager {
+enum FirebaseError: Error {
+    case invalidEmail
+    case incorrectPassword
+    case weakPassword
+    case nonexistentAccount
+    case userAlreadyExists
+    case unknown
+}
+
+protocol FirebaseAuthing {
+    func signUp(email: String, password: String, onCompletion: @escaping(Result<User, FirebaseError>) -> Void)
+    func signIn(email: String, password: String, onCompletion: @escaping(Result<User, FirebaseError>) -> Void)
+}
+
+class RealTimeManager: FirebaseAuthing {
     private var ref: DatabaseReference
     
     static let shared: RealTimeManager = {
@@ -46,63 +60,46 @@ class RealTimeManager {
         }
     }
     
-    func signUp(email: String, password: String, onCompletion: @escaping((User?, String?) -> Void)) {
+    func signUp(email: String, password: String, onCompletion: @escaping(Result<User, FirebaseError>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 let authErrorCode = AuthErrorCode(rawValue: error._code)
                 switch authErrorCode {
-                case .credentialAlreadyInUse:
-                    onCompletion(nil,"")
-                case .emailAlreadyInUse:
-                    onCompletion(nil,"")
+                case .credentialAlreadyInUse, .emailAlreadyInUse:
+                    onCompletion(.failure(.userAlreadyExists))
                 case .invalidEmail:
-                    onCompletion(nil,"")
-                case .missingEmail:
-                    onCompletion(nil,"")
+                    onCompletion(.failure(.invalidEmail))
                 case .weakPassword:
-                    onCompletion(nil,"")
+                    onCompletion(.failure(.weakPassword))
                 default:
-                    onCompletion(nil,error.localizedDescription)
+                    onCompletion(.failure(.unknown))
                 }
-                onCompletion(nil,error.localizedDescription)
+            } else if let user = authResult?.user {
+                onCompletion(.success(user))
             } else {
-                if let user = authResult?.user {
-                    onCompletion(user,nil)
-                } else {
-                    onCompletion(nil,"Não foi possível criar o usuário")
-                }
+                onCompletion(.failure(.unknown))
             }
         }
     }
     
-    func signIn(email: String, password: String, onCompletion: @escaping((User?, String?) -> Void)) {
+    func signIn(email: String, password: String, onCompletion: @escaping(Result<User, FirebaseError>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 let authErrorCode = AuthErrorCode(rawValue: error._code)
                 switch authErrorCode {
-                case .invalidCredential:
-                    onCompletion(nil,"")
-                case .emailAlreadyInUse:
-                    onCompletion(nil,"")
+                case .credentialAlreadyInUse, .emailAlreadyInUse:
+                    onCompletion(.failure(.userAlreadyExists))
                 case .invalidEmail:
-                    onCompletion(nil,"")
-                case .wrongPassword:
-                    onCompletion(nil,"")
-                case .userNotFound:
-                    onCompletion(nil,"")
+                    onCompletion(.failure(.invalidEmail))
                 case .weakPassword:
-                    onCompletion(nil,"")
-                case .none:
-                    onCompletion(nil,error.localizedDescription)
-                case .some(_):
-                    onCompletion(nil,error.localizedDescription)
+                    onCompletion(.failure(.weakPassword))
+                default:
+                    onCompletion(.failure(.unknown))
                 }
+            } else if let user = authResult?.user {
+                onCompletion(.success(user))
             } else {
-                if let user = authResult?.user {
-                    onCompletion(user,nil)
-                } else {
-                    
-                }
+                onCompletion(.failure(.unknown))
             }
         }
     }
