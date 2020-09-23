@@ -45,4 +45,65 @@ class RealTimeManager {
             self?.symbols = result
         }
     }
+    
+    func signUp(email: String, password: String, onCompletion: @escaping((User?, String?) -> Void)) {
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                let authErrorCode = AuthErrorCode(rawValue: error._code)
+                switch authErrorCode {
+                case .credentialAlreadyInUse:
+                    onCompletion(nil,"")
+                case .emailAlreadyInUse:
+                    onCompletion(nil,"")
+                case .invalidEmail:
+                    onCompletion(nil,"")
+                case .missingEmail:
+                    onCompletion(nil,"")
+                case .weakPassword:
+                    onCompletion(nil,"")
+                default:
+                    onCompletion(nil,error.localizedDescription)
+                }
+                onCompletion(nil,error.localizedDescription)
+            } else {
+                if let user = authResult?.user {
+                    onCompletion(user,nil)
+                } else {
+                    onCompletion(nil,"Não foi possível criar o usuário")
+                }
+            }
+        }
+    }
+    
+    func signIn(email: String, password: String, onCompletion: @escaping((User?, String?) -> Void)) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                let authErrorCode = AuthErrorCode(rawValue: error._code)
+                switch authErrorCode {
+                case .invalidCredential:
+                    onCompletion(nil,"")
+                case .emailAlreadyInUse:
+                    onCompletion(nil,"")
+                case .invalidEmail:
+                    onCompletion(nil,"")
+                case .wrongPassword:
+                    onCompletion(nil,"")
+                case .userNotFound:
+                    onCompletion(nil,"")
+                case .weakPassword:
+                    onCompletion(nil,"")
+                case .none:
+                    onCompletion(nil,error.localizedDescription)
+                case .some(_):
+                    onCompletion(nil,error.localizedDescription)
+                }
+            } else {
+                if let user = authResult?.user {
+                    onCompletion(user,nil)
+                } else {
+                    
+                }
+            }
+        }
+    }
 }

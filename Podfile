@@ -8,6 +8,8 @@ target 'ItiInvest' do
   # Pods for ItiInvest
   pod 'Firebase/Database'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'iOSSnapshotTestCase'
   target 'ItiInvestTests' do
     inherit! :search_paths
     # Pods for testing
