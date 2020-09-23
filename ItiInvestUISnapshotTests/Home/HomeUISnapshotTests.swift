@@ -9,6 +9,8 @@
 import XCTest
 
 class HomeUISnapshotTests: XCTestCase {
+    
+//    var sut: HomeViewCon
 
     override func setUp() {
         super.setUp()
