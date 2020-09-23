@@ -12,13 +12,13 @@ import XCTest
 class FundsListViewModelTests: XCTestCase {
     var sut: FundsListViewModel!
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() {
+        super.setUp()
         sut = FundsListViewModel(manager: CoreDataManagerMocked())
     }
 
-    override func tearDownWithError() throws {
-        try super.tearDownWithError()
+    override func tearDown() {
+        super.tearDown()
     }
 
     func testExample() throws {

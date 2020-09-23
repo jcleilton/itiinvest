@@ -12,14 +12,14 @@ import XCTest
 class PurchaseFundsViewModelCreateModeTests: XCTestCase {
     var sut: PurchaseFundViewModel!
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() {
+        super.setUp()
         sut = PurchaseFundViewModel()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         sut = nil
-        try super.tearDownWithError()
+        super.tearDown()
     }
 
     func testBindingName() throws {

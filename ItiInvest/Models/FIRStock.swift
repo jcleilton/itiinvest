@@ -12,4 +12,12 @@ struct FIRStock {
     let id: String
     let name: String
     let symbol: String
+    
+    var description: String { "\(symbol) - \(name)" }
+}
+
+extension FIRStock: Comparable {
+    static func < (lhs: FIRStock, rhs: FIRStock) -> Bool {
+        return lhs.description < rhs.description
+    }
 }

@@ -42,12 +42,13 @@ class CoreDataManager: CoreDataManagerProtocol {
         fetchedResultsController.fetchedObjects ?? []
     }
     
-    func create(quantity: Int, buyDate: Date, name: String, price: Double) throws {
+    func create(quantity: Int, buyDate: Date, name: String, price: Double, symbol: String) throws {
         let data = Stock(context: context)
         data.quantity = Int64(quantity)
         data.name = name
         data.buyDate = buyDate
         data.price = price
+        data.symbol = symbol
         do {
             try self.save()
         } catch {

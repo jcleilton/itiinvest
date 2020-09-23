@@ -20,7 +20,7 @@ protocol CoreDataManagerProtocol {
     
     func getStocks() -> [Stock]
     
-    func create(quantity: Int, buyDate: Date, name: String, price: Double) throws
+    func create(quantity: Int, buyDate: Date, name: String, price: Double, symbol: String) throws
     
     func save() throws
     
@@ -30,7 +30,7 @@ protocol CoreDataManagerProtocol {
 extension CoreDataManagerProtocol {
     func performFetch() { }
     
-    func create(quantity: Int, buyDate: Date, name: String, price: Double) throws { }
+    func create(quantity: Int, buyDate: Date, name: String, price: Double, symbol: String) throws { }
     
     func save() throws { }
     
