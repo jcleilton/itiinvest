@@ -47,3 +47,10 @@
 "form.startingDate" = "Starting Date";
 "form.requiredField" = "Required Field";
 "form.titleEdit" = "Edit informations";
+
+// MARK: - Accessibility
+
+"home.qrCode" = "qr code";
+"home.promotions" = "promotions";
+"home.iti" = "iti";
+"home.user" = "username";

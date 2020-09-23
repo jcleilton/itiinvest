@@ -47,3 +47,10 @@
 "stock.editInformations" = "Editar informações";
 "form.requiredField" = "Campo obrigatório";
 "form.titleEdit" = "Edite as informações";
+
+// MARK: - Accessibility
+
+"home.qrCode" = "código qr";
+"home.promotions" = "promoções";
+"home.iti" = "iti";
+"home.user" = "nome de usuário";
