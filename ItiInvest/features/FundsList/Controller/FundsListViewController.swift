@@ -52,6 +52,15 @@ class FundsListViewController: UIViewController {
         fundsListView.bottomButton.addTarget(self, action: #selector(self.goToNewStock(_:)), for: UIControl.Event.touchUpInside)
     }
 
+    private func amountValue() -> Double {
+        let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
+            (stock.price * Double(Int(stock.quantity))) + result
+        })
+        self.fundsListView.valueLabel.text = "R$ \(stockValue ?? 0.0)"
+        self.fundsListView.valueLabel.accessibilityLabel = "$ \(stockValue ?? 0.0)"
+        return stockValue ?? 0.0
+    }
+
     @objc func goToNewStock(_ sender: Any) {
         if let purchaseViewModel = self.viewModel?.getCreationViewModel() {
             coordinator?.showPurchaseFund(viewModel: purchaseViewModel)

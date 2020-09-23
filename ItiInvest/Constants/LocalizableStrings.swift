@@ -57,6 +57,8 @@ enum LocalizableStrings: String {
     case promotions = "home.promotions"
     case iti = "home.iti"
     case username = "home.user"
+    case showHide = "list.showHide"
+    case walletPercentage = "list.walletPercentage"
 
     func localized() -> String { rawValue.localized() }
 }
