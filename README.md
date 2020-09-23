@@ -63,7 +63,7 @@ xed .
 <!-- CONTRIBUTING -->
 ## Desenvolvedores
 
-[Gabriel]()
+[Gabriel][gpaulbr-linkedin-url]
 
 [Islas]()
 
@@ -82,9 +82,11 @@ xed .
 
 José Cleilton Feitosa - jcleilton@gmail.com
 
+Gabriel Henrique Paul - gpaulbr@gmail.com
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-url]: https://github.com/jcleilton/itiinvest/graphs/contributors
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jcleilton
+[gpaulbr-linkedin-url]: https://linkedin.com/in/gpaulbr
