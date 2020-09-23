@@ -67,7 +67,7 @@ xed .
 
 [Islas]()
 
-[Walter]()
+[Walter][linkedin-url-WalterJr]
 
 [Pericles]()
 
@@ -82,9 +82,12 @@ xed .
 
 José Cleilton Feitosa - jcleilton@gmail.com
 
+Walter Luis Deonisio Junior -  juniordeonisio@gmail.com
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-url]: https://github.com/jcleilton/itiinvest/graphs/contributors
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jcleilton
+[linkedin-url-WalterJr]: https://www.linkedin.com/in/walterldjunior/
