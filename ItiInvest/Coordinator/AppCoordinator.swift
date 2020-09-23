@@ -16,8 +16,8 @@ class AppCoordinator: BaseCoordinator {
 
     init() {
         navigationController = UINavigationController()
-        
         setupNavigationController()
+        RealTimeManager.shared.fetchSymbols()
     }
 
     func start() {

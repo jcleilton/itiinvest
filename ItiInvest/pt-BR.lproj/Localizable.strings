@@ -6,6 +6,10 @@
   Copyright © 2020 DevBoostItau. All rights reserved.
 */
 
+// MARK: - Shared
+
+"error" = "Erro!";
+
 // MARK: - Home
 "home.hsButton" = "Ocultar ou exibir";
 "home.percentTitle" = "Percentual na carteira";

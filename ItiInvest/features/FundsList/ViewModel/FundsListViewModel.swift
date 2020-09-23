@@ -14,7 +14,7 @@ protocol FundsListViewModelDelegate: class {
 }
 
 class FundsListViewModel: NSObject {
-    private let manager: CoreDataManager
+    private let manager: CoreDataManagerProtocol
     weak var delegate: FundsListViewModelDelegate?
     
     var total: Int {
@@ -25,31 +25,32 @@ class FundsListViewModel: NSObject {
         Formatter.currencyStringFromDouble(amountValue())
     }
     
-    init(manager: CoreDataManager) {
+    init(manager: CoreDataManagerProtocol) {
         self.manager = manager
         super.init()
+        performFetch()
     }
     
     func performFetch() {
         manager.performFetch()
     }
-    
+        
     func getListCellViewModel(from indexPath: IndexPath) -> FundsListCellViewModel {
         let stock = manager.getStockAt(indexPath)
         let amountTotal = amountValue()
         let percentual = ((stock.price * Double(stock.quantity)) * 100.0) / amountTotal
         let viewModel = FundsListCellViewModel(
-            name: stock.name ?? "",
+            name: "\(stock.symbol ?? "") - \(stock.name ?? "")",
             amount: Formatter.currencyStringFromDouble(stock.price),
             percentual: Formatter.decimalStringFromDouble(percentual) + "%")
         return viewModel
     }
     
     private func amountValue() -> Double {
-        let stockValue = manager.fetchedResultsController.fetchedObjects?.reduce(0.0, { (result, stock) -> Double in
+        let stockValue = manager.getStocks().reduce(0.0, { (result, stock) -> Double in
             (stock.price * Double(Int(stock.quantity))) + result
         })
-        return stockValue ?? 0.0
+        return stockValue
     }
     
     func deleteStock(at indexPath: IndexPath) throws {

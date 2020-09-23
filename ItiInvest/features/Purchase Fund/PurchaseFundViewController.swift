@@ -121,7 +121,13 @@ final class PurchaseFundViewController: UIViewController {
         datePicker.addTarget(self, action: #selector(updateDate), for: .valueChanged)
         return datePicker
     }()
-    
+    private lazy var stockPicker: UIPickerView = {
+        let picker = UIPickerView(frame: .zero)
+        picker.delegate = self
+        picker.dataSource = self
+        
+        return picker
+    }()
     private let toolbar: UIToolbar = {
         let toolbar = UIToolbar(frame: .zero)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -206,7 +212,7 @@ final class PurchaseFundViewController: UIViewController {
     
     @objc func invest() {
         do {
-            try viewModel.save(quantity: amountTextField.text!, buyDate: datePicker.date, name: stockTextField.text!, price: priceTextField.text!)
+            try viewModel.save(quantity: amountTextField.text!, buyDate: datePicker.date, selected: stockPicker.selectedRow(inComponent: 0), price: priceTextField.text!)
             dismiss(animated: true, completion: nil)
         } catch {
             Alert.defaultWithOKButton(in: self, title: "Erro!", subtitle: "Não foi possível cadastrar esse novo investimento. Tente novamente mais tarde") {
@@ -275,7 +281,7 @@ extension PurchaseFundViewController: CodeView {
         titleLabel.anchor(
             left: (anchor: view.leftAnchor, constant: Constant.Margin.horizontalNormal),
             right: (anchor: view.rightAnchor, constant: -Constant.Margin.horizontalNormal))
-        let topConstraint = titleLabel.topAnchor.constraint(equalTo: closeButton.topAnchor, constant: Constant.Margin.verticalLarge)
+        let topConstraint = titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.Margin.verticalExtraLarge)
         topConstraint.priority = .defaultLow
         topConstraint.isActive = true
         
@@ -333,7 +339,7 @@ extension PurchaseFundViewController: CodeView {
         investButton.anchor(
             centerX: (anchor: view.centerXAnchor, constant: 0),
             relativeWidth: (anchor: dateTextField.widthAnchor, multiplier: 1, constant: 0),
-            height: 40)
+            height: 50)
 
         self.bottomConstraint = investButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.Margin.verticalNormal)
         self.bottomConstraint?.isActive = true
@@ -355,6 +361,7 @@ extension PurchaseFundViewController: CodeView {
         amountTextField.keyboardType = .numberPad
         priceTextField.keyboardType = .numberPad
         
+        stockTextField.inputView = stockPicker
         dateTextField.inputView = datePicker
         
         toolbar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
@@ -368,8 +375,8 @@ extension PurchaseFundViewController: CodeView {
         self.stockTextField.text = viewModel.stockName
         self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
-
         self.priceTextField.text = viewModel.stockPrice
+        self.stockPicker.selectRow(viewModel.stockIndex, inComponent: 0, animated: true)
   
         self.investButton.addTarget(self, action: #selector(self.validateFields), for: UIControl.Event.touchUpInside)
 
@@ -462,4 +469,25 @@ extension PurchaseFundViewController: UITextFieldDelegate {
             return true
         }
     }
+}
+
+extension PurchaseFundViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        stockTextField.text = viewModel.stockDescription(for: row)
+    }
+}
+
+extension PurchaseFundViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        viewModel.stockDescriptionsCount
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        viewModel.stockDescription(for: row)
+    }
+    
 }

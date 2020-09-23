@@ -10,6 +10,9 @@ import UIKit
 
 enum LocalizableStrings: String {
 
+    // MARK: - Shared
+    case error = "error"
+    
     // MARK: - Detail View
     case stockQuantity = "stock.quantity"
     case stockPrice = "stock.price"

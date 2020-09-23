@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 /**
  Time:
@@ -16,6 +17,7 @@ import CoreData
  - Matheus Kunh
  - Islas
  - Cleilton
+ - Walter
  */
 
 var context: NSManagedObjectContext {
@@ -28,9 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var appCoordinator: AppCoordinator?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
         
         window = window ?? UIWindow()
         let window = UIWindow(frame: UIScreen.main.bounds)

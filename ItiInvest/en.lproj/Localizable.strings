@@ -6,6 +6,10 @@
   Copyright © 2020 DevBoostItau. All rights reserved.
 */
 
+// MARK: - Shared
+
+"error" = "Error!";
+
 // MARK: - Home
 "home.hsButton" = "Hide or Show";
 "home.percentTitle" = "Percentage on wallet";
