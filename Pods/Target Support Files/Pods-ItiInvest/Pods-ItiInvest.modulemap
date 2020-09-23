@@ -1,0 +1,6 @@
+framework module Pods_ItiInvest {
+  umbrella header "Pods-ItiInvest-umbrella.h"
+
+  export *
+  module * { export * }
+}
