@@ -37,7 +37,7 @@ class FundCellView: UIView{
     let currentBalanceLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "saldo atual"
+        label.text = LocalizableStrings.listCurrent_balance.localized()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(rgb: 0x3c3c43)
         
@@ -47,7 +47,7 @@ class FundCellView: UIView{
     let percentLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "% na carteira"
+        label.text = LocalizableStrings.listOn_wallet.localized()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor(rgb: 0x3c3c43)
         
@@ -132,7 +132,7 @@ class FundCellView: UIView{
     
 }
 
-extension FundCellView: CodeView{
+extension FundCellView: CodeView {
     func setupComponents() {
         
         addSubview(containerView)
@@ -210,6 +210,9 @@ class FundTableViewCell: UITableViewCell {
 
 extension FundTableViewCell {
     func setupAccessibility() {
-
+        self.isAccessibilityElement = true
+        guard let subtitleText = fundCellView.subTitleLabel.text, let currentBalance = fundCellView.currentBalanceLabel.text,
+            let balanceValue = fundCellView.currentBalanceValueLabel.text, let percentValue = fundCellView.percentValueLabel.text else { return }
+        self.accessibilityLabel = "\(subtitleText) com um \(currentBalance) de \(balanceValue). \(LocalizableStrings.walletPercentage.localized()) de \(percentValue)"
     }
 }

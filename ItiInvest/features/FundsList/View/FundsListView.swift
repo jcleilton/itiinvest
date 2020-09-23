@@ -34,7 +34,6 @@ class GradientButton: UIButton{
 }
 
 class FundsListView: UIView {
-    
     // MARK: - Properties
     let headerView: UIView = {
         let view = UIView()
@@ -72,7 +71,7 @@ class FundsListView: UIView {
     let patrimonyLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "meu patrimônio"
+        label.text = LocalizableStrings.listMy_patrimony.localized()
         label.font = UIFont(name: "HelveticaNeue-Bold", size:  16.0)
         label.textColor = UIColor(rgb: 0xf6b592)
         return label
@@ -89,6 +88,8 @@ class FundsListView: UIView {
     
     let hideValueButton: UIButton = {
         let button = UIButton(frame: .zero)
+        button.accessibilityLabel = LocalizableStrings.showHide.localized()
+        button.setImage(UIImage(named: "eye"), for: .normal)
         let image = UIImage(systemName: "eye.fill") as UIImage?
         button.setImage(image, for: .normal)
         button.tintColor = .white
@@ -108,7 +109,7 @@ class FundsListView: UIView {
         let button = GradientButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .white
-        button.setTitle("novo investimento", for: .normal)
+        button.setTitle(LocalizableStrings.listNew_investment.localized(), for: .normal)
         return button
     }()
     

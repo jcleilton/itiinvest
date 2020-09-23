@@ -45,11 +45,11 @@ extension HomeViewModel: HomeViewModeling {
         let type = products[indexPath.row]
         switch type {
         case .investiment:
-            return "investir seu dinheiro"
+            return LocalizableStrings.investYourMoney.localized()
         case .card:
-            return "cartão"
+            return LocalizableStrings.cardCredit.localized()
         case .cashback:
-            return "dinheiro de volta"
+            return LocalizableStrings.moneyCard.localized()
         }
     }
     

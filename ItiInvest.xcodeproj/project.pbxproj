@@ -45,6 +45,9 @@
 		68F53F59250D066000A796F5 /* PurchaseFundCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */; };
 		7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7935870D250CFFC500FD8CBF /* FundsListView.swift */; };
 		79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79358714250D091B00FD8CBF /* UIColor+Hex.swift */; };
+		79977B75251C03E700C40EA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79977B74251C03E700C40EA2 /* LoginViewController.swift */; };
+		79977B77251C03F900C40EA2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79977B76251C03F900C40EA2 /* LoginView.swift */; };
+		79977B79251C040300C40EA2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79977B78251C040300C40EA2 /* LoginViewModel.swift */; };
 		8626F5F52503FAE800AECFC7 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F42503FAE800AECFC7 /* Service.swift */; };
 		8626F5F82503FAF100AECFC7 /* StockAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */; };
 		8626F5F92503FAF100AECFC7 /* StockAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8626F5F72503FAF000AECFC7 /* StockAPIError.swift */; };
@@ -132,6 +135,9 @@
 		68F53F58250D066000A796F5 /* PurchaseFundCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundCoordinator.swift; sourceTree = "<group>"; };
 		7935870D250CFFC500FD8CBF /* FundsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundsListView.swift; sourceTree = "<group>"; };
 		79358714250D091B00FD8CBF /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		79977B74251C03E700C40EA2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		79977B76251C03F900C40EA2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		79977B78251C040300C40EA2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		8626F5F42503FAE800AECFC7 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		8626F5F62503FAF000AECFC7 /* StockAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIResult.swift; sourceTree = "<group>"; };
 		8626F5F72503FAF000AECFC7 /* StockAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockAPIError.swift; sourceTree = "<group>"; };
@@ -461,6 +467,16 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		79977B73251C03D700C40EA2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				79977B74251C03E700C40EA2 /* LoginViewController.swift */,
+				79977B76251C03F900C40EA2 /* LoginView.swift */,
+				79977B78251C040300C40EA2 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		8626F5F22503FAC700AECFC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +591,7 @@
 		BA3611022503C3F300D66EED /* features */ = {
 			isa = PBXGroup;
 			children = (
+				79977B73251C03D700C40EA2 /* Login */,
 				9B0D5A622503C868003E7C17 /* Purchase Fund */,
 				2F95EE922503ED2E00D1B37A /* Home */,
 				BA3611032503C59300D66EED /* detail */,
@@ -831,6 +848,7 @@
 				2F5E4B5B250CF70900C1C16A /* HomeFactory.swift in Sources */,
 				68F53F52250D047300A796F5 /* FundsListCoordinator.swift in Sources */,
 				688B783A2503E33A00F40EE2 /* FundsListViewModel.swift in Sources */,
+				79977B77251C03F900C40EA2 /* LoginView.swift in Sources */,
 				68F53F57250D064B00A796F5 /* DetailCoordinator.swift in Sources */,
 				9B263170250D14D900DB7984 /* HasCustomView.swift in Sources */,
 				8626F5F52503FAE800AECFC7 /* Service.swift in Sources */,
@@ -845,6 +863,7 @@
 				BA3610DA2503C10E00D66EED /* ItiInvest.xcdatamodeld in Sources */,
 				BA3611072503CF2500D66EED /* DetailViewController.swift in Sources */,
 				BA36110C2503FEFE00D66EED /* UIView+Gradient.swift in Sources */,
+				79977B75251C03E700C40EA2 /* LoginViewController.swift in Sources */,
 				0A71F9DE2516A8800023A841 /* FIRStock.swift in Sources */,
 				79358715250D091B00FD8CBF /* UIColor+Hex.swift in Sources */,
 				0A98EDE92512DF41007792DC /* Alert.swift in Sources */,
@@ -852,6 +871,7 @@
 				9B97D58A250CFDB100FB46C9 /* ItiButton.swift in Sources */,
 				2F281DC3250D14CA009C39CE /* UIView+LayoutGuide.swift in Sources */,
 				0A71F9CD2516476E0023A841 /* Formatter.swift in Sources */,
+				79977B79251C040300C40EA2 /* LoginViewModel.swift in Sources */,
 				0AAB834D250D041800B8E3DB /* Constant.swift in Sources */,
 				BA3610D02503C10E00D66EED /* AppDelegate.swift in Sources */,
 				7935870E250CFFC500FD8CBF /* FundsListView.swift in Sources */,
