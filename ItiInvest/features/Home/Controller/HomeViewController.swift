@@ -93,15 +93,18 @@ final class HomeViewController: UIViewController {
     private let profileNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Eric"
+        label.accessibilityLabel = "\(LocalizableStrings.username.localized()) \(label.text ?? "Eric")"
         label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         label.textColor = .white
-        label.text = "Eric"
+        
         return label
     }()
     
     private let myProfileLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.accessibilityTraits = .button
         label.font = UIFont.systemFont(ofSize: 17)
                 label.textColor = .white
         label.text = LocalizableStrings.homeProfile.localized()
@@ -122,7 +125,8 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
         label.textColor = .white
-        label.text = "R$******"
+        label.accessibilityLabel = "$0.00"
+        label.text = "R$ ******"
         return label
     }()
     
@@ -131,6 +135,7 @@ final class HomeViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 20)
         label.textColor = .white
+        label.accessibilityTraits = .button
         label.text = LocalizableStrings.homeAllAbout.localized()
         return label
     }()
@@ -138,9 +143,9 @@ final class HomeViewController: UIViewController {
     private let balanceVisibilityButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(systemName: "eye.fill") as UIImage?
-        button.setImage(image, for: .normal)
-        button.tintColor = .white
+        button.addTarget(self, action: #selector(changeVisibility), for: .touchUpInside)
+        button.setImage(#imageLiteral(resourceName: "invisible"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "eye"), for: .normal)
         button.isSelected = false
         return button
     }()
@@ -168,6 +173,8 @@ final class HomeViewController: UIViewController {
     private let products: [Product] = Product.allCases
     private let viewModel: HomeViewModeling
     weak var coordinator: HomeCoordinator?
+    var balanceValue = "R$ 0,00"
+    var balanceIsVisible = true
     
     // MARK: - Life Cycle
     init(viewModel: HomeViewModeling) {
@@ -195,14 +202,11 @@ final class HomeViewController: UIViewController {
         balanceVisibilityButton.isSelected = !balanceVisibilityButton.isSelected
         
         if balanceVisibilityButton.isSelected {
-
-            let image = UIImage(systemName: "eye.slash.fill") as UIImage?
-            balanceVisibilityButton.setImage(image, for: .normal)
+            balanceVisibilityButton.setImage(#imageLiteral(resourceName: "invisible"), for: .normal)
             balanceValueLabel.text = "R$00,00"
         } else {
-            let image = UIImage(systemName: "eye.fill") as UIImage?
-            balanceVisibilityButton.setImage(image, for: .normal)
-            balanceValueLabel.text = "R$******"
+            balanceVisibilityButton.setImage(#imageLiteral(resourceName: "eye"), for: .normal)
+            balanceValueLabel.text = "R$ ******"
         }
     }
 }
@@ -291,12 +295,34 @@ extension HomeViewController: CodeView {
     
     func setupExtraConfigurations() {
         view.backgroundColor = ITIColor.darkBackground
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "qrcode"), style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "promotions"), style: .plain, target: nil, action: nil)
+
+        balanceValueLabel.text = balanceValue
+
+        let leftButton = UIBarButtonItem(image: #imageLiteral(resourceName: "qrcode"), style: .plain, target: nil, action: nil)
+        leftButton.accessibilityLabel = LocalizableStrings.qrCode.localized()
+
+        let rightButton = UIBarButtonItem(image: #imageLiteral(resourceName: "promotions"), style: .plain, target: nil, action: nil)
+        rightButton.accessibilityLabel = LocalizableStrings.promotions.localized()
+
+        navigationItem.leftBarButtonItem = leftButton
+        navigationItem.rightBarButtonItem = rightButton
         
         let imageView = UIImageView(image: #imageLiteral(resourceName: "logo"))
+        imageView.isAccessibilityElement = true
+        imageView.accessibilityTraits = .header
+        imageView.accessibilityLabel = LocalizableStrings.iti.localized()
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
+    }
+    
+    @objc func changeVisibility() {
+        if balanceIsVisible {
+            guard let balance = balanceValueLabel.text else { return }
+            balanceValueLabel.text = balance.replacingCharacters(in: balance.startIndex..<balance.endIndex, with: "---")
+        } else {
+            balanceValueLabel.text = balanceValue
+        }
+        balanceIsVisible = !balanceIsVisible
     }
 }
 
@@ -312,7 +338,6 @@ extension HomeViewController: UICollectionViewDataSource {
         }
         cell.backgroundImageView.image = viewModel.productBackgroundImage(at: indexPath)
         cell.titleLabel.text = viewModel.productDescription(at: indexPath)
-        cell.descriptionLabel.text = viewModel.productDescription(at: indexPath)
         return cell
     }
 }
