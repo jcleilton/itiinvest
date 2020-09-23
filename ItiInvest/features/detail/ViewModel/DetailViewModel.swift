@@ -7,13 +7,21 @@
 //
 
 import Foundation
+import UIKit
 
+// MARK: - Detail View Model
 class DetailViewModel {
+    
+    // MARK: - Properties
+    var stockDescription: String {
+        guard let symbol = stock.symbol, let name = stock.name else { return "" }
+        return "\(symbol) - \(name)"
+    }
     
     var quantity: String { String(stock.quantity) }
     var buyPrice: String { currencyFormattedFrom(string: String(stock.price)) }
     var buyDate: String {
-        guard let date = stock.buyDate else { return "Sem data" }
+        guard let date = stock.buyDate else { return "xx/xx/xxxx" }
         return dateString(from: date)
     }
     var totalPrice: String { currencyFormattedFrom(string: String(Double(stock.quantity) * stock.price)) }
@@ -21,16 +29,24 @@ class DetailViewModel {
     var todaysCotation: String { currencyFormattedFrom(string: String(todaysCotationValue)) }
     var todaysPrice: String { currencyFormattedFrom(string: String(todaysPriceValue)) }
     var todaysProfit: String { return "\(NSString(format: "%.0f", todaysProfitValue))%" }
+    var hadProfit: Bool { return todaysProfitValue >= 0 }
     
-    var todaysStockUpdated: (() -> Void)?
+    var labelColor: UIColor{
+        return todaysProfitValue >= 0 ? UIColor(rgb: 0x52ad06) : .black
+    }
     
+    weak var delegate: DetailViewControllerUIUpateDelegate?
+    
+    var purchaseFundViewModel: PurchaseFundViewModel { PurchaseFundViewModel(stock: stock) }
+    
+    // MARK: - Private Properties
     private var stock: Stock
     
     private var todaysCotationValue: Double = 0
     private var todaysPriceValue: Double = 0
     private var todaysProfitValue: Double = 0 {
         didSet {
-            todaysStockUpdated?()
+            delegate?.shouldUpdateTodaysStock()
         }
     }
     private let dateFormatter: DateFormatter = {
@@ -42,11 +58,19 @@ class DetailViewModel {
         return dateFormatter
     }()
     
-    func dateString(from date: Date) -> String {
+    // MARK: - Life Cycle
+    init(stock: Stock) {
+        self.stock = stock
+        
+        requestTodaysPrices()
+    }
+    
+    // MARK: - Private Functions
+    private func dateString(from date: Date) -> String {
         return dateFormatter.string(from: date)
     }
     
-    func currencyFormattedFrom(string: String) -> String {
+    private func currencyFormattedFrom(string: String) -> String {
         let numbers = string
         .components(separatedBy:CharacterSet.decimalDigits.inverted)
         .joined()
@@ -58,13 +82,6 @@ class DetailViewModel {
         return formatter.string(from: NSNumber(value: doubleValue)) ?? ""
     }
         
-    init(stock: Stock) {
-        self.stock = stock
-        
-        requestTodaysPrices()
-    }
-    
-    
     private func requestTodaysPrices() {
         Service().getStockPrice(symbol: "SBSP3") { [weak self] (result) in
             guard let self = self else {return}
@@ -72,14 +89,9 @@ class DetailViewModel {
             case .success(let price):
                 self.todaysPriceValue = price
                 self.todaysCotationValue = price * Double(self.stock.quantity)
-                self.todaysProfitValue = 100 * self.todaysCotationValue / self.stock.price - 100
-            case .failure(_):
-                break
-//                let alert = UIAlertController(title: "Erro!", message: "Ocorreu um erro na requisição", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (_) in
-//                    alert.dismiss(animated: true)
-//                }))
-//                self.present(alert, animated: true)
+                self.todaysProfitValue = 100 * self.todaysPriceValue / self.stock.price - 100
+            case .failure(let error):
+                self.delegate?.showAlert(errorMessage: error.localizedDescription)
             }
         }
     }

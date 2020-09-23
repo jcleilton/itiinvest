@@ -10,8 +10,6 @@ import Foundation
 
 class Service{
     
-    //https://api.hgbrasil.com/finance/stock_price?key=96d655a9&symbol=btow3
-    
     private let baseURL = "https://api.hgbrasil.com/finance/stock_price"
     private let key = "96d655a9"
     
@@ -35,41 +33,6 @@ class Service{
             }
         })
         task.resume()
-
     }
-    
-    
-    
-    
-    /*
-     fileprivate func fetchCoursesJSON(completion: @escaping (Result<[Course], Error>) -> ()) {
-             
-             let urlString = "https://api.letsbuildthatapp.com/jsondecodable/courses"
-             guard let url = URL(string: urlString) else { return }
-             
-             URLSession.shared.dataTask(with: url) { (data, resp, err) in
-                 
-                 if let err = err {
-                     completion(.failure(err))
-                     return
-                 }
-                 
-                 // successful
-                 do {
-                     let courses = try JSONDecoder().decode([Course].self, from: data!)
-                     completion(.success(courses))
-     //                completion(courses, nil)
-                     
-                 } catch let jsonError {
-                     completion(.failure(jsonError))
-     //                completion(nil, jsonError)
-                 }
-                 
-                 
-             }.resume()
-         }
-     
-     */
-    
 }
 

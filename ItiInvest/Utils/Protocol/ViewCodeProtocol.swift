@@ -21,4 +21,6 @@ extension CodeView {
         self.setupConstraints()
         self.setupExtraConfigurations()
     }
+    
+    func setupExtraConfigurations() { /* Defines implementation as optional */ }
 }

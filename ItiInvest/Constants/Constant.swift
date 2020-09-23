@@ -22,6 +22,6 @@ struct Constant {
         static let horizontalLarge: CGFloat = 32
         /// Valor 32
         static let verticalLarge: CGFloat = 32
-        static let verticalExtraLarge: CGFloat = 52
+        static let verticalExtraLarge: CGFloat = 64
     }
 }
