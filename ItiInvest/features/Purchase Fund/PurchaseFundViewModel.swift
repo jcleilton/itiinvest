@@ -131,20 +131,4 @@ class PurchaseFundViewModel: NSObject {
         return nil
     }
     
-    private func requestTodaysPrices() {
-        Service().getSymbols() { [weak self] (result) in
-            guard let self = self else {return}
-            switch result{
-            case .success(let stockDescriptions):
-                self.stockDescriptions = stockDescriptions
-            case .failure(let error):
-                break
-                //                let alert = UIAlertController(title: "Erro!", message: "Ocorreu um erro na requisição", preferredStyle: .alert)
-                //                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (_) in
-                //                    alert.dismiss(animated: true)
-                //                }))
-                //                self.present(alert, animated: true)
-            }
-        }
-    }
 }
