@@ -24,6 +24,8 @@ class DetailViewController: UIViewController, HasCustomView {
     // MARK: - Public Properties
     weak var coordinator: DetailCoordinator?
     
+    var customView: DetailView?
+
     // MARK: - VC Life Cycle
     init(viewModel: DetailViewModel) {
         self.viewModel = viewModel
@@ -38,6 +40,7 @@ class DetailViewController: UIViewController, HasCustomView {
     override func loadView() {
         let customView = DetailView()
         customView.setup()
+        self.customView = customView
         view = customView
     }
     
@@ -45,6 +48,7 @@ class DetailViewController: UIViewController, HasCustomView {
         super.viewDidLoad()
         viewModel.delegate = self
         setupView()
+        setupAccessibility()
     }
     
     deinit {
@@ -97,5 +101,21 @@ extension DetailViewController: DetailViewControllerUIUpateDelegate {
             Alert.defaultWithOKButton(in: self, title: LocalizableStrings.error.localized(), subtitle: errorMessage, action: self.updateTodaysValue)
         }
     }
-    
+}
+
+extension DetailViewController {
+    func setupAccessibility() {
+        self.accessibilityElements = [self.customView?.quantityLabel,
+                                      self.customView?.quantityValueLabel,
+                                      self.customView?.priceLabel,
+                                      self.customView?.priceValueLabel,
+                                      self.customView?.buyDateLabel,
+                                      self.customView?.buyDateValueLabel,
+                                      self.customView?.totalValueLabel,
+                                      self.customView?.totalValueValueLabel,
+                                      self.customView?.todaysPriceLabel,
+                                      self.customView?.todaysPriceValueLabel,
+                                      self.customView?.todaysCotationLabel,
+                                      self.customView?.todaysCotationValueLabel]
+    }
 }
