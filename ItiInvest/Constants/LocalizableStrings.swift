@@ -29,16 +29,18 @@ enum LocalizableStrings: String {
     case homeProfile = "home.profile"
     case homeBalance = "home.balance"
     case homeAllAbout = "home.all_about"
+    case investYourMoney = "home.invest_your_money"
+    case cardCredit = "home.card_credit"
+    case moneyCard = "home.money_card"
 
     // MARK: - Funds List
-
     case listMy_patrimony = "list.my_patrimony"
     case listCurrent_balance = "list.current_balance"
     case listNew_investment = "list.new_investment"
     case listOn_wallet = "list.on_wallet"
+    case listMyHeritage = "list.myHeritage"
 
     // MARK: - Purchase Fund
-
     case formTitle = "form.title"
     case formActive = "form.active"
     case formInvest = "form.invest"
