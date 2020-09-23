@@ -11,6 +11,7 @@ import UIKit
 // MARK: - UI Update Delegate
 protocol DetailViewControllerUIUpateDelegate: class {
     func shouldUpdateTodaysStock()
+    func showAlert(errorMessage: String)
 }
 
 // MARK: - Detail View Controller
@@ -52,12 +53,11 @@ class DetailViewController: UIViewController, HasCustomView {
     
     // MARK: - Private Functions
     private func setupView() {
+        customView.stockNameLabel.text = viewModel.stockDescription
         customView.quantityValueLabel.text = viewModel.quantity
         customView.priceValueLabel.text = viewModel.buyPrice
         customView.buyDateValueLabel.text = viewModel.buyDate
         customView.totalValueValueLabel.text = viewModel.totalPrice
-        customView.todaysPriceValueLabel.text = viewModel.todaysPrice
-        customView.todaysCotationValueLabel.text = viewModel.todaysCotation
         
         customView.editButton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
         customView.closeButton.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
@@ -83,12 +83,19 @@ class DetailViewController: UIViewController, HasCustomView {
     @objc private func closeAction() {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 // MARK: - UI Update Extension
 extension DetailViewController: DetailViewControllerUIUpateDelegate {
+    
     func shouldUpdateTodaysStock() {
         updateTodaysValue()
     }
+    
+    func showAlert(errorMessage: String) {
+        DispatchQueue.main.async {
+            Alert.defaultWithOKButton(in: self, title: LocalizableStrings.error.localized(), subtitle: errorMessage, action: self.updateTodaysValue)
+        }
+    }
+    
 }

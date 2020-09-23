@@ -8,29 +8,13 @@
 
 import Foundation
 
-struct StockDescription: Codable {
-    let symbol: String
-    let name: String
-    
-    var description: String { "\(symbol) - \(name)" }
-}
-
-@objc
 class PurchaseFundViewModel: NSObject {
-    private var stock: Stock?
-    private var stockDescriptions: [StockDescription] = [StockDescription(symbol: "AZUL4", name: "Azul S.A."),
-                            StockDescription(symbol: "ABEV3", name: "Ambev S.A."),
-                            StockDescription(symbol: "BBDC4", name: "Banco Bradesco S.A."),
-                            StockDescription(symbol: "BBAS3", name: "Banco do Brasil S.A."),
-                            StockDescription(symbol: "BIDI4", name: "Banco Inter S.A."),
-                            StockDescription(symbol: "SANB11", name: "Banco Santander (Brasil) S.A."),
-                            StockDescription(symbol: "ITSA4", name: "Itaúsa - Investimentos Itaú S.A.")]
     
+    private var stock: Stock?
+    private var stockDescriptions: [FIRStock] { RealTimeManager.shared.symbols.sorted() }
+
     init(stock: Stock? = nil) {
         self.stock = stock
-        
-        super.init()
-        requestTodaysPrices()
     }
     
     private var isEditing: Bool {
@@ -42,7 +26,8 @@ class PurchaseFundViewModel: NSObject {
     }
     
     var stockName: String {
-        stock?.name ?? ""
+        guard let symbol = stock?.symbol, let name = stock?.name else { return "" }
+        return "\(symbol) - \(name)"
     }
     
     var stockAmount: String {
@@ -63,6 +48,12 @@ class PurchaseFundViewModel: NSObject {
     
     var stockDescriptionsCount: Int { stockDescriptions.count }
     
+    var stockIndex: Int {
+        guard let stock = stock else { return 0 }
+        
+        return stockDescriptions.firstIndex(where: { $0.symbol == stock.symbol }) ?? 0
+    }
+    
     func stockDescription(for row: Int) -> String {
         guard row < stockDescriptionsCount else { return "" }
         
@@ -82,18 +73,21 @@ class PurchaseFundViewModel: NSObject {
         return dateFormatter.string(from: date)
     }
     
-    func save(quantity: String, buyDate: Date, name: String, price: String) throws {
-        guard let quantity = getInt(from: quantity), let price = getDoubleFrom(from: price) else {
+    func save(quantity: String, buyDate: Date, selected stockIndex: Int, price: String) throws {
+        guard let quantity = getInt(from: quantity), let price = getDoubleFrom(from: price), stockIndex < stockDescriptions.count else {
             throw StockAPIError.invalidSymbol
         }
-
+        let name = stockDescriptions[stockIndex].name
+        let symbol = stockDescriptions[stockIndex].symbol
+        
         guard let stock = stock else {
             do {
                 try CoreDataManager().create(
                     quantity: quantity,
                     buyDate: buyDate,
                     name: name,
-                    price: price)
+                    price: price,
+                    symbol: symbol)
             } catch {
                 throw error
             }
@@ -104,6 +98,7 @@ class PurchaseFundViewModel: NSObject {
             stock.price = price
             stock.buyDate = buyDate
             stock.quantity = Int64(quantity)
+            stock.symbol = symbol
             try CoreDataManager().save()
         } catch {
             throw error

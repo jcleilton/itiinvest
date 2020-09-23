@@ -212,7 +212,7 @@ final class PurchaseFundViewController: UIViewController {
     
     @objc func invest() {
         do {
-            try viewModel.save(quantity: amountTextField.text!, buyDate: datePicker.date, name: stockTextField.text!, price: priceTextField.text!)
+            try viewModel.save(quantity: amountTextField.text!, buyDate: datePicker.date, selected: stockPicker.selectedRow(inComponent: 0), price: priceTextField.text!)
             dismiss(animated: true, completion: nil)
         } catch {
             Alert.defaultWithOKButton(in: self, title: "Erro!", subtitle: "Não foi possível cadastrar esse novo investimento. Tente novamente mais tarde") {
@@ -375,8 +375,8 @@ extension PurchaseFundViewController: CodeView {
         self.stockTextField.text = viewModel.stockName
         self.amountTextField.text = viewModel.stockAmount
         self.dateTextField.text = viewModel.stockDate
-
         self.priceTextField.text = viewModel.stockPrice
+        self.stockPicker.selectRow(viewModel.stockIndex, inComponent: 0, animated: true)
   
         self.investButton.addTarget(self, action: #selector(self.validateFields), for: UIControl.Event.touchUpInside)
 

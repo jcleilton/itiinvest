@@ -11,11 +11,10 @@ import Firebase
 
 fileprivate let collection = "stocks"
 
-struct RealTimeManager {
+class RealTimeManager {
     private var ref: DatabaseReference
     
-    
-    static let  shared: RealTimeManager = {
+    static let shared: RealTimeManager = {
         let api = RealTimeManager(ref: Database.database().reference())
         return api
     }()
@@ -23,6 +22,8 @@ struct RealTimeManager {
     fileprivate init(ref: DatabaseReference) {
         self.ref = ref
     }
+    
+    var symbols: [FIRStock] = []
     
     func loadData(onCompletion: @escaping(([FIRStock]) -> Void)) {
         self.ref.child(collection).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -37,5 +38,11 @@ struct RealTimeManager {
             }
             onCompletion(stocks)
         })
+    }
+    
+    func fetchSymbols() {
+        loadData() { [weak self] result in
+            self?.symbols = result
+        }
     }
 }
