@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A4A9EFA251C0D0200625D69 /* ItiInvestUISnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4A9EF9251C0D0200625D69 /* ItiInvestUISnapshotTests.swift */; };
+		0A4A9F07251C101400625D69 /* HomeUISnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4A9F06251C101400625D69 /* HomeUISnapshotTests.swift */; };
 		0A71F9C9251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */; };
 		0A71F9CB2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CA2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift */; };
 		0A71F9CD2516476E0023A841 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A71F9CC2516476E0023A841 /* Formatter.swift */; };
@@ -88,6 +89,7 @@
 		0A4A9EF7251C0D0200625D69 /* ItiInvestUISnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ItiInvestUISnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4A9EF9251C0D0200625D69 /* ItiInvestUISnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItiInvestUISnapshotTests.swift; sourceTree = "<group>"; };
 		0A4A9EFB251C0D0200625D69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A4A9F06251C101400625D69 /* HomeUISnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUISnapshotTests.swift; sourceTree = "<group>"; };
 		0A71F9C8251629680023A841 /* PurchaseFundsViewModelStockBindTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundsViewModelStockBindTests.swift; sourceTree = "<group>"; };
 		0A71F9CA2516390B0023A841 /* PurchaseFundsViewModelCreateModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseFundsViewModelCreateModeTests.swift; sourceTree = "<group>"; };
 		0A71F9CC2516476E0023A841 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		0A4A9F02251C0D4300625D69 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0A4A9F06251C101400625D69 /* HomeUISnapshotTests.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -815,6 +818,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A4A9F07251C101400625D69 /* HomeUISnapshotTests.swift in Sources */,
 				0A4A9EFA251C0D0200625D69 /* ItiInvestUISnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
