@@ -135,7 +135,7 @@ class FundCellView: UIView{
     
 }
 
-extension FundCellView: CodeView{
+extension FundCellView: CodeView {
     func setupComponents() {
         
         addSubview(containerView)
@@ -215,6 +215,9 @@ class FundTableViewCell: UITableViewCell {
 
 extension FundTableViewCell {
     func setupAccessibility() {
-
+        self.isAccessibilityElement = true
+        guard let subtitleText = fundCellView.subTitleLabel.text, let currentBalance = fundCellView.currentBalanceLabel.text,
+            let balanceValue = fundCellView.currentBalanceValueLabel.text, let percentValue = fundCellView.percentValueLabel.text else { return }
+        self.accessibilityLabel = "\(subtitleText) com um \(currentBalance) de \(balanceValue). \(LocalizableStrings.walletPercentage.localized()) de \(percentValue)"
     }
 }

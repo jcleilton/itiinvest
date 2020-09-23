@@ -56,6 +56,7 @@ class FundsListViewController: UIViewController {
             (stock.price * Double(Int(stock.quantity))) + result
         })
         self.fundsListView.valueLabel.text = "R$ \(stockValue ?? 0.0)"
+        self.fundsListView.valueLabel.accessibilityLabel = "$ \(stockValue ?? 0.0)"
         return stockValue ?? 0.0
     }
 

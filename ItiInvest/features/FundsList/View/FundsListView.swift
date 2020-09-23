@@ -74,7 +74,7 @@ class FundsListView: UIView {
     let patrimonyLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "meu patrimônio"
+        label.text = LocalizableStrings.listMy_patrimony.localized()
         label.font = UIFont(name: "HelveticaNeue-Bold", size:  16.0)
         label.textColor = UIColor(rgb: 0xf6b592)
         return label
@@ -91,6 +91,7 @@ class FundsListView: UIView {
     
     let hideValueButton: UIButton = {
         let button = UIButton(frame: .zero)
+        button.accessibilityLabel = LocalizableStrings.showHide.localized()
         button.setImage(UIImage(named: "eye"), for: .normal)
         button.tintColor = .white
         button.backgroundColor = .clear
