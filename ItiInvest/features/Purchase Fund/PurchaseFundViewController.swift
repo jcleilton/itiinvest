@@ -281,7 +281,7 @@ extension PurchaseFundViewController: CodeView {
         titleLabel.anchor(
             left: (anchor: view.leftAnchor, constant: Constant.Margin.horizontalNormal),
             right: (anchor: view.rightAnchor, constant: -Constant.Margin.horizontalNormal))
-        let topConstraint = titleLabel.topAnchor.constraint(equalTo: closeButton.topAnchor, constant: Constant.Margin.verticalLarge)
+        let topConstraint = titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constant.Margin.verticalExtraLarge)
         topConstraint.priority = .defaultLow
         topConstraint.isActive = true
         
@@ -339,7 +339,7 @@ extension PurchaseFundViewController: CodeView {
         investButton.anchor(
             centerX: (anchor: view.centerXAnchor, constant: 0),
             relativeWidth: (anchor: dateTextField.widthAnchor, multiplier: 1, constant: 0),
-            height: 40)
+            height: 50)
 
         self.bottomConstraint = investButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -Constant.Margin.verticalNormal)
         self.bottomConstraint?.isActive = true

@@ -13,6 +13,7 @@ class GradientButton: UIButton{
     init() {
         super.init(frame: .zero)
         tintColor = .white
+        titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
     }
     
     required init?(coder: NSCoder) {
@@ -21,13 +22,13 @@ class GradientButton: UIButton{
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
-        applyGradient(color1: UIColor(rgb: 0xfb5990), color2: UIColor(rgb: 0xe96e1f), locations: [0.0, 1.0])
+        applyGradient(color1: UIColor(rgb: 0xe96e1f), color2: UIColor(rgb: 0xfb5990), locations: [0.0, 1.0])
         applyCornerRadius()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        applyGradient(color1: UIColor(rgb: 0xfb5990), color2: UIColor(rgb: 0xe96e1f), locations: [0.0, 1.0])
+        applyGradient(color1: UIColor(rgb: 0xe96e1f), color2: UIColor(rgb: 0xfb5990), locations: [0.0, 1.0])
         applyCornerRadius()
     }
 }
@@ -169,7 +170,7 @@ extension FundsListView: CodeView{
         bottomButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40).isActive = true
         bottomButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
         bottomButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20).isActive = true
-        bottomButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        bottomButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         tableView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -20).isActive = true
         tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
