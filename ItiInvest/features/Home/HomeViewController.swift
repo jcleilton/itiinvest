@@ -126,6 +126,7 @@ final class HomeViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
         label.textColor = .white
         label.accessibilityLabel = "$0.00"
+        label.text = "R$ ******"
         return label
     }()
     
@@ -144,6 +145,8 @@ final class HomeViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(changeVisibility), for: .touchUpInside)
         button.setImage(#imageLiteral(resourceName: "invisible"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "eye"), for: .normal)
+        button.isSelected = false
         return button
     }()
     
@@ -178,6 +181,7 @@ final class HomeViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         setup()
+        addActionButtonBalanceVisibilityButton()
     }
     
     @available(*, unavailable)
@@ -187,6 +191,23 @@ final class HomeViewController: UIViewController {
     
     deinit {
         coordinator?.childDidFinish(nil)
+    }
+    
+    // MARK: - Functions
+    func addActionButtonBalanceVisibilityButton() {
+        balanceVisibilityButton.addTarget(self, action: #selector(balanceVisibilityButtonOnTapped), for: .touchUpInside)
+    }
+    
+    @objc func balanceVisibilityButtonOnTapped() {
+        balanceVisibilityButton.isSelected = !balanceVisibilityButton.isSelected
+        
+        if balanceVisibilityButton.isSelected {
+            balanceVisibilityButton.setImage(#imageLiteral(resourceName: "invisible"), for: .normal)
+            balanceValueLabel.text = "R$00,00"
+        } else {
+            balanceVisibilityButton.setImage(#imageLiteral(resourceName: "eye"), for: .normal)
+            balanceValueLabel.text = "R$ ******"
+        }
     }
 }
 // MARK: - CodeView

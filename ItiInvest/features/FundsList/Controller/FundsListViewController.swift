@@ -10,9 +10,10 @@ import UIKit
 import CoreData
 
 class FundsListViewController: UIViewController {
+    
     // MARK: - Properties
-    let manager = CoreDataManager()
     weak var coordinator: FundsListCoordinator?
+    var viewModel: FundsListViewModel?
     
     lazy var fundsListView: FundsListView = {
         let fundsListView = FundsListView()
@@ -20,10 +21,9 @@ class FundsListViewController: UIViewController {
         fundsListView.tableView.dataSource = self
         fundsListView.tableView.register(FundTableViewCell.self, forCellReuseIdentifier: FundTableViewCell.identifier)
         return fundsListView
-        
     }()
     
-    // MARK: - Super Methods
+    // MARK: - Life Cycle
     override func loadView() {
         super.loadView()
         fundsListView.tableView.delegate = self
@@ -33,8 +33,6 @@ class FundsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.delegate = self
-        manager.performFetch()
         setupView()
     }
     
@@ -42,12 +40,15 @@ class FundsListViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
-    // MARK: - Private Methods
+    deinit {
+        coordinator?.childDidFinish(nil)
+    }
+    
+    // MARK: - Functions
     private func setupView() {
         let gradient = CAGradientLayer()
-
         view.layer.insertSublayer(gradient, at: 0)
-
+        addActionHideValueButton()
         fundsListView.bottomButton.addTarget(self, action: #selector(self.goToNewStock(_:)), for: UIControl.Event.touchUpInside)
     }
 
@@ -61,33 +62,50 @@ class FundsListViewController: UIViewController {
     }
 
     @objc func goToNewStock(_ sender: Any) {
-        coordinator?.showPurchaseFund(viewModel: PurchaseFundViewModel())
+        if let purchaseViewModel = self.viewModel?.getCreationViewModel() {
+            coordinator?.showPurchaseFund(viewModel: purchaseViewModel)
+        }
     }
 
-    deinit {
-        coordinator?.childDidFinish(nil)
+    func addActionHideValueButton() {
+        fundsListView.hideValueButton.addTarget(self, action: #selector(hideValueButtonOnTapped), for: .touchUpInside)
+    }
+    
+    @objc func hideValueButtonOnTapped() {
+        fundsListView.hideValueButton.isSelected = !fundsListView.hideValueButton.isSelected
+        
+        if fundsListView.hideValueButton.isSelected {
+            let image = UIImage(systemName: "eye.slash.fill") as UIImage?
+            fundsListView.hideValueButton.setImage(image, for: .normal)
+            self.fundsListView.valueLabel.text = viewModel?.userTotal
+        } else {
+            let image = UIImage(systemName: "eye.fill") as UIImage?
+            fundsListView.hideValueButton.setImage(image, for: .normal)
+            self.fundsListView.valueLabel.text = "R$ *****"
+        }
     }
 }
 
+// MARK: - UITableViewDelegate UITableViewDataSource
 extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manager.total
+        return viewModel?.total ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FundTableViewCell.identifier) as? FundTableViewCell else { return UITableViewCell() }
         
-        let stock = manager.getStockAt(indexPath)
-        cell.setup(with: stock.name ?? "", amount: stock.price, userAmount: amountValue())
+        if let stockViewModel = viewModel?.getListCellViewModel(from: indexPath) {
+            cell.setup(viewModel: stockViewModel)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let shareAction = UIContextualAction(style: .normal, title: "Delete") { [weak self] (action, view, handler) in
             guard let self = self else { return }
-            let stock = self.manager.getStockAt(indexPath)
             do {
-                try self.manager.delete(data: stock)
+                try self.viewModel?.deleteStock(at: indexPath)
                 tableView.reloadData()
             } catch {
                 self.showFailDeleteAlert()
@@ -102,8 +120,9 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let shareAction = UIContextualAction(style: .normal, title: "Editar") { [weak self] (action, view, handler) in
             guard let self = self else { return }
-            let viewModel = PurchaseFundViewModel(stock: self.manager.getStockAt(indexPath))
-            self.coordinator?.showPurchaseFund(viewModel: viewModel)
+            if let viewModel = self.viewModel?.getEditionViewModel(from: indexPath) {
+                self.coordinator?.showPurchaseFund(viewModel: viewModel)
+            }
         }
         shareAction.backgroundColor = UIColor.systemBlue
         let configuration = UISwipeActionsConfiguration(actions: [shareAction])
@@ -112,7 +131,9 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showDetails(stock: manager.getStockAt(indexPath))
+        if let detailViewModel = self.viewModel?.getDetailViewModel(from: indexPath) {
+            coordinator?.showDetails(viewModel: detailViewModel)
+        }
     }
     
     private func showFailDeleteAlert() {
@@ -123,11 +144,11 @@ extension FundsListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
 }
 
-extension FundsListViewController: NSFetchedResultsControllerDelegate {
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        fundsListView.tableView.reloadData()
+extension FundsListViewController: FundsListViewModelDelegate {
+    func didFinishFetching() {
+        addActionHideValueButton()
+        self.fundsListView.tableView.reloadData()
     }
 }

@@ -13,6 +13,7 @@ class GradientButton: UIButton{
     init() {
         super.init(frame: .zero)
         tintColor = .white
+        titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
     }
     
     required init?(coder: NSCoder) {
@@ -21,16 +22,15 @@ class GradientButton: UIButton{
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
-        applyGradient(color1: UIColor(rgb: 0xfb5990), color2: UIColor(rgb: 0xe96e1f), locations: [0.0, 1.0])
+        applyGradient(color1: UIColor(rgb: 0xe96e1f), color2: UIColor(rgb: 0xfb5990), locations: [0.0, 1.0])
         applyCornerRadius()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        applyGradient(color1: UIColor(rgb: 0xfb5990), color2: UIColor(rgb: 0xe96e1f), locations: [0.0, 1.0])
+        applyGradient(color1: UIColor(rgb: 0xe96e1f), color2: UIColor(rgb: 0xfb5990), locations: [0.0, 1.0])
         applyCornerRadius()
     }
-    
 }
 
 class FundsListView: UIView {
@@ -41,7 +41,6 @@ class FundsListView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
     
     let containerView: UIView = {
         let view = UIView()
@@ -70,7 +69,6 @@ class FundsListView: UIView {
         return stackView
     }()
     
-    
     let patrimonyLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +81,7 @@ class FundsListView: UIView {
     let valueLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "R$ 0.00"
+        label.text = "R$ *****"
         label.font = UIFont(name: "HelveticaNeue-Bold", size:  33.0)
         label.textColor = .white
         return label
@@ -93,6 +91,8 @@ class FundsListView: UIView {
         let button = UIButton(frame: .zero)
         button.accessibilityLabel = LocalizableStrings.showHide.localized()
         button.setImage(UIImage(named: "eye"), for: .normal)
+        let image = UIImage(systemName: "eye.fill") as UIImage?
+        button.setImage(image, for: .normal)
         button.tintColor = .white
         button.backgroundColor = .clear
         return button
@@ -145,14 +145,6 @@ extension FundsListView: CodeView{
         mainStackView.addArrangedSubview(valueStackView)
         valueStackView.addArrangedSubview(valueLabel)
         valueStackView.addArrangedSubview(hideValueButton)
-        
-        
-        
-        
-//        headerView.addSubview(patrimonyLabel)
-//        headerView.addSubview(valueLabel)
-//        headerView.addSubview(hideValueButton)
-        
         containerView.addSubview(tableView)
         containerView.addSubview(bottomButton)
     }
@@ -169,8 +161,8 @@ extension FundsListView: CodeView{
         mainStackView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20).isActive = true
         mainStackView.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
         
-        hideValueButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        hideValueButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        hideValueButton.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        hideValueButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
 
         containerView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         containerView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
@@ -180,19 +172,15 @@ extension FundsListView: CodeView{
         bottomButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -40).isActive = true
         bottomButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
         bottomButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20).isActive = true
-        bottomButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        bottomButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         tableView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: -20).isActive = true
         tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         
         tableView.bottomAnchor.constraint(equalTo: bottomButton.topAnchor, constant: -20).isActive = true
-        
     }
     
     func setupExtraConfigurations() {
-        
-        
     }
-    
 }

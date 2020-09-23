@@ -11,7 +11,7 @@ import UIKit
 class FundsListCoordinator: BaseCoordinator {
 
     var navigationController: UINavigationController
-
+    var parentCoordinator: BaseCoordinator?
     var childCoordinators: [BaseCoordinator] = [BaseCoordinator]()
 
     init(navigationController: UINavigationController) {
@@ -20,15 +20,18 @@ class FundsListCoordinator: BaseCoordinator {
 
     func start() {
         let controller = FundsListViewController()
-        let viewModel = FundsListViewModel()
-        
+        let manager = CoreDataManager()
+        let viewModel = FundsListViewModel(manager: manager)
+        manager.setDelegate(delegate: viewModel)
+        controller.viewModel = viewModel
+        viewModel.delegate = controller
         controller.coordinator = self
 
         navigationController.pushViewController(controller, animated: true)
     }
 
-    func showDetails(stock: Stock) {
-        let child = DetailCoordinator(navigationController: navigationController, viewModel: DetailViewModel(stock: stock))
+    func showDetails(viewModel: DetailViewModel) {
+        let child = DetailCoordinator(navigationController: navigationController, viewModel: viewModel)
         
         add(childCoordinator: child)
         child.start()
@@ -40,4 +43,5 @@ class FundsListCoordinator: BaseCoordinator {
         add(childCoordinator: child)
         child.start()
     }
+
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class DetailView: UIView {
     
-    let stockNameLabel = ItiLabel(text: "ITSA4 - ITAUSA", type: .title)
+    let stockNameLabel = ItiLabel(text: "", type: .title)
     
     let quantityLabel = ItiLabel(text: LocalizableStrings.stockQuantity.localized(), type: .secondary)
     let quantityValueLabel = ItiLabel(text: "#Valor", type: .primary)
@@ -39,11 +39,11 @@ class DetailView: UIView {
     }()
     
     let todaysPriceLabel = ItiLabel(text: LocalizableStrings.stockTodaysPrice.localized(), type: .secondary)
-    let todaysPriceValueLabel = ItiLabel(text: "#Valor", type: .primary)
+    let todaysPriceValueLabel = ItiLabel(text: "----", type: .primary)
     let todaysPriceStackView = DetailsStackView(axis: .vertical, alignment: .leading)
     
     let todaysCotationLabel = ItiLabel(text: LocalizableStrings.stockTodaysCotation.localized(), type: .secondary, alignment: .right)
-    let todaysCotationValueLabel = ItiLabel(text: "#Valor", type: .primary, alignment: .right)
+    let todaysCotationValueLabel = ItiLabel(text: "----", type: .primary, alignment: .right)
     let todaysCotationStackView = DetailsStackView(axis: .vertical, alignment: .trailing)
     let todaysStackView = DetailsStackView(axis: .horizontal, alignment: .fill, spacing: 0, contentMode: .scaleToFill, distribution: .fillProportionally)
     
@@ -52,7 +52,7 @@ class DetailView: UIView {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 150, weight: .bold)
-        label.text = "#V%"
+        label.text = "----"
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         
@@ -114,7 +114,7 @@ extension DetailView: CodeView {
             right: (anchor: self.rightAnchor, constant: -Constant.Margin.horizontalNormal),
             relativeWidth: (anchor: closeButton.heightAnchor, multiplier: 1, constant: 0),
             height: 30)
-        stockNameLabel.topAnchor.constraint(equalTo: closeButton.topAnchor, constant: Constant.Margin.verticalLarge).isActive = true
+        stockNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constant.Margin.verticalExtraLarge).isActive = true
         stockNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constant.Margin.horizontalLarge).isActive = true
         stockNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constant.Margin.horizontalLarge).isActive = true
         
@@ -143,10 +143,6 @@ extension DetailView: CodeView {
         editButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constant.Margin.horizontalLarge).isActive = true
         editButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constant.Margin.horizontalLarge).isActive = true
         editButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Constant.Margin.verticalNormal).isActive = true
-        editButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-    }
-    
-    func setupExtraConfigurations() {
-        
+        editButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }

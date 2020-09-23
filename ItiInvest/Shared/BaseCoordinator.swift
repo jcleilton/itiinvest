@@ -14,6 +14,7 @@ protocol BaseCoordinator: AnyObject {
 
     var navigationController: UINavigationController { get set }
     var childCoordinators: [BaseCoordinator] { get set }
+    var parentCoordinator: BaseCoordinator? { get set }
     
     func add(childCoordinator coordinator: BaseCoordinator)
     func remove(childCoordinator coordinator: BaseCoordinator)
@@ -26,6 +27,7 @@ protocol BaseCoordinator: AnyObject {
 extension BaseCoordinator {
     
     func add(childCoordinator coordinator: BaseCoordinator) {
+        coordinator.parentCoordinator = self
         childCoordinators.append(coordinator)
     }
     
@@ -34,6 +36,7 @@ extension BaseCoordinator {
     }
     
     func childDidFinish(_ child: BaseCoordinator?) {
+        parentCoordinator?.childDidFinish(self)
         guard let child = child else { return }
         remove(childCoordinator: child)
     }
