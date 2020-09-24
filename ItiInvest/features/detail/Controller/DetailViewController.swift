@@ -65,6 +65,7 @@ class DetailViewController: UIViewController, HasCustomView {
         
         customView.editButton.addTarget(self, action: #selector(editAction), for: .touchUpInside)
         customView.closeButton.addTarget(self, action: #selector(closeAction), for: .touchUpInside)
+        customView.shareButton.addTarget(self, action: #selector(shareAction), for: .touchUpInside)
     }
     
     private func updateTodaysValue() {
@@ -86,6 +87,25 @@ class DetailViewController: UIViewController, HasCustomView {
     
     @objc private func closeAction() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc private func shareAction() {
+        let items = [takeScreenshot() ?? UIImage()]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+        // TODO: - Implement Share Here -
+    }
+    
+    private func takeScreenshot() -> UIImage? {
+        customView.isButtonsHidden = true
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, UIScreen.main.scale)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        customView.isButtonsHidden = false
+        
+        return image
     }
 }
 

@@ -74,13 +74,28 @@ class DetailView: UIView {
         button.setBackgroundImage(UIImage(named: "close"), for: UIControl.State.normal)
         return button
     }()
+    
+    let shareButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(systemName: "square.and.arrow.up"), for: UIControl.State.normal)
+        button.tintColor = ITIColor.black
+        return button
+    }()
+    
+    var isButtonsHidden: Bool = false {
+        didSet {
+            closeButton.isHidden = isButtonsHidden
+            editButton.isHidden = isButtonsHidden
+            shareButton.isHidden = isButtonsHidden
+        }
+    }
 }
 
 extension DetailView: CodeView {
     func setupComponents() {
         backgroundColor = .white
         
-        self.addSubview(closeButton)
         quantityStackView.addArrangedSubview(quantityLabel)
         quantityStackView.addArrangedSubview(quantityValueLabel)
         priceStackView.addArrangedSubview(priceLabel)
@@ -105,15 +120,22 @@ extension DetailView: CodeView {
         todaysStackView.addArrangedSubview(todaysPriceStackView)
         todaysStackView.addArrangedSubview(todaysCotationStackView)
         
-        [stockNameLabel, quantityAndPriceStackView, dateAndValueStackView, separatorView, todaysStackView, todaysProfitabilityStackView, editButton].forEach { addSubview($0) }
+        [shareButton, closeButton, stockNameLabel, quantityAndPriceStackView, dateAndValueStackView, separatorView, todaysStackView, todaysProfitabilityStackView, editButton].forEach { addSubview($0) }
     }
     
     func setupConstraints() {
         closeButton.anchor(
-            top: (anchor: self.topAnchor, constant: Constant.Margin.verticalNormal),
-            right: (anchor: self.rightAnchor, constant: -Constant.Margin.horizontalNormal),
+            top: (anchor: topAnchor, constant: Constant.Margin.verticalNormal),
+            right: (anchor: rightAnchor, constant: -Constant.Margin.horizontalNormal),
             relativeWidth: (anchor: closeButton.heightAnchor, multiplier: 1, constant: 0),
             height: 30)
+        
+        shareButton.anchor(
+            top: (anchor: closeButton.topAnchor, constant: 0),
+        right: (anchor: closeButton.leftAnchor, constant: -Constant.Margin.horizontalNormal),
+        relativeWidth: (anchor: shareButton.heightAnchor, multiplier: 1, constant: 0),
+        height: 25)
+        
         stockNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constant.Margin.verticalExtraLarge).isActive = true
         stockNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constant.Margin.horizontalLarge).isActive = true
         stockNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constant.Margin.horizontalLarge).isActive = true
