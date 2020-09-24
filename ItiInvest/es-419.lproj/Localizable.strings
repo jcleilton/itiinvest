@@ -54,3 +54,6 @@
 "home.promotions" = "promociones";
 "home.iti" = "iti";
 "home.user" = "nombre de usuario";
+
+"list.showHide" = "mostrar u ocultar";
+"list.walletPercentage" = "porcentaje de cartera";
