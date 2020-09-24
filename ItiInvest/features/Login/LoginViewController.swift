@@ -8,23 +8,47 @@
 
 import UIKit
 
+protocol LoginButtonsProtocol: AnyObject{
+    func didPressSignInButton()
+    func didPressSignUpButton()
+    func didPressTermsButton()
+}
+
+
 class LoginViewController: UIViewController {
 
+    lazy var loginView: LoginView = {
+        let view = LoginView(delegate: self)
+        
+        return view
+    }()
+    
+    override func loadView() {
+        super.loadView()
+        view = loginView
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+extension LoginViewController: LoginButtonsProtocol{
+    func didPressSignInButton() {
+        print("Login")
+    }
+    
+    func didPressSignUpButton() {
+        
+    }
+    
+    func didPressTermsButton() {
+        
+    }
+    
+    
+}
+
