@@ -6,6 +6,10 @@
   Copyright © 2020 DevBoostItau. All rights reserved.
 */
 
+// MARK: - Shared
+
+"error" = "Erro!";
+
 // MARK: - Home
 
 "home.hsButton" = "Ocultar ou exibir";
@@ -43,3 +47,10 @@
 "stock.editInformations" = "Editar informações";
 "form.requiredField" = "Campo obrigatório";
 "form.titleEdit" = "Edite as informações";
+
+// MARK: - Accessibility
+
+"home.qrCode" = "código qr";
+"home.promotions" = "promoções";
+"home.iti" = "iti";
+"home.user" = "nome de usuário";

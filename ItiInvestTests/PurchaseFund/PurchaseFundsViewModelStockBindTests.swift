@@ -17,22 +17,23 @@ class PurchaseFundsViewModelStockBindTests: XCTestCase {
         stock.buyDate = Date()
         stock.price = 20.55
         stock.quantity = 2
+        stock.symbol = "TST"
         return stock
     }
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() {
+        super.setUp()
         sut = PurchaseFundViewModel(stock: stock)
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         sut = nil
-        try super.tearDownWithError()
+        super.tearDown()
     }
 
     func testBindingName() throws {
         let name = sut.stockName
-        XCTAssertEqual(name, "Test", "Wrong name")
+        XCTAssertEqual(name, "TST - Test", "Wrong name")
     }
     
     func testBindingQuantity() throws {

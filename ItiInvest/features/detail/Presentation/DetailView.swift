@@ -10,7 +10,7 @@ import UIKit
 
 class DetailView: UIView {
     
-    let stockNameLabel = ItiLabel(text: "ITSA4 - ITAUSA", type: .title)
+    let stockNameLabel = ItiLabel(text: "", type: .title)
     
     let quantityLabel = ItiLabel(text: LocalizableStrings.stockQuantity.localized(), type: .secondary)
     let quantityValueLabel = ItiLabel(text: "#Valor", type: .primary)
@@ -39,11 +39,11 @@ class DetailView: UIView {
     }()
     
     let todaysPriceLabel = ItiLabel(text: LocalizableStrings.stockTodaysPrice.localized(), type: .secondary)
-    let todaysPriceValueLabel = ItiLabel(text: "#Valor", type: .primary)
+    let todaysPriceValueLabel = ItiLabel(text: "----", type: .primary)
     let todaysPriceStackView = DetailsStackView(axis: .vertical, alignment: .leading)
     
     let todaysCotationLabel = ItiLabel(text: LocalizableStrings.stockTodaysCotation.localized(), type: .secondary, alignment: .right)
-    let todaysCotationValueLabel = ItiLabel(text: "#Valor", type: .primary, alignment: .right)
+    let todaysCotationValueLabel = ItiLabel(text: "----", type: .primary, alignment: .right)
     let todaysCotationStackView = DetailsStackView(axis: .vertical, alignment: .trailing)
     let todaysStackView = DetailsStackView(axis: .horizontal, alignment: .fill, spacing: 0, contentMode: .scaleToFill, distribution: .fillProportionally)
     
@@ -52,7 +52,7 @@ class DetailView: UIView {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 150, weight: .bold)
-        label.text = "#V%"
+        label.text = "----"
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         
@@ -74,13 +74,28 @@ class DetailView: UIView {
         button.setBackgroundImage(UIImage(named: "close"), for: UIControl.State.normal)
         return button
     }()
+    
+    let shareButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setBackgroundImage(UIImage(systemName: "square.and.arrow.up"), for: UIControl.State.normal)
+        button.tintColor = ITIColor.black
+        return button
+    }()
+    
+    var isButtonsHidden: Bool = false {
+        didSet {
+            closeButton.isHidden = isButtonsHidden
+            editButton.isHidden = isButtonsHidden
+            shareButton.isHidden = isButtonsHidden
+        }
+    }
 }
 
 extension DetailView: CodeView {
     func setupComponents() {
         backgroundColor = .white
         
-        self.addSubview(closeButton)
         quantityStackView.addArrangedSubview(quantityLabel)
         quantityStackView.addArrangedSubview(quantityValueLabel)
         priceStackView.addArrangedSubview(priceLabel)
@@ -105,16 +120,23 @@ extension DetailView: CodeView {
         todaysStackView.addArrangedSubview(todaysPriceStackView)
         todaysStackView.addArrangedSubview(todaysCotationStackView)
         
-        [stockNameLabel, quantityAndPriceStackView, dateAndValueStackView, separatorView, todaysStackView, todaysProfitabilityStackView, editButton].forEach { addSubview($0) }
+        [shareButton, closeButton, stockNameLabel, quantityAndPriceStackView, dateAndValueStackView, separatorView, todaysStackView, todaysProfitabilityStackView, editButton].forEach { addSubview($0) }
     }
     
     func setupConstraints() {
         closeButton.anchor(
-            top: (anchor: self.topAnchor, constant: Constant.Margin.verticalNormal),
-            right: (anchor: self.rightAnchor, constant: -Constant.Margin.horizontalNormal),
+            top: (anchor: topAnchor, constant: Constant.Margin.verticalNormal),
+            right: (anchor: rightAnchor, constant: -Constant.Margin.horizontalNormal),
             relativeWidth: (anchor: closeButton.heightAnchor, multiplier: 1, constant: 0),
             height: 30)
-        stockNameLabel.topAnchor.constraint(equalTo: closeButton.topAnchor, constant: Constant.Margin.verticalLarge).isActive = true
+        
+        shareButton.anchor(
+            top: (anchor: closeButton.topAnchor, constant: 0),
+        right: (anchor: closeButton.leftAnchor, constant: -Constant.Margin.horizontalNormal),
+        relativeWidth: (anchor: shareButton.heightAnchor, multiplier: 1, constant: 0),
+        height: 25)
+        
+        stockNameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: Constant.Margin.verticalExtraLarge).isActive = true
         stockNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constant.Margin.horizontalLarge).isActive = true
         stockNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constant.Margin.horizontalLarge).isActive = true
         
@@ -143,6 +165,6 @@ extension DetailView: CodeView {
         editButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constant.Margin.horizontalLarge).isActive = true
         editButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constant.Margin.horizontalLarge).isActive = true
         editButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -Constant.Margin.verticalNormal).isActive = true
-        editButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        editButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }

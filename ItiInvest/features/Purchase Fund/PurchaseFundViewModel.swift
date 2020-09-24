@@ -8,10 +8,11 @@
 
 import Foundation
 
-@objc
 class PurchaseFundViewModel: NSObject {
-    private var stock: Stock?
     
+    private var stock: Stock?
+    private var stockDescriptions: [FIRStock] { RealTimeManager.shared.symbols.sorted() }
+
     init(stock: Stock? = nil) {
         self.stock = stock
     }
@@ -25,7 +26,8 @@ class PurchaseFundViewModel: NSObject {
     }
     
     var stockName: String {
-        stock?.name ?? ""
+        guard let symbol = stock?.symbol, let name = stock?.name else { return "" }
+        return "\(symbol) - \(name)"
     }
     
     var stockAmount: String {
@@ -44,6 +46,20 @@ class PurchaseFundViewModel: NSObject {
         dateString(from: stock?.buyDate ?? Date())
     }
     
+    var stockDescriptionsCount: Int { stockDescriptions.count }
+    
+    var stockIndex: Int {
+        guard let stock = stock else { return 0 }
+        
+        return stockDescriptions.firstIndex(where: { $0.symbol == stock.symbol }) ?? 0
+    }
+    
+    func stockDescription(for row: Int) -> String {
+        guard row < stockDescriptionsCount else { return "" }
+        
+        return stockDescriptions[row].description
+    }
+    
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -57,18 +73,21 @@ class PurchaseFundViewModel: NSObject {
         return dateFormatter.string(from: date)
     }
     
-    func save(quantity: String, buyDate: Date, name: String, price: String) throws {
-        guard let quantity = getInt(from: quantity), let price = getDoubleFrom(from: price) else {
+    func save(quantity: String, buyDate: Date, selected stockIndex: Int, price: String) throws {
+        guard let quantity = getInt(from: quantity), let price = getDoubleFrom(from: price), stockIndex < stockDescriptions.count else {
             throw StockAPIError.invalidSymbol
         }
-
+        let name = stockDescriptions[stockIndex].name
+        let symbol = stockDescriptions[stockIndex].symbol
+        
         guard let stock = stock else {
             do {
                 try CoreDataManager().create(
                     quantity: quantity,
                     buyDate: buyDate,
                     name: name,
-                    price: price)
+                    price: price,
+                    symbol: symbol)
             } catch {
                 throw error
             }
@@ -79,6 +98,7 @@ class PurchaseFundViewModel: NSObject {
             stock.price = price
             stock.buyDate = buyDate
             stock.quantity = Int64(quantity)
+            stock.symbol = symbol
             try CoreDataManager().save()
         } catch {
             throw error
@@ -105,5 +125,5 @@ class PurchaseFundViewModel: NSObject {
         }
         return nil
     }
-
+    
 }

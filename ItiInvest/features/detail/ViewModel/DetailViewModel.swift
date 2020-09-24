@@ -13,10 +13,15 @@ import UIKit
 class DetailViewModel {
     
     // MARK: - Properties
+    var stockDescription: String {
+        guard let symbol = stock.symbol, let name = stock.name else { return "" }
+        return "\(symbol) - \(name)"
+    }
+    
     var quantity: String { String(stock.quantity) }
     var buyPrice: String { currencyFormattedFrom(string: String(stock.price)) }
     var buyDate: String {
-        guard let date = stock.buyDate else { return "Sem data" }
+        guard let date = stock.buyDate else { return "xx/xx/xxxx" }
         return dateString(from: date)
     }
     var totalPrice: String { currencyFormattedFrom(string: String(Double(stock.quantity) * stock.price)) }
@@ -24,6 +29,7 @@ class DetailViewModel {
     var todaysCotation: String { currencyFormattedFrom(string: String(todaysCotationValue)) }
     var todaysPrice: String { currencyFormattedFrom(string: String(todaysPriceValue)) }
     var todaysProfit: String { return "\(NSString(format: "%.0f", todaysProfitValue))%" }
+    var hadProfit: Bool { return todaysProfitValue >= 0 }
     
     var labelColor: UIColor{
         return todaysProfitValue >= 0 ? UIColor(rgb: 0x52ad06) : .black
@@ -83,14 +89,9 @@ class DetailViewModel {
             case .success(let price):
                 self.todaysPriceValue = price
                 self.todaysCotationValue = price * Double(self.stock.quantity)
-                self.todaysProfitValue = 100 * self.todaysCotationValue / self.stock.price - 100
+                self.todaysProfitValue = 100 * self.todaysPriceValue / self.stock.price - 100
             case .failure(let error):
-                break
-//                let alert = UIAlertController(title: "Erro!", message: "Ocorreu um erro na requisição", preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (_) in
-//                    alert.dismiss(animated: true)
-//                }))
-//                self.present(alert, animated: true)
+                self.delegate?.showAlert(errorMessage: error.localizedDescription)
             }
         }
     }

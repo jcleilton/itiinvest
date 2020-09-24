@@ -34,13 +34,13 @@ class FundsListViewModel: NSObject {
     func performFetch() {
         manager.performFetch()
     }
-    
+        
     func getListCellViewModel(from indexPath: IndexPath) -> FundsListCellViewModel {
         let stock = manager.getStockAt(indexPath)
         let amountTotal = amountValue()
         let percentual = ((stock.price * Double(stock.quantity)) * 100.0) / amountTotal
         let viewModel = FundsListCellViewModel(
-            name: stock.name ?? "",
+            name: "\(stock.symbol ?? "") - \(stock.name ?? "")",
             amount: Formatter.currencyStringFromDouble(stock.price),
             percentual: Formatter.decimalStringFromDouble(percentual) + "%")
         return viewModel

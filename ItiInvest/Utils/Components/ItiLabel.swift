@@ -30,6 +30,7 @@ class ItiLabel: UILabel {
         textColor = ITIColor.mainText
         self.text = text
         self.textAlignment = alignment
+        numberOfLines = 0
         
         switch type {
         case .title:

@@ -9,7 +9,7 @@
 import UIKit
 
 class Alert {
-    static func defaultWithOKButton(in viewController: UIViewController, title: String, subtitle: String, action: @escaping(() -> Void)) {
+    static func defaultWithOKButton(in viewController: UIViewController, title: String, subtitle: String, action: @escaping (() -> Void)) {
         let alert = UIAlertController(title: title, message: subtitle, preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default) { _ in
             action()

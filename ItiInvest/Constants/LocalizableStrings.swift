@@ -10,6 +10,9 @@ import UIKit
 
 enum LocalizableStrings: String {
 
+    // MARK: - Shared
+    case error = "error"
+    
     // MARK: - Detail View
     case stockQuantity = "stock.quantity"
     case stockPrice = "stock.price"
@@ -45,6 +48,13 @@ enum LocalizableStrings: String {
     case formStartingDate = "form.startingDate"
     case formRequiredField = "form.requiredField"
     case formTitleEdit = "form.titleEdit"
+
+    // MARK: - Accessibility
+
+    case qrCode = "home.qrCode"
+    case promotions = "home.promotions"
+    case iti = "home.iti"
+    case username = "home.user"
 
     func localized() -> String { rawValue.localized() }
 }

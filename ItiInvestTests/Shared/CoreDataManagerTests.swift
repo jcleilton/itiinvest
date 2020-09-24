@@ -13,14 +13,14 @@ import Foundation
 class CoreDataManagerTests: XCTestCase {
     var sut: CoreDataManager!
 
-    override func setUpWithError() throws {
-        try super.setUpWithError()
+    override func setUp() {
+        super.setUp()
         sut = CoreDataManager()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         sut = nil
-        try super.tearDownWithError()
+        super.tearDown()
     }
 
     func testFetch() throws {
